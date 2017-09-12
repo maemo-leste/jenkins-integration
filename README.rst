@@ -22,6 +22,24 @@ Introduction
 Repository management
 =====================
 
+All repositories currently exist on (git.devuan.org/maemo|github.com/fremantle-gtk2 -
+pick one).  If the source for a package does not yet exist, please create such
+a repository on the right git host.
+
+There are various different cases when one wants to add dependencies / import packages:
+
+1. Source exists for the package, and it's already available and prepared (e.g. anything on github.com/fremantle-gtk2)
+2. Source exists but it's not yet available/packaged in a sensible place for us
+3. Only a .deb exists, but the package is source only
+4. Only a .deb exists, but it contains binaries and no source code is available.
+
+In cases 1-3, you should be able to import a package with relative ease. In the
+last case (4), we need to reverse engineer the package before we attempt to
+import it.
+
+The repository name does not have to correspond to the exact package name, as
+the package names are described in the `debian/` directory instead. 
+
 
 Adding a repository
 -------------------
@@ -67,4 +85,45 @@ Once we reach an agreement on the exact version strings, document that here.
 Jenkins job management
 ======================
 
-Document job config file here, etc.
+All jenkins jobs descent (are copies of) the following two jobs:
+
+1. `jenkins-debian-glue-source`
+2. `jenkins-debian-glue-binaries`
+
+The `jenkins-debian-glue-source` job will fetch any new sources and trigger a
+`jenkins-debian-glue-binaries` job. The `jenkins-debian-glue-binaries` job will
+build packages and update the repository with packages
+
+
+TODO:
+
+* Cover how to specify what release to build for (kawai, etc)
+* Cover how to specify what debian release we want to use (jessie, etc)
+
+These can be passed as params to build_job().
+ build_job(name, parameters=None, token=None)
+    parameters – parameters for job, or None, dict
+
+
+
+
+Defining jobs
+-------------
+
+Currently the jobs are all described in a python config file.
+
+The job name does not have to correspond to the exact package name, as
+the package names are described in the `debian/` directory instead. 
+
+config.py
+
+.. code-block:: python
+
+	_jobs = {
+        # job name is key, values can be:
+        # 'repo-name': required if repo name is not the same as job name
+        # 'host': required if host is not git.devuan.org/maemo
+        # 'releases': {'kawai': 'jessie', 'unstable': 'unstable'}
+        'libcal': {'repo-name': 'libcal'}
+	}
+
