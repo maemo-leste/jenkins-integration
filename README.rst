@@ -15,8 +15,12 @@ Jenkins automated builds <NAMEHERE>
 Introduction
 ============
 
+This document describes the (auto) build setup for maemo-on-devuan.
+Jenkins is used, together with `jenkins-debian-glue`, and a set of custom scripts 
 
-
+This document hopefully helps those seeking to either help our maemo-on-devuan
+by adding more repositories and packages, or those who want to set up similar
+infrastructure.
 
 
 Repository management
@@ -58,7 +62,7 @@ Steps:
         debian-branch=master  # the debian-branch is the branch the sources are taken from
         upstream-tag=%(version)s  # this is the format of the git tag where we take the actual software version
 
-
+4. To build a package, please see `Making a release of a package in the repository`_
 
 
 Making a release of a package in the repository
@@ -75,12 +79,15 @@ source code branch needs to be tagged with such tags.
    match the version in the `debian/changelog`.
 2. Add a new `debian/changelog` entry if needed.
    Make sure the version you're adding has a proper tag in the git log.
+3. To actually get Jenkins to build the package, read
+   `Jenkins job management`_, and specifically `Defining jobs`.
 
 
 Versioning
 ==========
 
 Once we reach an agreement on the exact version strings, document that here.
+
 
 Jenkins job management
 ======================
@@ -94,16 +101,13 @@ The `jenkins-debian-glue-source` job will fetch any new sources and trigger a
 `jenkins-debian-glue-binaries` job. The `jenkins-debian-glue-binaries` job will
 build packages and update the repository with packages
 
+Section `Defining jobs` documents how to add a job to the currently existing
+set of jobs. This should be all that is required to start building a package,
+given that it's dependencies are present.
 
-TODO:
-
-* Cover how to specify what release to build for (kawai, etc)
-* Cover how to specify what debian release we want to use (jessie, etc)
-
-These can be passed as params to build_job().
- build_job(name, parameters=None, token=None)
-    parameters – parameters for job, or None, dict
-
+.. These can be passed as params to build_job().
+..  build_job(name, parameters=None, token=None)
+..     parameters – parameters for job, or None, dict
 
 
 
@@ -126,4 +130,3 @@ config.py
         # 'releases': {'kawai': 'jessie', 'unstable': 'unstable'}
         'libcal': {'repo-name': 'libcal'}
 	}
-
