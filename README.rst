@@ -59,8 +59,8 @@ Steps:
     .. code-block:: ini
 
         [DEFAULT]
-        debian-branch=master  # the debian-branch is the branch the sources are taken from
-        upstream-tag=%(version)s  # this is the format of the git tag where we take the actual software version
+        # this is the format of the git tag where we take the actual software version
+        upstream-tag=%(version)s
 
 4. To build a package, please see `Making a release of a package in the repository`_
 
@@ -123,10 +123,10 @@ config.py
 
 .. code-block:: python
 
-	_jobs = {
+    _jobs = {
         # job name is key, values can be:
         # 'repo-name': required if repo name is not the same as job name
         # 'host': required if host is not git.devuan.org/maemo
         # 'releases': {'kawai': 'jessie', 'unstable': 'unstable'}
         'libcal': {'repo-name': 'libcal'}
-	}
+    }
