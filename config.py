@@ -101,6 +101,15 @@ _jobs =  {
     'profiled': {},
 
     #
+    'sapwood': {},
+
+    #
+    'hildon-theme-cacher': {},
+
+    #
+    'osso-icons': {},
+
+    #
     'hildon-desktop': {},
 }
 
