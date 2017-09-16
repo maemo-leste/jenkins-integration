@@ -110,6 +110,54 @@ _jobs =  {
     'osso-icons': {},
 
     #
+    'dsme': {},
+
+    #
+    'osso-systemui': {},
+
+    #
+    'osso-systemui-powerkeymenu': {},
+
+    #
+    'osso-systemui-tklock': {},
+
+    #
+    'osso-systemui-devlock-dev': {},
+
+    #
+    'osso-systemui-splashscreen-dev': {},
+
+    #
+    'osso-systemui-modechange-dev': {},
+
+    #
+    'libdevlock': {},
+
+    #
+    'osso-app-killer': {},
+
+    #
+    'codelockui': {},
+
+    #
+    'hildon-control-panel': {},
+
+    #
+    'osso-applet-display': {},
+
+    #
+    'libplayback': {},
+
+    #
+    'hildon-plugins-notify-sv': {},
+
+    #
+    'osso-systemui-alarm': {},
+
+    #
+    'mce': {},
+
+    #
     'hildon-desktop': {},
 }
 
