@@ -51,9 +51,18 @@
       <name>architecture</name>
       <values>
         <string>amd64</string>
+        <string>armhf</string>
       </values>
     </hudson.matrix.TextAxis>
+    <hudson.matrix.LabelAxis>
+      <name>label</name>
+      <values>
+        <string>armhf</string>
+        <string>master</string>
+      </values>
+    </hudson.matrix.LabelAxis>
   </axes>
+  <combinationFilter>(architecture==&quot;amd64&quot;).implies(label==&quot;amd64&quot;) &amp;&amp; (architecture==&quot;armhf&quot;).implies(label==&quot;armhf&quot;)</combinationFilter>
   <builders>
     <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.38.1">
       <project>{{{COPYFROM}}}</project>
@@ -67,8 +76,28 @@
       <doNotFingerprintArtifacts>false</doNotFingerprintArtifacts>
     </hudson.plugins.copyartifact.CopyArtifact>
     <hudson.tasks.Shell>
-      <command>/usr/bin/build-and-provide-package</command>
+      <command>export BUILD_ONLY=true
+#export SUDO_CMD=sudo
+/usr/bin/build-and-provide-package</command>
     </hudson.tasks.Shell>
+    <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.35.2">
+      <configs>
+        <hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+              <properties>release=${release}
+distribution=${distribution}</properties>
+              <textParamValueOnNewLine>false</textParamValueOnNewLine>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+          <projects>{{{REPOSJOB}}}</projects>
+          <condition>ALWAYS</condition>
+          <triggerWithNoParameters>false</triggerWithNoParameters>
+          <triggerFromChildProjects>false</triggerFromChildProjects>
+          <buildAllNodesWithLabel>false</buildAllNodesWithLabel>
+        </hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
+      </configs>
+    </hudson.plugins.parameterizedtrigger.TriggerBuilder>
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
@@ -88,6 +117,6 @@
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
   </buildWrappers>
   <executionStrategy class="hudson.matrix.DefaultMatrixExecutionStrategyImpl">
-    <runSequentially>true</runSequentially>
+    <runSequentially>false</runSequentially>
   </executionStrategy>
 </matrix-project>
