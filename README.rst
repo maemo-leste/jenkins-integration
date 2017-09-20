@@ -92,14 +92,17 @@ Once we reach an agreement on the exact version strings, document that here.
 Jenkins job management
 ======================
 
-All jenkins jobs descent (are copies of) the following two jobs:
+All jenkins jobs descent (are copies of) the following three jobs:
 
 1. `jenkins-debian-glue-source`
 2. `jenkins-debian-glue-binaries`
+3. `jenkins-debian-glue-repos`
 
 The `jenkins-debian-glue-source` job will fetch any new sources and trigger a
 `jenkins-debian-glue-binaries` job. The `jenkins-debian-glue-binaries` job will
-build packages and update the repository with packages
+build packages on the machines labeled with the respective architecture. Finally,
+`jenkins-debian-glue-repos` will copy all artifacts to the master node and
+update the repository with packages.
 
 Section `Defining jobs` documents how to add a job to the currently existing
 set of jobs. This should be all that is required to start building a package,
@@ -130,3 +133,57 @@ config.py
         # 'releases': {'kawai': 'jessie', 'unstable': 'unstable'}
         'libcal': {'repo-name': 'libcal'}
     }
+
+
+Slave nodes
+-----------
+
+https://jenkins-debian-glue.org/faq/#slave_nodes
+
+For slave nodes, we install the system the same way we did with the master
+node. However, Jenkins does not have to be running on the slave node. Our
+master node will handle this when we introduce the node to it. The only thing
+that matters is having an accessible ssh port and ssh keys setup between the
+two jenkins accounts (master - slave).
+
+We can add a slave node using the HTTP interface of the master node.
+
+1. Manage Jenkins
+2. Manage Nodes
+3. New node
+
+On the `New node` screen, we have to configure our slave node:
+
+    * `Node name` should be the architecture we are building for.
+    * Set `Permanent Agent`
+
+Once this is set, proceed with configuring as follows:
+
+    * Name: `armel`
+    * Description: `armv7 machine`
+    * # of executors: `2`
+    * Remote root directory: `/var/lib/jenkins`
+      (this is ~jenkins on master)
+    * Labels: `armel`
+    * Usage: `Only build jobs with label expressions matching this node`
+    * Launch method: `Launch slave agents via SSH`
+    * Host: `armelslave.maemo.org`
+    * Credentials: setup proper credentials here
+    * Host key verification strategy: `Known hosts file`
+      (this requires a manual login once beforehand)
+    * Port: `22` (or whatever is set up on the slave)
+
+Click Save, and this should setup the node.
+
+Since we have two nodes now, this means the master node needs to be correctly
+labeled as well. Simply go to the configuration menu in the UI and add a label
+to the master node matching the architecture that will be built using the
+master node. In our case this is `amd64`.
+
+
+Scoping of slave nodes on the master node repository
+----------------------------------------------------
+
+Make sure you add the new architecture to the reprepro configuration(s) where
+they are located on the master node. In our case this is `/srv/repository/conf`
+and `/srv/repository/release/kawai/conf`.
