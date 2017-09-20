@@ -76,13 +76,16 @@ _jobs =  {
     'osso-af-startup': {},
 
     #
+    'hildon-initscripts': {},
+
+    #
     'osso-af-settings': {},
 
     #
     'ke-recv-extra': {},
 
     #
-    'upstart-dev': {},
+    #'upstart-dev': {},
 
     # fixed with a hack, remember to fix properly
     # https://git.devuan.org/maemo/clipboard-manager/commit/df4d727d4dc95cd01014dc388c9c1088c8a296f5
@@ -156,6 +159,21 @@ _jobs =  {
 
     #
     'mce': {},
+
+    #
+    'osso-bookmark-engine': {},
+
+    #
+    'epeg': {},
+
+    #
+    'hildon-thumbnail': {},
+
+    #
+    'libhildonfm': {},
+
+    #
+    'hildon-home': {},
 
     #
     'hildon-desktop': {},
