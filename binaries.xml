@@ -57,6 +57,7 @@
     <hudson.matrix.LabelAxis>
       <name>label</name>
       <values>
+        <string>amd64</string>
         <string>armhf</string>
         <string>master</string>
       </values>
