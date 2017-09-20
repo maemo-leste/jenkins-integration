@@ -13,29 +13,35 @@ def add_jobs(japi, jobs, jobname):
 
     source = '%s-source' % jobname
     binaries = '%s-binaries' % jobname
+    repos = '%s-repos' % jobname
 
     replacements = [('DESCRIPTION', job_info['repo_name']),
                     ('GITURL', job_info['host']),
                     ('JOBNAME', binaries),
-                    ('COPYFROM', source)]
+                    ('COPYFROM', source),
+                    ('REPOSJOB', repos)]
 
     src_job = open('source.xml', encoding='utf-8').read()
     bin_job = open('binaries.xml', encoding='utf-8').read()
+    rep_job = open('repos.xml', encoding='utf-8').read()
 
     for r in replacements:
         src_job = src_job.replace('{{{%s}}}' % r[0], r[1])
         bin_job = bin_job.replace('{{{%s}}}' % r[0], r[1])
+        rep_job = rep_job.replace('{{{%s}}}' % r[0], r[1])
 
-    return japi.create_job(source, src_job), japi.create_job(binaries, bin_job)
+    return japi.create_job(source, src_job), japi.create_job(binaries, bin_job), \
+        japi.create_job(repos, rep_job)
 
 
 def del_jobs(japi, jobs, jobname):
     source = '%s-source' % jobname
     binaries = '%s-binaries' % jobname
+    repos = '%s-repos' % jobname
 
     # TODO: remove debs and metadata from /srv/repository
 
-    return japi.delete_job(source), japi.delete_job(binaries)
+    return japi.delete_job(source), japi.delete_job(binaries), japi.delete_job(repos)
 
 
 def reconfig_jobs(japi, jobname):
@@ -43,20 +49,25 @@ def reconfig_jobs(japi, jobname):
 
     source = '%s-source' % jobname
     binaries = '%s-binaries' % jobname
+    repos = '%s-repos' % jobname
 
     replacements = [('DESCRIPTION', job_info['repo_name']),
                     ('GITURL', job_info['host']),
                     ('JOBNAME', binaries),
-                    ('COPYFROM', source)]
+                    ('COPYFROM', source),
+                    ('REPOSJOB', repos)]
 
     src_job = open('source.xml', encoding='utf-8').read()
     bin_job = open('binaries.xml', encoding='utf-8').read()
+    rep_job = open('repos.xml', encoding='utf-8').read()
 
     for r in replacements:
         src_job = src_job.replace('{{{%s}}}' % r[0], r[1])
         bin_job = bin_job.replace('{{{%s}}}' % r[0], r[1])
+        rep_job = rep_job.replace('{{{%s}}}' % r[0], r[1])
 
-    return japi.reconfig_job(source, src_job), japi.reconfig_job(binaries, bin_job)
+    return japi.reconfig_job(source, src_job), japi.reconfig_job(binaries, bin_job), \
+        japi.reconfig_job(repos, rep_job)
 
 
 def main():
