@@ -63,7 +63,10 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>/usr/bin/generate-git-snapshot</command>
+      <command>
+        export PRE_DCH_HOOK=/var/lib/jenkins/jenkins-integration/dch_hook.sh
+        /usr/bin/generate-git-snapshot
+       </command>
     </hudson.tasks.Shell>
     <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.35.1">
       <configs>
