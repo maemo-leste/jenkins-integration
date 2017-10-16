@@ -1,5 +1,5 @@
-DEFAULT_RELEASES = {'kawai': 'jessie'}
-DEFAULT_HOST = 'https://git.devuan.org/maemo/%s'
+DEFAULT_RELEASES = {'leste': 'jessie'}
+DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
 
 
 """
@@ -16,18 +16,17 @@ _jobs =  {
         #'releases': {
         #    # we should use these when building, not creating/deleting
         #    # ${release} : ${distribution} (in a jenkins job)
-        #    # 'kawai': 'jessie',
-        #    # 'rishi': 'ascii',
+        #    # 'leste': 'jessie',
         #},
     },
 
-    # 
+    #
     'iphbd': {},
 
     # Maemo has its own gtk2 fork
-    'gtk': {}, # maybe call the job maemo-gtk2?
+    'gtk': {},
 
-    # 
+    #
     'libmatchbox2': {},
 
     #
@@ -83,9 +82,6 @@ _jobs =  {
 
     #
     'ke-recv-extra': {},
-
-    #
-    #'upstart-dev': {},
 
     # fixed with a hack, remember to fix properly
     # https://git.devuan.org/maemo/clipboard-manager/commit/df4d727d4dc95cd01014dc388c9c1088c8a296f5
@@ -185,7 +181,7 @@ def get_jobs():
         repo_name = args.get('repo-name', job)
         host = args.get('host', DEFAULT_HOST) % repo_name
         releases = args.get('releases', DEFAULT_RELEASES)
-        
+
         jobs[job] = dict(repo_name=repo_name, host=host, releases=releases)
 
     return jobs

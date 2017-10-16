@@ -16,7 +16,7 @@ Introduction
 ============
 
 This document describes the (auto) build setup for maemo-on-devuan.
-Jenkins is used, together with `jenkins-debian-glue`, and a set of custom scripts 
+Jenkins is used, together with `jenkins-debian-glue`, and a set of custom scripts
 
 This document hopefully helps those seeking to either help our maemo-on-devuan
 by adding more repositories and packages, or those who want to set up similar
@@ -42,7 +42,7 @@ last case (4), we need to reverse engineer the package before we attempt to
 import it.
 
 The repository name does not have to correspond to the exact package name, as
-the package names are described in the `debian/` directory instead. 
+the package names are described in the `debian/` directory instead.
 
 
 Adding a repository
@@ -120,7 +120,7 @@ Defining jobs
 Currently the jobs are all described in a python config file.
 
 The job name does not have to correspond to the exact package name, as
-the package names are described in the `debian/` directory instead. 
+the package names are described in the `debian/` directory instead.
 
 config.py
 
@@ -130,7 +130,7 @@ config.py
         # job name is key, values can be:
         # 'repo-name': required if repo name is not the same as job name
         # 'host': required if host is not git.devuan.org/maemo
-        # 'releases': {'kawai': 'jessie', 'unstable': 'unstable'}
+        # 'releases': {'leste': 'jessie', 'unstable': 'unstable'}
         'libcal': {'repo-name': 'libcal'}
     }
 
@@ -186,4 +186,4 @@ Scoping of slave nodes on the master node repository
 
 Make sure you add the new architecture to the reprepro configuration(s) where
 they are located on the master node. In our case this is `/srv/repository/conf`
-and `/srv/repository/release/kawai/conf`.
+and `/srv/repository/release/leste/conf`.
