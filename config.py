@@ -1,5 +1,6 @@
 DEFAULT_RELEASES = {'leste': 'jessie'}
 DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
+DEFAULT_ARCHES = ['amd64', 'armhf', 'armel']
 
 
 """
@@ -45,13 +46,17 @@ _jobs =  {
     'libosso': {},
 
     #
-    'icd2-osso-ic-dev': {},
+    'icd2-osso-ic-dev': {
+        'arches': ['all'],
+    },
 
     #
     'libconic': {},
 
     #
-    'osso-systemui-dbus-dev': {},
+    'osso-systemui-dbus-dev': {
+        'arches': ['all'],
+    },
 
     #
     'libdsme': {},
@@ -66,19 +71,27 @@ _jobs =  {
     'maemo-system-services': {},
 
     #
-    'osso-core-config': {},
+    'osso-core-config': {
+        'arches': ['all'],
+    },
 
     #
     'osso-af-utils': {},
 
     #
-    'osso-af-startup': {},
+    'osso-af-startup': {
+        'arches': ['all'],
+    },
 
     #
-    'hildon-initscripts': {},
+    'hildon-initscripts': {
+        'arches': ['all'],
+    },
 
     #
-    'osso-af-settings': {},
+    'osso-af-settings': {
+        'arches': ['all'],
+    },
 
     #
     'ke-recv-extra': {},
@@ -106,7 +119,9 @@ _jobs =  {
     'hildon-theme-cacher': {},
 
     #
-    'osso-icons': {},
+    'osso-icons': {
+        'arches': ['all'],
+    },
 
     #
     'dsme': {},
@@ -121,19 +136,27 @@ _jobs =  {
     'osso-systemui-tklock': {},
 
     #
-    'osso-systemui-devlock-dev': {},
+    'osso-systemui-devlock-dev': {
+        'arches': ['all'],
+    },
 
     #
-    'osso-systemui-splashscreen-dev': {},
+    'osso-systemui-splashscreen-dev': {
+        'arches': ['all'],
+    },
 
     #
-    'osso-systemui-modechange-dev': {},
+    'osso-systemui-modechange-dev': {
+        'arches': ['all'],
+    },
 
     #
     'libdevlock': {},
 
     #
-    'osso-app-killer': {},
+    'osso-app-killer': {
+        'arches': ['all'],
+    },
 
     #
     'codelockui': {},
@@ -173,6 +196,15 @@ _jobs =  {
 
     #
     'hildon-desktop': {},
+
+    #
+    'osso-applet-notificationlight': {},
+
+    #
+    'osso-applet-devicelock': {},
+
+    #
+    'hildon-status-menu': {},
 }
 
 def get_jobs():
@@ -181,7 +213,9 @@ def get_jobs():
         repo_name = args.get('repo-name', job)
         host = args.get('host', DEFAULT_HOST) % repo_name
         releases = args.get('releases', DEFAULT_RELEASES)
+        arches = args.get('arches', DEFAULT_ARCHES)
 
-        jobs[job] = dict(repo_name=repo_name, host=host, releases=releases)
+        jobs[job] = dict(repo_name=repo_name, host=host, releases=releases,
+                         arches=arches)
 
     return jobs
