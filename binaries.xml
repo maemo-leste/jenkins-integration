@@ -89,7 +89,9 @@
           <configs>
             <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
               <properties>release=${release}
-distribution=${distribution}</properties>
+distribution=${distribution}
+architecture=${architecture}
+label=${label}</properties>
               <textParamValueOnNewLine>false</textParamValueOnNewLine>
             </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
           </configs>

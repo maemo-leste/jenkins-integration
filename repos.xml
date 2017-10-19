@@ -23,6 +23,16 @@
           <description></description>
           <defaultValue>jessie</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>architecture</name>
+          <description></description>
+          <defaultValue>all</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>label</name>
+          <description></description>
+          <defaultValue>all</defaultValue>
+        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@2.0.1">
@@ -44,7 +54,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.38.1">
-      <project>{{{JOBNAME}}}</project>
+      <project>{{{JOBNAME}}}/architecture=$architecture,label=$label</project>
       <filter>*</filter>
       <target></target>
       <excludes></excludes>
@@ -55,18 +65,24 @@
       <command>mkdir -p binaries
 
 for suffix in gz bz2 xz deb dsc changes ; do
-  mv */*.${suffix} binaries/ || true
+  mv -v *.${suffix} binaries/ || true
 done
 
 # if building a tagged version then do not include that one in the release-trunk repository
 case &quot;$branch&quot; in tags/*|branches/*) export IGNORE_RELEASE_TRUNK=true;; esac
 
 #export SUDO_CMD=sudo
-export BASE_PATH=&quot;binaries/&quot;
+export BASE_PATH=&quot;binaries&quot;
 export PROVIDE_ONLY=true
 /usr/bin/build-and-provide-package</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
-  <buildWrappers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.34">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
 </project>
