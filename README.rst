@@ -187,3 +187,36 @@ Scoping of slave nodes on the master node repository
 Make sure you add the new architecture to the reprepro configuration(s) where
 they are located on the master node. In our case this is `/srv/repository/conf`
 and `/srv/repository/release/leste/conf`.
+
+
+Miscellaneous
+=============
+
+
+dch_hook
+--------
+
+The `dch_hook.sh` file is a shell script containing our custom versioning
+logic. It's defined in our `sources.xml` template, and executed at some
+point in the process of `generate-git-snapshot`. For it to work as we have
+intended, some changes are required in `/etc/jenkins/debian_glue`:
+
+    .. code-block:: sh
+
+        USE_ORIG_VERSION=true
+        SKIP_DCH=true
+        UNRELEASED_APPEND_COMMIT=false
+
+The concept of this hook is that all our built packages will have a maemo
+version appended on the end of the filename and in the changelog. With this
+we avoid polluting the git repo, but it still allows us to see how many builds
+have been triggered for a specific package.
+
+Let's take libcal as an example. In git, our changelog has the version of
+`0.3-2`. When the source job is built, `generate-git-snapshot` combined with
+`dch-hook.sh` will append `+0m7` to it for the initial build. This results
+in the actual package version being `0.3-2+0m7`. If we rebuild this package
+without bumping the version in git, the following build will have `+0m7.1`
+appended. Each subsequent build will increment the latter `.1` by one, until
+the version in git is changed. It will then reset back to `+0m7` and repeat
+the process.
