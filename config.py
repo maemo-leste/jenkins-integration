@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 DEFAULT_RELEASES = {'leste': 'jessie'}
 DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
 DEFAULT_ARCHES = ['amd64', 'armhf', 'armel']
@@ -11,204 +13,209 @@ _jobs = {
                  'releases': {'some-MAEMO-release': 'DEVUAN-upstream-release'}
 """
 
-_jobs =  {
+_jobs =  OrderedDict([
     # comment here
-    'libcal': {
+    ('libcal', {
         #'releases': {
         #    # we should use these when building, not creating/deleting
         #    # ${release} : ${distribution} (in a jenkins job)
         #    # 'leste': 'jessie',
         #},
-    },
+    }),
 
     #
-    'iphbd': {},
+    ('iphbd', {}),
 
     # Maemo has its own gtk2 fork
-    'gtk': {},
+    ('gtk', {}),
 
     #
-    'libmatchbox2': {},
+    ('libmatchbox2', {}),
 
     #
-    'mce-dev': {},
-
-    #
-    'libhildonmime': {},
-
-    #
-    'cityinfo': {},
-
-    #
-    'clockd': {},
-
-    #
-    'libosso': {},
-
-    #
-    'icd2-osso-ic-dev': {
+    ('mce-dev', {
         'arches': ['all'],
-    },
+    }),
 
     #
-    'libconic': {},
+    ('libhildonmime', {}),
 
     #
-    'osso-systemui-dbus-dev': {
+    ('cityinfo', {}),
+
+    #
+    ('clockd', {}),
+
+    #
+    ('libosso', {}),
+
+    #
+    ('icd2-osso-ic-dev', {
         'arches': ['all'],
-    },
+    }),
 
     #
-    'libdsme': {},
+    ('libconic', {}),
 
     #
-    'statusbar-alarm-dbus-api': {},
-
-    #
-    'hildon': {},
-
-    #
-    'maemo-system-services': {},
-
-    #
-    'osso-core-config': {
+    ('osso-systemui-dbus-dev', {
         'arches': ['all'],
-    },
+    }),
 
     #
-    'osso-af-utils': {},
+    ('libdsme', {}),
 
     #
-    'osso-af-startup': {
+    ('statusbar-alarm-dbus-api', {}),
+
+    #
+    ('hildon', {}),
+
+    #
+    ('maemo-system-services', {}),
+
+    #
+    ('osso-core-config', {
         'arches': ['all'],
-    },
+    }),
 
     #
-    'hildon-initscripts': {
+    ('osso-af-utils', {}),
+
+    #
+    ('osso-af-startup', {
         'arches': ['all'],
-    },
+    }),
 
     #
-    'osso-af-settings': {
+    ('hildon-initscripts', {
         'arches': ['all'],
-    },
+    }),
 
     #
-    'ke-recv-extra': {},
+    ('osso-af-settings', {
+        'arches': ['all'],
+    }),
+
+    #
+    ('ke-recv-extra', {}),
 
     # fixed with a hack, remember to fix properly
     # https://git.devuan.org/maemo/clipboard-manager/commit/df4d727d4dc95cd01014dc388c9c1088c8a296f5
-    'clipboard-manager': {},
+    ('clipboard-manager', {}),
 
     #
-    'libhildondesktop': {},
+    ('libhildondesktop', {}),
 
     #
-    'alarmd': {},
+    ('alarmd', {}),
 
     #
-    'maemo-launcher': {},
+    ('maemo-launcher', {}),
 
     #
-    'profiled': {},
+    ('profiled', {}),
 
     #
-    'sapwood': {},
+    ('sapwood', {}),
 
     #
-    'hildon-theme-cacher': {},
+    ('hildon-theme-cacher', {}),
 
     #
-    'osso-icons': {
+    ('osso-icons', {
         'arches': ['all'],
-    },
+    }),
 
     #
-    'dsme': {},
+    ('dsme', {}),
 
     #
-    'osso-systemui': {},
+    ('osso-systemui', {}),
 
     #
-    'osso-systemui-powerkeymenu': {},
+    ('osso-systemui-powerkeymenu', {}),
 
     #
-    'osso-systemui-tklock': {},
+    ('osso-systemui-tklock', {}),
 
     #
-    'osso-systemui-devlock-dev': {
+    ('osso-systemui-devlock-dev', {
         'arches': ['all'],
-    },
+    }),
 
     #
-    'osso-systemui-splashscreen-dev': {
+    ('osso-systemui-splashscreen-dev', {
         'arches': ['all'],
-    },
+    }),
 
     #
-    'osso-systemui-modechange-dev': {
+    ('osso-systemui-modechange-dev', {
         'arches': ['all'],
-    },
+    }),
 
     #
-    'libdevlock': {},
+    ('libdevlock', {}),
 
     #
-    'osso-app-killer': {
+    ('osso-app-killer', {
         'arches': ['all'],
-    },
+    }),
 
     #
-    'codelockui': {},
+    ('codelockui', {}),
 
     #
-    'hildon-control-panel': {},
+    ('hildon-control-panel', {}),
 
     #
-    'osso-applet-display': {},
+    ('osso-applet-display', {}),
 
     #
-    'libplayback': {},
+    ('libplayback', {}),
 
     #
-    'hildon-plugins-notify-sv': {},
+    ('hildon-plugins-notify-sv', {}),
 
     #
-    'osso-systemui-alarm': {},
+    ('osso-systemui-alarm', {}),
 
     #
-    'mce': {},
+    ('mce', {}),
 
     #
-    'osso-bookmark-engine': {},
+    ('osso-bookmark-engine', {}),
 
     #
-    'epeg': {},
+    ('epeg', {}),
 
     #
-    'hildon-thumbnail': {},
+    ('hildon-thumbnail', {}),
 
     #
-    'libhildonfm': {},
+    ('libhildonfm', {}),
 
     #
-    'hildon-home': {},
+    ('hildon-home', {}),
 
     #
-    'hildon-desktop': {},
+    ('hildon-desktop', {}),
 
     #
-    'osso-applet-notificationlight': {},
+    ('osso-applet-notificationlight', {}),
 
     #
-    'osso-applet-devicelock': {},
+    ('osso-applet-devicelock', {}),
 
     #
-    'hildon-status-menu': {},
-}
+    ('hildon-status-menu', {}),
+
+    #
+    ('osso-xterm', {}),
+])
 
 def get_jobs():
-    jobs = {}
+    jobs = OrderedDict()
     for job, args in _jobs.items():
         repo_name = args.get('repo-name', job)
         host = args.get('host', DEFAULT_HOST) % repo_name

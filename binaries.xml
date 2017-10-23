@@ -50,22 +50,17 @@
     <hudson.matrix.TextAxis>
       <name>architecture</name>
       <values>
-        <string>amd64</string>
-        <string>armhf</string>
-        <string>armel</string>
+        {{{ARCHVALUES}}}
       </values>
     </hudson.matrix.TextAxis>
     <hudson.matrix.LabelAxis>
       <name>label</name>
       <values>
-        <string>amd64</string>
-        <string>armhf</string>
-        <string>armel</string>
-        <string>master</string>
+        {{{LABELVALUES}}}
       </values>
     </hudson.matrix.LabelAxis>
   </axes>
-  <combinationFilter>(architecture==&quot;amd64&quot;).implies(label==&quot;amd64&quot;) &amp;&amp; (architecture==&quot;armhf&quot;).implies(label==&quot;armhf&quot;) &amp;&amp; (architecture==&quot;armel&quot;).implies(label==&quot;armel&quot;)</combinationFilter>
+  <combinationFilter>(architecture==&quot;amd64&quot;).implies(label==&quot;amd64&quot;) &amp;&amp; (architecture==&quot;armhf&quot;).implies(label==&quot;armhf&quot;) &amp;&amp; (architecture==&quot;all&quot;).implies(label==&quot;all&quot;) &amp;&amp; (architecture==&quot;armel&quot;).implies(label==&quot;armel&quot;)</combinationFilter>
   <builders>
     <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.38.1">
       <project>{{{COPYFROM}}}</project>

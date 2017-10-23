@@ -8,6 +8,11 @@ from config import get_jobs
 from jenkins_creds import (jenkins_host, jenkins_user, jenkins_pass)
 
 
+def _create_archvals(arches):
+    ar = ['<string>%s</string>' % a for a in arches]
+    return '\t' + '\n\t'.join(ar)
+
+
 def add_jobs(japi, jobs, jobname):
     job_info = jobs[jobname]
 
@@ -15,11 +20,16 @@ def add_jobs(japi, jobs, jobname):
     binaries = '%s-binaries' % jobname
     repos = '%s-repos' % jobname
 
+    archval = _create_archvals(job_info['arches'])
+    labelval = archval
+
     replacements = [('DESCRIPTION', job_info['repo_name']),
                     ('GITURL', job_info['host']),
                     ('JOBNAME', binaries),
                     ('COPYFROM', source),
-                    ('REPOSJOB', repos)]
+                    ('REPOSJOB', repos),
+                    ('ARCHVALUES', archval),
+                    ('LABELVALUES', labelval)]
 
     src_job = open('source.xml', encoding='utf-8').read()
     bin_job = open('binaries.xml', encoding='utf-8').read()
@@ -51,11 +61,16 @@ def reconfig_jobs(japi, jobname):
     binaries = '%s-binaries' % jobname
     repos = '%s-repos' % jobname
 
+    archval = _create_archvals(job_info['arches'])
+    labelval = archval
+
     replacements = [('DESCRIPTION', job_info['repo_name']),
                     ('GITURL', job_info['host']),
                     ('JOBNAME', binaries),
                     ('COPYFROM', source),
-                    ('REPOSJOB', repos)]
+                    ('REPOSJOB', repos)
+                    ('ARCHVALUES', archval),
+                    ('LABELVALUES', labelval)]
 
     src_job = open('source.xml', encoding='utf-8').read()
     bin_job = open('binaries.xml', encoding='utf-8').read()
@@ -75,7 +90,7 @@ def main():
     parser.add_argument('-l', '--list-something', action='store_true')
     parser.add_argument('-s', '--sync', action='store_true')
     parser.add_argument('-n', '--dry_run', action='store_true')
-
+    
     args = parser.parse_args()
 
     japi = Jenkins(jenkins_host, username=jenkins_user, password=jenkins_pass)
@@ -102,7 +117,7 @@ def main():
         # from lxml import objectify
         # jobxml = japi.get_job_config(jobname)
         # tree = objectify.fromstring(jobxml)
-
+        
         # compare:
         #   * repo_name
         # tree.builders['hudson.plugins.parameterizedtrigger.TriggerBuilder']['configs']['hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig']['projects']
@@ -132,7 +147,7 @@ def main():
                 continue
             print('Adding job:', j)
             add_jobs(japi, jobs, j)
-
+            
 
 
 if __name__ == '__main__':

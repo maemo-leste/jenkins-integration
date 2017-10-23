@@ -49,6 +49,9 @@ def main():
             
             print('%s OK.' % job)
 
+            print('Waiting 90 seconds...')
+            sleep(90) # rsync struggles
+
 
 
 if __name__ == '__main__':
