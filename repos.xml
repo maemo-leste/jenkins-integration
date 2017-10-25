@@ -64,7 +64,7 @@
     <hudson.tasks.Shell>
       <command>mkdir -p binaries
 
-for suffix in gz bz2 xz deb dsc changes ; do
+for suffix in gz bz2 xz deb dsc changes buildinfo ; do
   mv -v *.${suffix} binaries/ || true
 done
 

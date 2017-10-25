@@ -5,7 +5,7 @@ from subprocess import check_output
 from sys import exit
 from time import sleep
 
-from config import get_jobs
+from config import get_jobs, DEFAULT_RELEASES
 
 def main():
     from argparse import ArgumentParser
@@ -14,6 +14,9 @@ def main():
 
     parser.add_argument('-e', '--exclude', action='append',
                         help='Exclude package from build',
+                        default=[])
+    parser.add_argument('-r', '--release', action='append',
+                        help='Releases to build for',
                         default=[])
     parser.add_argument('-p', '--pretend', action='store_true',
                         default=False, help='Pretend')
@@ -24,6 +27,10 @@ def main():
 
     jobs = get_jobs().keys()
 
+    releases = args.release
+    if not len(releases):
+        releases = DEFAULT_RELEASES.keys()
+
     # Sanity check
     for exclude in args.exclude:
         if exclude not in jobs:
@@ -31,26 +38,26 @@ def main():
             exit(1)
 
     for job in jobs:
-        if job not in args.exclude:
-            if args.pretend:
-                print('Would build: %s' % job)
-                continue
-
-            print('Building: %s.' % job)
-            out = check_output(['./run-job.py', '-j', job])
-            job_no = out.strip().decode('utf-8')
-            job_no = int(job_no.replace('Build number:', ''))
-            if args.debug:
-                print('Got job number:', job_no)
-
-            sleep(10.)
-
-            check_output(['./wait-build.py', job, '--buildno', str(job_no)])
-            
-            print('%s OK.' % job)
-
-            print('Waiting 90 seconds...')
-            sleep(90) # rsync struggles
+        for release in releases:
+            if job not in args.exclude:
+                if args.pretend:
+                    print('Would build: %s for %s' % (job, release))
+                    continue
+    
+                print('Building: %s for %s.' % (job, release))
+                out = check_output(['./run-job.py', '-j', job, '-d', release])
+                job_no = out.strip().decode('utf-8')
+                job_no = int(job_no.replace('Build number:', ''))
+                if args.debug:
+                    print('Got job number:', job_no)
+    
+                sleep(10.)
+    
+                check_output(['./wait-build.py', job, '--buildno', str(job_no)])
+                
+                print('%s OK.' % job)
+    
+                sleep(2) # just in case ;)
 
 
 

@@ -1,6 +1,6 @@
 from collections import OrderedDict
 
-DEFAULT_RELEASES = {'leste': 'jessie'}
+DEFAULT_RELEASES = {'leste': 'jessie', 'kawai': 'ascii'}
 DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
 DEFAULT_ARCHES = ['amd64', 'armhf', 'armel']
 

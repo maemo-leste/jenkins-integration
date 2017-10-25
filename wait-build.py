@@ -25,7 +25,7 @@ def wait_for_source_job(japi, jobname, buildno):
         print('Waiting for source to be done building')
         sleep(SLEEP)
 
-    assert job['result'] == 'SUCCESS', 'Source job result was not SUCCESS: ' % job['result']
+    assert job['result'] == 'SUCCESS', 'Source job result was not SUCCESS: %s' % job['result']
 
     # Hacky
     print('Waiting for binaries to be started')
