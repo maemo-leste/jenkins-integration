@@ -1,7 +1,7 @@
 #!/bin/bash
 
-[ "$distribution" = jessie ] && epoch=0
-[ "$distribution" = ascii ]  && epoch=1
+[ "$distribution" = jessie ] && release_num=0
+[ "$distribution" = ascii ]  && release_num=1
 
 _srcinfo=$(dpkg-parsechangelog -n 1 -l debian/changelog)
 _srcname=$(echo "$_srcinfo" | grep '^Source: ' | cut -d' ' -f2)
@@ -15,17 +15,17 @@ echo "*** deb == $_deb ***"
 _buildnum=$(echo $_deb | awk -F'+' '{print $NF}' | cut -d'_' -f1)
 echo "*** buildnum == $_buildnum ***"
 
-if echo $_buildnum | grep -q "^${epoch}m7$"; then
+if echo $_buildnum | grep -q "^${release_num}m7$"; then
     echo "*** Found previous build (no rebuilds). Appending .1"
     _buildnum="${_buildnum}.1"
-elif echo $_buildnum | grep -q "^${epoch}m7\.."; then
+elif echo $_buildnum | grep -q "^${release_num}m7\.."; then
     echo "*** Found previous rebuild. Incrementing build number ***"
     _buildnum=$(echo $_buildnum | rev | cut -c1)
     _buildnum=$(echo "$_buildnum + 1" | bc)
-    _buildnum="${epoch}m7.${_buildnum}"
+    _buildnum="${release_num}m7.${_buildnum}"
 else
-    echo "*** Did not find previous builds. Assuming +#{epoch}m7 ***"
-    _buildnum="${epoch}m7"
+    echo "*** Did not find previous builds. Assuming +${release_num}m7 ***"
+    _buildnum="${release_num}m7"
 fi
 
 _firstline="$(sed 1q debian/changelog)"
