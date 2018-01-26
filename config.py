@@ -75,9 +75,9 @@ _jobs =  OrderedDict([
     ('maemo-system-services', {}),
 
     #
-    ('osso-core-config', {
-        'arches': ['all'],
-    }),
+    #('osso-core-config', {
+    #    'arches': ['all'],
+    #}),
 
     #
     ('osso-af-utils', {}),
@@ -212,6 +212,17 @@ _jobs =  OrderedDict([
 
     #
     ('osso-xterm', {}),
+
+    #
+    ('icd2', {}),
+
+    #
+    ('n9xx-xf86-video-fbdev-sgx', {}),
+
+    #
+    ('hildon-meta', {
+        'arches': ['all'],
+    }),
 ])
 
 def get_jobs():
