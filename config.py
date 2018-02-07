@@ -74,6 +74,7 @@ _jobs =  OrderedDict([
     #
     ('maemo-system-services', {}),
 
+
     #
     #('osso-core-config', {
     #    'arches': ['all'],
@@ -223,6 +224,9 @@ _jobs =  OrderedDict([
     ('hildon-meta', {
         'arches': ['all'],
     }),
+
+    #
+    ('status-menu-applet-profiles', {}),
 ])
 
 def get_jobs():
