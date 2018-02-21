@@ -15,6 +15,9 @@ def main():
     parser.add_argument('-e', '--exclude', action='append',
                         help='Exclude package from build',
                         default=[])
+    parser.add_argument('-s', '--startfrom', type=str,
+                        help='Start build from this package',
+                        default=None)
     parser.add_argument('-r', '--release', action='append',
                         help='Releases to build for',
                         default=[])
@@ -37,7 +40,14 @@ def main():
             print('Cannot exclude %s - not a valid job' % exclude)
             exit(1)
 
-    for job in jobs:
+    startfrom = 0
+    if args.startfrom:
+        if args.startfrom not in jobs:
+            print('%s is not a valid job' % args.startfrom)
+            exit(1)
+        startfrom = list(jobs).index(args.startfrom)
+
+    for job in list(jobs)[startfrom:]:
         for release in releases:
             if job not in args.exclude:
                 if args.pretend:
