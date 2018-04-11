@@ -227,6 +227,52 @@ _jobs =  OrderedDict([
 
     #
     ('status-menu-applet-profiles', {}),
+
+    # xorg for droid4 only
+    ('xorg-server-droid4', {}),
+
+    #
+    ('status-area-applet-battery', {}),
+
+    #
+    ('ofono', {}),
+
+    #
+    ('connui-common', {}),
+
+    #
+    ('connui-internet', {}),
+
+    #
+    ('hildon-status-bar-usb', {}),
+
+    #
+    ('libicd-network-dummy', {}),
+
+    #
+    ('libicd-network-usb', {}),
+
+    #
+    ('icd2-settings-default', {
+        'arches': ['all'],
+    }),
+
+    #
+    ('libusbgx', {}),
+
+    #
+    ('wl1251-cal', {}),
+
+    #
+    ('maemo-multimedia-tone-generator', {}),
+
+    #
+    ('libicd-network-ipv4', {}),
+
+    #
+    #('n9xx-linux', {
+    #    'arches': ['armel', 'armhf'],
+    #}),
 ])
 
 def get_jobs():
