@@ -7,6 +7,11 @@ _srcinfo=$(dpkg-parsechangelog -n 1 -l debian/changelog)
 _srcname=$(echo "$_srcinfo" | grep '^Source: ' | cut -d' ' -f2)
 _srcver=$(echo "$_srcinfo" | grep '^Version: ' | cut -d' ' -f2)
 
+echo "$_srcver" | grep -q ':' - && {
+        _epoch="$(echo $_srcver | awk -F':' '{print $1}')"
+        _srcver="$(echo $_srcver | awk -F':' '{print $2}')"
+}
+
 _pkgname=$(grep 'Package: ' debian/control | sed 1q | cut -d' ' -f2)
 _deb=$(find /srv/repository/release/$release/pool -type f -name "${_pkgname}_${_srcver}*.deb" | sed 1q)
 _deb=$(basename $_deb)
@@ -29,6 +34,8 @@ else
 fi
 
 _firstline="$(sed 1q debian/changelog)"
+
+[ -n "$_epoch" ] && _srcver="${_epoch}:${_srcver}"
 
 _tempchangelog=$(mktemp)
 tac debian/changelog > $_tempchangelog
