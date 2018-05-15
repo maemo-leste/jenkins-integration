@@ -226,10 +226,15 @@ _jobs =  OrderedDict([
     }),
 
     #
+    ('hildon-connectivity-meta', {
+        'arches': ['all'],
+    }),
+
+    #
     ('status-menu-applet-profiles', {}),
 
-    # xorg for droid4 only
-    ('xorg-server-droid4', {}),
+    #
+    ('xorg-server', {}),
 
     #
     ('status-area-applet-battery', {}),
@@ -268,6 +273,29 @@ _jobs =  OrderedDict([
 
     #
     ('libicd-network-ipv4', {}),
+
+    #
+    ('maemo-security-certman', {}),
+
+    #
+    ('maemo-security-certman-applet', {}),
+
+    #
+    ('libconbtui', {
+        'arches': ['all'],
+    }),
+
+    #
+    ('libcomapp', {}),
+
+    #
+    ('connui-wlan', {}),
+
+    #
+    ('hildon-input-method-framework', {}),
+
+    #
+    ('hildon-input-method', {}),
 
     #
     #('n9xx-linux', {
