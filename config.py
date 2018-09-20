@@ -291,6 +291,23 @@ _jobs =  OrderedDict([
     #
     ('connui-wlan', {}),
 
+    ('libicd-network-wpasupplicant', {}),
+
+    #
+    ('status-area-orientationlock-applet', {}),
+
+    #
+    #('n9xx-linux', {
+    #    'arches': ['armel', 'armhf'],
+    #}),
+
+
+    #
+    ('upower', {}),
+
+    #
+    ('libscconf', {}),
+
     #
     ('hildon-input-method-framework', {}),
 
@@ -298,9 +315,45 @@ _jobs =  OrderedDict([
     ('hildon-input-method', {}),
 
     #
-    #('n9xx-linux', {
-    #    'arches': ['armel', 'armhf'],
-    #}),
+    ('libimlayouts', {}),
+
+    #
+    ('libimengines', {}),
+
+    #
+    ('hildon-im-vkbrenderer3', {}),
+
+    #
+    ('hildon-input-method-configurator', {}),
+
+    #
+    ('hildon-input-method-plugins', {}),
+
+    #
+    ('osso-applet-textinput', {}),
+
+    #
+    ('hildon-input-meta', {
+        'arches': ['all'],
+    }),
+
+    #
+    ('mafw', {}),
+
+    #
+    ('mafw-shared', {}),
+
+    #
+    ('mafw-iradio-source', {}),
+
+    #
+    ('mafw-upnp-source', {}),
+
+    #
+    ('hildon-usb-gadgets', {}),
+
+    #
+    ('ke-recv', {}),
 ])
 
 def get_jobs():
