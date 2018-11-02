@@ -25,8 +25,8 @@ if echo $_buildnum | grep -q "^${release_num}m7$"; then
     _buildnum="${_buildnum}.1"
 elif echo $_buildnum | grep -q "^${release_num}m7\.."; then
     echo "*** Found previous rebuild. Incrementing build number ***"
-    _buildnum=$(echo $_buildnum | rev | cut -c1)
-    _buildnum=$(echo "$_buildnum + 1" | bc)
+    _buildnum=$(echo $_buildnum | awk -F. '{print $NF}')
+    _buildnum=$(expr $_buildnum + 1)
     _buildnum="${release_num}m7.${_buildnum}"
 else
     echo "*** Did not find previous builds. Assuming +${release_num}m7 ***"
