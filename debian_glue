@@ -19,7 +19,7 @@ KEY_ID=4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 # packages. On all other architectures only the arch specific
 # packages will be build then.
 # If unset it will default to the architecture of the host system.
-# MAIN_ARCHITECTURE="amd64"
+MAIN_ARCHITECTURE="amd64"
 
 # Hook scripts for pbuilder/cowbuilder, used e.g. for autopkgtest.
 # Default:
@@ -40,12 +40,15 @@ DEFAULT_REPOSITORY='/srv/repository'
 # with the date and the build number.
 # To override this behaviour and preserve the version number from the
 # changelog, set USE_ORIG_VERSION to true.
-# USE_ORIG_VERSION=true
-#SKIP_DCH=true
+USE_ORIG_VERSION=true
+SKIP_DCH=true
 
-#DCH_OPTS="--multimaint-merge --ignore-branch"
+DCH_OPTS="--multimaint-merge --ignore-branch"
 #DCH_EXTRA_OPTS="--distribution=maemo7 --force-distribution -R"
+#DCH_EXTRA_OPTS="
 
+#maybe? line 103 in /usr/bin/generate-git-snapshot
+UNRELEASEAD_APPEND_COMMIT="false"
 
 
 # By default reprepro repositories are not verified but assumed to be
@@ -85,13 +88,41 @@ RELEASE_REPOSITORY="${DEFAULT_REPOSITORY}/release/${release}"
 # Usage example:
 # REPOSITORY_EXTRA='deb http://security.debian.org/ wheezy/updates main,deb-src http://security.debian.org/ wheezy/updates main'
 # Default:
-# REPOSITORY_EXTRA=
+
+## disable below when creating a new release/repo, like we just did for kawai.
+## also on the slaves.
+#REPOSITORY_EXTRA="deb http://maedevu.maemo.org/${release} ${release} main contrib non-free,deb-src http://maedevu.maemo.org/${release} ${release} main contrib non-free,deb http://pkgmaster.devuan.org/merged ${distribution}-backports main contrib non-free,deb-src http://pkgmaster.devuan.org/merged ${distribution}-backports main contrib non-free"
+
+REPOSITORY_EXTRA="deb http://maedevu.maemo.org/${release} ${release} main contrib non-free,deb-src http://maedevu.maemo.org/${release} ${release} main contrib non-free,deb http://pkgmaster.devuan.org/merged ${distribution}-updates main contrib non-free,deb-src http://pkgmaster.devuan.org/merged ${distribution}-updates main contrib non-free,deb http://pkgmaster.devuan.org/merged ${distribution}-security main contrib non-free,deb-src http://pkgmaster.devuan.org/merged ${distribution}-security main contrib non-free"
+
+# for n900 specifics
+n900jobs="
+	n9xx-xf86-video-fbdev-sgx
+"
+_curpkgname="$(echo $WORKSPACE | awk -F/ '{print $6}' | sed 's/-binaries$//')"
+_enablen900=false
+echo "$n900jobs" | grep -q "$_curpkgname" && _enablen900=true
+
+[ "$_enablen900" = true ] && {
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${release} n900"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${release} n900"
+}
+
+limajobs="mesa"
+_enablebackports=false
+echo "$limajobs" | grep -q "$_curpkgname" && _enablebackports=true
+[ "$_enablebackports" = true ] && {
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://pkgmaster.devuan.org/merged ${distribution}-backports main contrib non-free"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://pkgmaster.devuan.org/merged ${distribution}-backports main contrib non-free"
+}
+
+
 
 # Comma separated list of URLs with keys for extra repositories.
 # Usage example:
 # REPOSITORY_EXTRA_KEYS='http://foorepo.domain.com/key1.gpg,http://barrepo.domain.com/key2.gpg'
 # Default:
-# REPOSITORY_EXTRA_KEYS=
+REPOSITORY_EXTRA_KEYS='http://maedevu.maemo.org/testing-key.asc'
 
 # autopkgtests are executed automatically inside the cowbuilder environment by
 # default, corresponding to the ADT='internal' setting or if ADT is unset.
@@ -127,3 +158,4 @@ RELEASE_REPOSITORY="${DEFAULT_REPOSITORY}/release/${release}"
 # this.
 # Default: false
 # UNRELEASED_APPEND_COMMIT=false
+
