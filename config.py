@@ -218,7 +218,9 @@ _jobs =  OrderedDict([
     ('icd2', {}),
 
     #
-    ('n9xx-xf86-video-fbdev-sgx', {}),
+    ('n9xx-xf86-video-fbdev-sgx', {
+        'arches': ['armhf'],
+    }),
 
     #
     ('hildon-meta', {
@@ -244,6 +246,15 @@ _jobs =  OrderedDict([
 
     #
     ('connui-common', {}),
+
+    #
+    ('maemo-security-certman', {}),
+
+    #
+    ('libcomapp', {}),
+
+    #
+    ('maemo-security-certman-applet', {}),
 
     #
     ('connui-internet', {}),
@@ -275,18 +286,9 @@ _jobs =  OrderedDict([
     ('libicd-network-ipv4', {}),
 
     #
-    ('maemo-security-certman', {}),
-
-    #
-    ('maemo-security-certman-applet', {}),
-
-    #
     ('libconbtui', {
         'arches': ['all'],
     }),
-
-    #
-    ('libcomapp', {}),
 
     #
     ('connui-wlan', {}),
@@ -354,6 +356,15 @@ _jobs =  OrderedDict([
 
     #
     ('ke-recv', {}),
+
+    # mesa for lime2 and a33
+    ('mesa', {
+        'arches': ['armhf'],
+    }),
+
+    # Extra pkg
+    ('wifi-signal-applet', {}),
+
 ])
 
 def get_jobs():
