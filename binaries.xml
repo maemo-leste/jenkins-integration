@@ -82,7 +82,7 @@ else
     __dist=&quot;${distribution}&quot;
 fi
 
-/usr/bin/build-and-provide-package</command>
+distribution=${__dist} /usr/bin/build-and-provide-package</command>
     </hudson.tasks.Shell>
     <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.35.2">
       <configs>
