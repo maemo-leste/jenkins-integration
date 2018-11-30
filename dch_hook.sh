@@ -2,6 +2,8 @@
 
 [ "$distribution" = jessie ] && release_num=0
 [ "$distribution" = ascii ]  && release_num=1
+[ "$distribution" = ascii-devel ] && release_num=1
+[ "$distribution" = beowulf ] && release_num=2
 
 _srcinfo=$(dpkg-parsechangelog -n 1 -l debian/changelog)
 _srcname=$(echo "$_srcinfo" | grep '^Source: ' | cut -d' ' -f2)
