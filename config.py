@@ -2,7 +2,7 @@ from collections import OrderedDict
 
 DEFAULT_RELEASES = {
     'leste': 'ascii',
-    'leste-devel': 'ascii',
+    'leste-devel': 'ascii-devel',
     'bayamo': 'beowulf',
 }
 DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
