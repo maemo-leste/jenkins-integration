@@ -90,7 +90,7 @@ def main():
     parser.add_argument('-l', '--list-something', action='store_true')
     parser.add_argument('-s', '--sync', action='store_true')
     parser.add_argument('-n', '--dry_run', action='store_true')
-    
+
     args = parser.parse_args()
 
     japi = Jenkins(jenkins_host, username=jenkins_user, password=jenkins_pass)
@@ -117,7 +117,7 @@ def main():
         # from lxml import objectify
         # jobxml = japi.get_job_config(jobname)
         # tree = objectify.fromstring(jobxml)
-        
+
         # compare:
         #   * repo_name
         # tree.builders['hudson.plugins.parameterizedtrigger.TriggerBuilder']['configs']['hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig']['projects']
@@ -147,7 +147,7 @@ def main():
                 continue
             print('Adding job:', j)
             add_jobs(japi, jobs, j)
-            
+
 
 
 if __name__ == '__main__':
