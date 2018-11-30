@@ -89,11 +89,19 @@ RELEASE_REPOSITORY="${DEFAULT_REPOSITORY}/release/${release}"
 # REPOSITORY_EXTRA='deb http://security.debian.org/ wheezy/updates main,deb-src http://security.debian.org/ wheezy/updates main'
 # Default:
 
-## disable below when creating a new release/repo, like we just did for kawai.
-## also on the slaves.
-#REPOSITORY_EXTRA="deb http://maedevu.maemo.org/${release} ${release} main contrib non-free,deb-src http://maedevu.maemo.org/${release} ${release} main contrib non-free,deb http://pkgmaster.devuan.org/merged ${distribution}-backports main contrib non-free,deb-src http://pkgmaster.devuan.org/merged ${distribution}-backports main contrib non-free"
+REPOSITORY_EXTRA="deb http://maedevu.maemo.org/${release} ${release} main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${release} main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://pkgmaster.devuan.org/merged ${distribution}-updates main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://pkgmaster.devuan.org/merged ${distribution}-updates main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://pkgmaster.devuan.org/merged ${distribution}-security main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://pkgmaster.devuan.org/merged ${distribution}-security main contrib non-free"
 
-REPOSITORY_EXTRA="deb http://maedevu.maemo.org/${release} ${release} main contrib non-free,deb-src http://maedevu.maemo.org/${release} ${release} main contrib non-free,deb http://pkgmaster.devuan.org/merged ${distribution}-updates main contrib non-free,deb-src http://pkgmaster.devuan.org/merged ${distribution}-updates main contrib non-free,deb http://pkgmaster.devuan.org/merged ${distribution}-security main contrib non-free,deb-src http://pkgmaster.devuan.org/merged ${distribution}-security main contrib non-free"
+# Pull in deps from the main repo when building -devel.
+if echo "${release}" | grep -q -- '-devel$'; then
+	_mainrel="$(echo "${release}" | sed 's,-devel,,')"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${_mainrel} main contrib non-free"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${_mainrel} main contrib non-free"
+fi
 
 # for n900 specifics
 n900jobs="
@@ -115,8 +123,6 @@ echo "$limajobs" | grep -q "$_curpkgname" && _enablebackports=true
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://pkgmaster.devuan.org/merged ${distribution}-backports main contrib non-free"
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://pkgmaster.devuan.org/merged ${distribution}-backports main contrib non-free"
 }
-
-
 
 # Comma separated list of URLs with keys for extra repositories.
 # Usage example:
