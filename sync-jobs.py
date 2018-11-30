@@ -54,7 +54,7 @@ def del_jobs(japi, jobs, jobname):
     return japi.delete_job(source), japi.delete_job(binaries), japi.delete_job(repos)
 
 
-def reconfig_jobs(japi, jobname):
+def reconfig_jobs(japi, jobs, jobname):
     job_info = jobs[jobname]
 
     source = '%s-source' % jobname
@@ -68,7 +68,7 @@ def reconfig_jobs(japi, jobname):
                     ('GITURL', job_info['host']),
                     ('JOBNAME', binaries),
                     ('COPYFROM', source),
-                    ('REPOSJOB', repos)
+                    ('REPOSJOB', repos),
                     ('ARCHVALUES', archval),
                     ('LABELVALUES', labelval)]
 
@@ -89,19 +89,32 @@ def main():
     parser = ArgumentParser()
     parser.add_argument('-l', '--list-something', action='store_true')
     parser.add_argument('-s', '--sync', action='store_true')
+    parser.add_argument('-r', '--reconfig', action='store_true')
     parser.add_argument('-n', '--dry_run', action='store_true')
 
     args = parser.parse_args()
 
     japi = Jenkins(jenkins_host, username=jenkins_user, password=jenkins_pass)
+    all_jobs = set([x['name'] for x in japi.get_all_jobs()])
+    exceptions = ['jenkins-debian-glue']  # list of jobs we don't want to touch
+    jobs = get_jobs()
+
+    if args.sync and args.reconfig:
+        print('Can not sync and reconfig. Choose one.')
+        return
+
+    if args.reconfig:
+        for j in jobs:
+            if j in exceptions:
+                continue
+            if args.dry_run:
+                print('WOULD RECONFIG:', j)
+                continue
+            print('Reconfiguring job:', j)
+            reconfig_jobs(japi, jobs, j)
+        return
 
     if args.sync:
-        jobs = get_jobs()
-
-        exceptions = ['jenkins-debian-glue']  # list of jobs we don't want to touch
-
-        all_jobs = set([x['name'] for x in japi.get_all_jobs()])
-
         source_bin_jobs = [(key + '-source', key+'-binaries') for key in jobs.keys()]
         config_jobs = []
         for (source, bina) in source_bin_jobs:
