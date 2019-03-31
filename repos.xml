@@ -74,7 +74,9 @@ case &quot;$branch&quot; in tags/*|branches/*) export IGNORE_RELEASE_TRUNK=true;
 #export SUDO_CMD=sudo
 export BASE_PATH=&quot;binaries&quot;
 export PROVIDE_ONLY=true
-/usr/bin/build-and-provide-package</command>
+/usr/bin/build-and-provide-package || exit 1
+
+rsync -aqr --delete-after /srv/repository/* amprolla@maedevu.maemo.org:/srv/repository/</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
