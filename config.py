@@ -6,7 +6,8 @@ DEFAULT_RELEASES = {
     'bayamo': 'beowulf',
 }
 DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
-DEFAULT_ARCHES = ['amd64', 'armhf', 'armel', 'arm64']
+#DEFAULT_ARCHES = ['amd64', 'armhf', 'armel', 'arm64']
+DEFAULT_ARCHES = ['amd64', 'armhf', 'arm64']
 
 
 """
@@ -37,9 +38,7 @@ _jobs =  OrderedDict([
     ('libmatchbox2', {}),
 
     #
-    ('mce-dev', {
-        'arches': ['all'],
-    }),
+    ('mce-dev', {}),
 
     #
     ('libhildonmime', {}),
@@ -143,6 +142,9 @@ _jobs =  OrderedDict([
 
     #
     ('osso-systemui-tklock', {}),
+
+    #
+    ('osso-systemui-modechange', {}),
 
     #
     ('osso-systemui-devlock-dev', {
@@ -303,9 +305,9 @@ _jobs =  OrderedDict([
     ('status-area-orientationlock-applet', {}),
 
     #
-    #('n9xx-linux', {
-    #    'arches': ['armel', 'armhf'],
-    #}),
+    ('n9xx-linux', {
+        'arches': ['armhf'],
+    }),
 
 
     #
@@ -363,12 +365,39 @@ _jobs =  OrderedDict([
 
     # mesa for lime2 and a33
     ('mesa', {
-        'arches': ['armhf'],
+        'arches': ['armhf', 'arm64'],
     }),
+
+    #
+    ('osso-calculator-engine', {}),
 
     # Extra pkg
     ('wifi-signal-applet', {}),
 
+    #
+    ('unicsy_demo', {
+        'arches': ['all'],
+    }),
+
+    #
+    ('libcmtspeechdata', {
+        'arches': ['armhf'],
+    }),
+
+    #
+    ('droid4-linux', {
+        'arches': ['armhf'],
+    }),
+
+    #
+    ('ti-omap3-sgx', {
+        'arches': ['armhf'],
+    }),
+
+    #
+    ('xf86-video-pvrsgx', {
+        'arches': ['armhf'],
+    }),
 ])
 
 def get_jobs():
