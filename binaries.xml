@@ -107,7 +107,7 @@ label=${label}</properties>
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>*.gz,*.bz2,*.xz,*.deb,*.dsc,*.changes,*.buildinfo</artifacts>
+      <artifacts>*.gz,*.bz2,*.xz,*.deb,*.udeb,*.dsc,*.changes,*.buildinfo</artifacts>
       <allowEmptyArchive>false</allowEmptyArchive>
       <onlyIfSuccessful>false</onlyIfSuccessful>
       <fingerprint>false</fingerprint>
