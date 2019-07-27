@@ -72,7 +72,7 @@ _jobs =  OrderedDict([
     ('statusbar-alarm-dbus-api', {}),
 
     #
-    ('hildon', {}),
+    ('libhildon', {}),
 
     #
     ('maemo-system-services', {}),
@@ -398,6 +398,21 @@ _jobs =  OrderedDict([
     ('xf86-video-pvrsgx', {
         'arches': ['armhf'],
     }),
+
+    #
+    ('connui-cellular', {}),
+
+    #
+    ('libofono', {}),
+
+    #
+    ('libicd-network-ofono', {}),
+
+    #
+    ('libglibutil', {}),
+
+    #
+    ('libgofono', {}),
 ])
 
 def get_jobs():
