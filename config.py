@@ -2,6 +2,7 @@ from collections import OrderedDict
 
 DEFAULT_RELEASES = {
     'leste': 'ascii',
+    'leste-extra': 'ascii',
     'leste-devel': 'ascii-devel',
     'bayamo': 'beowulf',
 }
@@ -87,7 +88,7 @@ _jobs =  OrderedDict([
     ('osso-af-utils', {}),
 
     #
-    ('osso-af-startup', {
+    ('osso-af-startup', {      # bayamo current 
         'arches': ['all'],
     }),
 
@@ -250,6 +251,9 @@ _jobs =  OrderedDict([
     #
     ('ofono', {}),
 
+    # pavel's droid4 ofono fork
+    ('ofono-d4', {}),
+
     #
     ('connui-common', {}),
 
@@ -371,9 +375,6 @@ _jobs =  OrderedDict([
     #
     ('osso-calculator-engine', {}),
 
-    # Extra pkg
-    ('wifi-signal-applet', {}),
-
     #
     ('unicsy_demo', {
         'arches': ['all'],
@@ -413,6 +414,65 @@ _jobs =  OrderedDict([
 
     #
     ('libgofono', {}),
+
+    #
+    ('hildon-notify', {}),
+
+    #
+    ('statusbar-alarm', {}),
+
+    #
+    ('rtcom-eventlogger', {}),
+
+    # ********************* Python stuff
+    #
+    ('pygtk', {}),
+
+    #
+    ('python-hildon', {}),
+
+    #
+    ('python-hildondesktop', {}),
+
+    #
+    ('hildon-application-manager', {
+    }),
+
+    # ********************* Extras start here?
+    #
+    ('libsdl', {}),
+
+    #
+    ('sdlgles', {}),
+
+    #
+    ('osso-games-startup', {}),
+
+    #
+    ('hildon-games-wrapper', {}),
+
+    #
+    ('binaryclock-plugin', {
+        #'releases': { 'leste-extra': 'ascii' }
+    }),
+
+    # Extra pkg
+    ('wifi-signal-applet', {
+        #'releases': { 'leste-extra': 'ascii' }
+    }),
+
+    # Extra pkg
+    ('simple-brightness-applet', {
+    }),
+
+    # Extra pkg
+    ('brainparty', {
+    }),
+
+    # Extra pkg
+    ('scummvm', {
+    }),
+
 ])
 
 def get_jobs():
