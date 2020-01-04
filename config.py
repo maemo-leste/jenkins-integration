@@ -454,9 +454,6 @@ _jobs =  OrderedDict([
     #
     ('binaryclock-plugin', {
         'host': 'https://github.com/maemo-leste-extras/%s',
-        'releases': {
-            'leste-extra': 'ascii'
-        },
     }),
 
     # Extra pkg
