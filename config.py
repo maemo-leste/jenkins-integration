@@ -88,7 +88,7 @@ _jobs =  OrderedDict([
     ('osso-af-utils', {}),
 
     #
-    ('osso-af-startup', {      # bayamo current 
+    ('osso-af-startup', {      # bayamo current
         'arches': ['all'],
     }),
 

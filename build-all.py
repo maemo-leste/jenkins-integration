@@ -53,20 +53,20 @@ def main():
                 if args.pretend:
                     print('Would build: %s for %s' % (job, release))
                     continue
-    
+
                 print('Building: %s for %s.' % (job, release))
                 out = check_output(['./run-job.py', '-j', job, '-d', release])
                 job_no = out.strip().decode('utf-8')
                 job_no = int(job_no.replace('Build number:', ''))
                 if args.debug:
                     print('Got job number:', job_no)
-    
+
                 sleep(10.)
-    
+
                 check_output(['./wait-build.py', job, '--buildno', str(job_no)])
-                
+
                 print('%s OK.' % job)
-    
+
                 sleep(2) # just in case ;)
 
 

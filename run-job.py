@@ -13,7 +13,7 @@ def main():
     parser.add_argument('-j', '--jobname', type=str, default=None)
     parser.add_argument('-n', '--dry_run', action='store_true')
     parser.add_argument('-d', '--distro', type=str, default='all')  # maybe implement an 'all' logic?
-    
+
     args = parser.parse_args()
 
     if args.distro not in DEFAULT_RELEASES:

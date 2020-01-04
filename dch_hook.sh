@@ -44,7 +44,7 @@ tac debian/changelog > $_tempchangelog
 cat <<EOF >> $_tempchangelog
 
  -- Jenkins Auto Builder <spam1@wizzup.org>  $(date +'%a, %d %b %Y %H:%M:%S +0200')
- 
+
   * Increment build number
 
 $_srcname (${_srcver}+${_buildnum}) unstable; urgency=medium

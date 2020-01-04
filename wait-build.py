@@ -107,7 +107,7 @@ def main():
     parser = ArgumentParser()
     parser.add_argument('jobname', type=str, default=None)
     parser.add_argument('--buildno', type=int)
-    
+
     args = parser.parse_args()
 
     japi = Jenkins(jenkins_host, username=jenkins_user, password=jenkins_pass)
