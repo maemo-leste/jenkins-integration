@@ -2,7 +2,7 @@ from collections import OrderedDict
 
 DEFAULT_RELEASES = {
     'leste': 'ascii',
-    'leste-extra': 'ascii',
+    'leste-extras': 'ascii',
     'leste-devel': 'ascii-devel',
     'bayamo': 'beowulf',
 }
