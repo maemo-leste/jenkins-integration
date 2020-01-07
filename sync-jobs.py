@@ -31,9 +31,15 @@ def add_jobs(japi, jobs, jobname):
                     ('ARCHVALUES', archval),
                     ('LABELVALUES', labelval)]
 
+
+    if job_info['arches'] == ['all']:
+        bin_job = open('binaries-all.xml', encoding='utf-8').read()
+        rep_job = open('repos-all.xml', encoding='utf-8').read()
+    else:
+        bin_job = open('binaries-arch.xml', encoding='utf-8').read()
+        rep_job = open('repos-arch.xml', encoding='utf-8').read()
+
     src_job = open('source.xml', encoding='utf-8').read()
-    bin_job = open('binaries.xml', encoding='utf-8').read()
-    rep_job = open('repos.xml', encoding='utf-8').read()
 
     for r in replacements:
         src_job = src_job.replace('{{{%s}}}' % r[0], r[1])
