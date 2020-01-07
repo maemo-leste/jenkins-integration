@@ -391,6 +391,16 @@ _jobs =  OrderedDict([
     }),
 
     #
+    ('pine64-kernel', {
+        'arches': ['arm64'],
+    }),
+
+    #
+    ('rtl8723cs', {
+        'arches': ['all'],
+    }),
+
+    #
     ('ti-omap3-sgx', {
         'arches': ['armhf'],
     }),
@@ -438,6 +448,10 @@ _jobs =  OrderedDict([
     ('hildon-application-manager', {
     }),
 
+    #
+    ('osso-pdf-viewer', {
+    }),
+
     # ********************* Extras start here?
     #
     ('libsdl', {}),
@@ -451,28 +465,40 @@ _jobs =  OrderedDict([
     #
     ('hildon-games-wrapper', {}),
 
-    #
+    # Extra pkg
     ('binaryclock-plugin', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
     # Extra pkg
     ('wifi-signal-applet', {
-        #'releases': { 'leste-extra': 'ascii' }
+        'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
     # Extra pkg
     ('simple-brightness-applet', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
     # Extra pkg
     ('brainparty', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
     # Extra pkg
     ('scummvm', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
+    # Extra pkg
+    ('crazyparking', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('osso-mahjong', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
 ])
 
 def get_jobs():

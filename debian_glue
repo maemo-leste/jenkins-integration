@@ -103,6 +103,13 @@ if echo "${release}" | grep -q -- '-devel$'; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
 fi
 
+# Pull in deps from the main repo when building -extra.
+if echo "${release}" | grep -q -- '-extras$'; then
+	_mainrel="$(echo "${release}" | sed 's,-extras,,')"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
+fi
+
 # for n900 specifics
 n900jobs="
 	n9xx-xf86-video-fbdev-sgx
@@ -151,7 +158,7 @@ REPOSITORY_EXTRA_KEYS='http://maedevu.maemo.org/testing-key.asc'
 
 # Enable ccache (compiler cache for fast recompilation of C/C++ code)
 # to speed up builds.
-# USE_CCACHE=true
+USE_CCACHE=true
 
 # Specify the format (as accepted by the 'date' command) for the generated
 # build timestamp.
