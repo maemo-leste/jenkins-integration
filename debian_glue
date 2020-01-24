@@ -90,12 +90,22 @@ RELEASE_REPOSITORY="${DEFAULT_REPOSITORY}/release/${release}"
 # Default:
 # REPOSITORY_EXTRA=
 
+case "$distribution" in
+    stretch*|buster*|bullseye*|bookworm*)
+        # Debian
+        MIRROR="http://deb.debian.org/debian"
+        ;;
+    *)
+        # Devuan
+        MIRROR="http://pkgmaster.devuan.org/merged"
+esac
+
 REPOSITORY_EXTRA="deb http://maedevu.maemo.org/${release} ${release} main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${release} main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://pkgmaster.devuan.org/merged ${distribution}-updates main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://pkgmaster.devuan.org/merged ${distribution}-updates main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://pkgmaster.devuan.org/merged ${distribution}-security main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://pkgmaster.devuan.org/merged ${distribution}-security main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-updates main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution}-updates main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-security main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution}-security main contrib non-free"
 
 # Pull in deps from the main repo when building -devel
 _mainrel=${release%-devel}
@@ -126,8 +136,8 @@ limajobs="mesa"
 _enablebackports=false
 echo "$limajobs" | grep -q "$_curpkgname" && _enablebackports=true
 [ "$_enablebackports" = true ] && {
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://pkgmaster.devuan.org/merged ${distribution}-backports main contrib non-free"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://pkgmaster.devuan.org/merged ${distribution}-backports main contrib non-free"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-backports main contrib non-free"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution}-backports main contrib non-free"
 }
 
 # Comma separated list of URLs with keys for extra repositories.
