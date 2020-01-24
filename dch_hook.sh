@@ -15,7 +15,7 @@ echo "$_srcver" | grep -q ':' - && {
 }
 
 _pkgname=$(grep 'Package: ' debian/control | sed 1q | cut -d' ' -f2)
-_deb=$(find /srv/repository/release/$release/pool -type f -name "${_pkgname}_${_srcver}*.deb" | sed 1q)
+_deb=$(find /srv/repository/release/$release/pool -type f -name "${_pkgname}_${_srcver}*.deb" | sort -rg | sed 1q)
 _deb=$(basename $_deb)
 echo "*** deb == $_deb ***"
 
