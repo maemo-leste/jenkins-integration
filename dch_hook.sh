@@ -1,9 +1,22 @@
 #!/bin/bash
 
-[ "$distribution" = jessie ] && release_num=0
-[ "$distribution" = ascii ]  && release_num=1
-[ "$distribution" = ascii-devel ] && release_num=1
-[ "$distribution" = beowulf ] && release_num=2
+case "$distribution" in
+    jessie*)
+        release_num=0
+        ;;
+    ascii*|stretch*)
+        release_num=1
+        ;;
+    beowulf*|buster*)
+        release_num=2
+        ;;
+    bullseye*)
+        release_num=3
+        ;;
+    bookworm*)
+        release_num=4
+        ;;
+esac
 
 _srcinfo=$(dpkg-parsechangelog -n 1 -l debian/changelog)
 _srcname=$(echo "$_srcinfo" | grep '^Source: ' | cut -d' ' -f2)
