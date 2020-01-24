@@ -50,7 +50,6 @@ DCH_OPTS="--multimaint-merge --ignore-branch"
 #maybe? line 103 in /usr/bin/generate-git-snapshot
 UNRELEASEAD_APPEND_COMMIT="false"
 
-
 # By default reprepro repositories are not verified but assumed to be
 # trustworthy.
 # Please note that if you build packages for Squeeze, the reprepro
@@ -66,6 +65,7 @@ REPOSITORY_KEYRING=/var/lib/jenkins/.gnupg/keyring.gpg
 # is used as release repository. If you want to use a different
 # directory set RELEASE_REPOSITORY accordingly.
 # Default:
+# RELEASE_REPOSITORY="${REPOSITORY}/release/${release}"
 RELEASE_REPOSITORY="${DEFAULT_REPOSITORY}/release/${release}"
 
 # Remove packages from a $release before processing incoming
@@ -88,6 +88,7 @@ RELEASE_REPOSITORY="${DEFAULT_REPOSITORY}/release/${release}"
 # Usage example:
 # REPOSITORY_EXTRA='deb http://security.debian.org/ wheezy/updates main,deb-src http://security.debian.org/ wheezy/updates main'
 # Default:
+# REPOSITORY_EXTRA=
 
 REPOSITORY_EXTRA="deb http://maedevu.maemo.org/${release} ${release} main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${release} main contrib non-free"
@@ -96,24 +97,22 @@ REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://pkgmaster.devuan.org/merged
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://pkgmaster.devuan.org/merged ${distribution}-security main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://pkgmaster.devuan.org/merged ${distribution}-security main contrib non-free"
 
-# Pull in deps from the main repo when building -devel.
-if echo "${release}" | grep -q -- '-devel$'; then
-	_mainrel="$(echo "${release}" | sed 's,-devel,,')"
+# Pull in deps from the main repo when building -devel
+_mainrel=${release%-devel}
+if [ "$_mainrel" != "$release" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
 fi
 
-# Pull in deps from the main repo when building -extra.
-if echo "${release}" | grep -q -- '-extras$'; then
-	_mainrel="$(echo "${release}" | sed 's,-extras,,')"
+# Pull in deps from the main repo when building -extras
+_mainrel=${release%-extras}
+if [ "$_mainrel" != "$release" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
 fi
 
 # for n900 specifics
-n900jobs="
-	n9xx-xf86-video-fbdev-sgx
-"
+n900jobs="n9xx-xf86-video-fbdev-sgx"
 _curpkgname="$(echo $WORKSPACE | awk -F/ '{print $6}' | sed 's/-binaries$//')"
 _enablen900=false
 echo "$n900jobs" | grep -q "$_curpkgname" && _enablen900=true
@@ -135,6 +134,7 @@ echo "$limajobs" | grep -q "$_curpkgname" && _enablebackports=true
 # Usage example:
 # REPOSITORY_EXTRA_KEYS='http://foorepo.domain.com/key1.gpg,http://barrepo.domain.com/key2.gpg'
 # Default:
+# REPOSITORY_EXTRA_KEYS=
 REPOSITORY_EXTRA_KEYS='http://maedevu.maemo.org/testing-key.asc'
 
 # autopkgtests are executed automatically inside the cowbuilder environment by
@@ -171,4 +171,3 @@ USE_CCACHE=true
 # this.
 # Default: false
 # UNRELEASED_APPEND_COMMIT=false
-
