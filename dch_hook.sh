@@ -29,20 +29,26 @@ echo "$_srcver" | grep -q ':' - && {
 
 _pkgname=$(grep 'Package: ' debian/control | sed 1q | cut -d' ' -f2)
 _deb=$(find /srv/repository/release/$release/pool -type f -name "${_pkgname}_${_srcver}*.deb" | sort -rg | sed 1q)
-_deb=$(basename $_deb)
-echo "*** deb == $_deb ***"
 
-_buildnum=$(echo $_deb | awk -F'+' '{print $NF}' | cut -d'_' -f1)
-echo "*** buildnum == $_buildnum ***"
+if [ -n "$_deb" ] ; then
+    _deb=$(basename $_deb)
+    echo "*** deb == $_deb ***"
 
-if echo $_buildnum | grep -q "^${release_num}m7$"; then
-    echo "*** Found previous build (no rebuilds). Appending .1"
-    _buildnum="${_buildnum}.1"
-elif echo $_buildnum | grep -q "^${release_num}m7\.."; then
-    echo "*** Found previous rebuild. Incrementing build number ***"
-    _buildnum=$(echo $_buildnum | awk -F. '{print $NF}')
-    _buildnum=$(expr $_buildnum + 1)
-    _buildnum="${release_num}m7.${_buildnum}"
+    _buildnum=$(echo $_deb | awk -F'+' '{print $NF}' | cut -d'_' -f1)
+    echo "*** buildnum == $_buildnum ***"
+
+    if echo $_buildnum | grep -q "^${release_num}m7$"; then
+        echo "*** Found previous build (no rebuilds). Appending .1"
+        _buildnum="${_buildnum}.1"
+    elif echo $_buildnum | grep -q "^${release_num}m7\.."; then
+        echo "*** Found previous rebuild. Incrementing build number ***"
+        _buildnum=$(echo $_buildnum | awk -F. '{print $NF}')
+        _buildnum=$(expr $_buildnum + 1)
+        _buildnum="${release_num}m7.${_buildnum}"
+    else
+        echo "*** Did not find previous builds. Assuming +${release_num}m7 ***"
+        _buildnum="${release_num}m7"
+    fi
 else
     echo "*** Did not find previous builds. Assuming +${release_num}m7 ***"
     _buildnum="${release_num}m7"
