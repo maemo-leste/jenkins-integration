@@ -54,9 +54,9 @@ _jobs =  OrderedDict([
     ('libosso', {}),
 
     #
-    ('icd2-osso-ic-dev', {
-        'arches': ['all'],
-    }),
+    ('icd2-osso-ic-dev', {}),
+#        'arches': ['all'],
+#    }),
 
     #
     ('libconic', {}),
@@ -73,7 +73,7 @@ _jobs =  OrderedDict([
     ('statusbar-alarm-dbus-api', {}),
 
     #
-    ('libhildon', {}),
+    ('libhildon', {}), # XXX: needs bayamo fixes
 
     #
     ('maemo-system-services', {}),
@@ -88,7 +88,7 @@ _jobs =  OrderedDict([
     ('osso-af-utils', {}),
 
     #
-    ('osso-af-startup', {      # bayamo current
+    ('osso-af-startup', {
         'arches': ['all'],
     }),
 
@@ -98,22 +98,19 @@ _jobs =  OrderedDict([
     }),
 
     #
-    ('osso-af-settings', {
-        'arches': ['all'],
-    }),
+    ('osso-af-settings', {}),
 
     #
     ('ke-recv-extra', {}),
 
-    # fixed with a hack, remember to fix properly
-    # https://git.devuan.org/maemo/clipboard-manager/commit/df4d727d4dc95cd01014dc388c9c1088c8a296f5
-    ('clipboard-manager', {}),
+    #
+    ('clipboard-manager', {}),  # bayamo current
 
     #
     ('libhildondesktop', {}),
 
     #
-    ('alarmd', {}),
+    ('alarmd', {}), # already ported to bayamo
 
     #
     ('maemo-launcher', {}),
@@ -223,6 +220,11 @@ _jobs =  OrderedDict([
 
     #
     ('icd2', {}),
+
+    #
+    ('hildon-base', {
+        'arches': ['all'],
+    }),
 
     #
     ('hildon-meta', {
@@ -437,10 +439,17 @@ _jobs =  OrderedDict([
     ('python-hildon', {}),
 
     #
+    ('python-osso', {}),
+
+    #
     ('python-hildondesktop', {}),
 
     #
     ('hildon-application-manager', {
+    }),
+
+    #
+    ('hildon-application-manager-settings-standard', {
     }),
 
     #
@@ -459,6 +468,11 @@ _jobs =  OrderedDict([
 
     #
     ('hildon-games-wrapper', {}),
+
+    #
+    ('xkb-data', {
+        'arches': ['all'],
+    }),
 
     # Extra pkg
     ('binaryclock-plugin', {
@@ -481,6 +495,12 @@ _jobs =  OrderedDict([
     }),
 
     # Extra pkg
+    ('brainparty-data', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg
     ('scummvm', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
@@ -493,6 +513,22 @@ _jobs =  OrderedDict([
     # Extra pkg
     ('osso-mahjong', {
         'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('mypaint', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('uae4all', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('sojourner', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
     }),
 ])
 
