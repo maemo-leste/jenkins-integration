@@ -121,16 +121,7 @@ if [ "$_mainrel" != "$release" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
 fi
 
-# for n900 specifics
-n900jobs="n9xx-xf86-video-fbdev-sgx"
 _curpkgname="$(echo $WORKSPACE | awk -F/ '{print $6}' | sed 's/-binaries$//')"
-_enablen900=false
-echo "$n900jobs" | grep -q "$_curpkgname" && _enablen900=true
-
-[ "$_enablen900" = true ] && {
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${release} n900"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${release} n900"
-}
 
 limajobs="mesa"
 _enablebackports=false

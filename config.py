@@ -225,11 +225,6 @@ _jobs =  OrderedDict([
     ('icd2', {}),
 
     #
-    ('n9xx-xf86-video-fbdev-sgx', {
-        'arches': ['armhf'],
-    }),
-
-    #
     ('hildon-meta', {
         'arches': ['all'],
     }),
