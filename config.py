@@ -206,6 +206,21 @@ _jobs =  OrderedDict([
     #
     ('hildon-desktop', {}),
 
+    # n900-specific from spinal
+    ('hildon-desktop-n900', {
+        'arches': ['armhf'],
+    }),
+
+    # n900-specific from spinal
+    ('clutter-0.8', {
+        'arches': ['armhf'],
+    }),
+
+    # n900 specific from spinal
+    ('matchbox-window-manager-n900', {
+        'arches': ['armhf'],
+    }),
+
     #
     ('osso-applet-notificationlight', {}),
 
@@ -220,6 +235,11 @@ _jobs =  OrderedDict([
 
     #
     ('icd2', {}),
+
+    #
+    ('theme-default-settings', {
+        'arches': ['all'],
+    }),
 
     #
     ('hildon-base', {
