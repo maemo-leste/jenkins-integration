@@ -94,6 +94,10 @@ case "$distribution" in
     stretch*|buster*|bullseye*|bookworm*)
         # Debian
         MIRROR="http://deb.debian.org/debian"
+        # This option is needed for pbuilder to work nice in Devuan environment
+        PBUILDER_CONFIG=/etc/jenkins/debian_mirror
+        # Initialize it with command:
+        # echo 'MIRRORSITE=http://deb.debian.org/debian' > /etc/jenkins/debian_mirror
         ;;
     *)
         # Devuan
