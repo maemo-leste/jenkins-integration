@@ -43,7 +43,7 @@ if [ -n "$_deb" ] ; then
     elif echo $_buildnum | grep -q "^${release_num}m7\.."; then
         echo "*** Found previous rebuild. Incrementing build number ***"
         _buildnum=$(echo $_buildnum | awk -F. '{print $NF}')
-        _buildnum="${release_num}m7.$[_buildnum + 1]"
+        _buildnum="${release_num}m7.$((_buildnum + 1))"
     else
         echo "*** Did not find previous builds. Assuming +${release_num}m7 ***"
         _buildnum="${release_num}m7"
