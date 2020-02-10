@@ -131,15 +131,14 @@ if [ "$_mainrel" != "$release" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
 fi
 
+# Device specifics
+lima_jobs="mesa"
 _curpkgname="$(echo $WORKSPACE | awk -F/ '{print $6}' | sed 's/-binaries$//')"
 
-limajobs="mesa"
-_enablebackports=false
-echo "$limajobs" | grep -q "$_curpkgname" && _enablebackports=true
-[ "$_enablebackports" = true ] && {
+if echo "$lima_jobs" | grep -qw "$_curpkgname"; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-backports main contrib non-free"
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution}-backports main contrib non-free"
-}
+fi
 
 # Comma separated list of URLs with keys for extra repositories.
 # Usage example:
