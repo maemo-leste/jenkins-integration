@@ -94,6 +94,9 @@ case "$distribution" in
     stretch*|buster*|bullseye*|bookworm*)
         # Debian
         MIRROR="http://deb.debian.org/debian"
+        SECURITY_MIRROR="http://security.debian.org/debian-security"
+        SECURITY_FOLDER="${distribution}/updates"
+
         # This option is needed for pbuilder to work nice in Devuan environment
         PBUILDER_CONFIG=/etc/jenkins/debian_mirror
         # Initialize it with command:
@@ -102,14 +105,16 @@ case "$distribution" in
     *)
         # Devuan
         MIRROR="http://pkgmaster.devuan.org/merged"
+        SECURITY_MIRROR="${MIRROR}"
+        SECURITY_FOLDER="${distribution}-security"
 esac
 
 REPOSITORY_EXTRA="deb http://maedevu.maemo.org/${release} ${release} main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${release} main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-updates main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution}-updates main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-security main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution}-security main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
 
 # Pull in deps from the main repo when building -devel
 _mainrel=${release%-devel}
