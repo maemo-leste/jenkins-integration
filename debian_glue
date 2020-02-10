@@ -109,12 +109,13 @@ case "$distribution" in
         SECURITY_FOLDER="${distribution}-security"
 esac
 
-REPOSITORY_EXTRA="deb http://maedevu.maemo.org/${release} ${release} main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${release} main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-updates main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution}-updates main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
+
+REPOSITORY_EXTRA="deb http://maedevu.maemo.org/${release} ${release} main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${release} main contrib non-free"
 
 # Pull in deps from the main repo when building -devel
 _mainrel=${release%-devel}
