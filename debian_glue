@@ -133,11 +133,17 @@ fi
 
 # Device specifics
 lima_jobs="mesa"
+n900_jobs="matchbox-window-manager-n900 hildon-desktop-n900"
 _curpkgname="$(echo $WORKSPACE | awk -F/ '{print $6}' | sed 's/-binaries$//')"
 
 if echo "$lima_jobs" | grep -qw "$_curpkgname"; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-backports main contrib non-free"
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution}-backports main contrib non-free"
+fi
+
+if echo "$n900_jobs" | grep -qw "$_curpkgname"; then
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${release} n900"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${release} n900"
 fi
 
 # Comma separated list of URLs with keys for extra repositories.
