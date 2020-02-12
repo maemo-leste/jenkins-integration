@@ -481,6 +481,9 @@ _jobs =  OrderedDict([
     ('osso-pdf-viewer', {
     }),
 
+    #
+    ('iso-codes-locale-resolver', {}),
+
     # ********************* Extras start here?
     #
     ('libsdl', {}),
