@@ -217,7 +217,7 @@ _jobs =  OrderedDict([
     }),
 
     # n900 specific from spinal
-    ('matchbox-window-manager-n900', {
+    ('libmatchbox2-n900', {
         'arches': ['armhf'],
     }),
 
@@ -483,6 +483,9 @@ _jobs =  OrderedDict([
 
     #
     ('iso-codes-locale-resolver', {}),
+
+    #
+    ('surf2', {}),
 
     # ********************* Extras start here?
     #
