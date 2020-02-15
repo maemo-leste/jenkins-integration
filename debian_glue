@@ -133,7 +133,7 @@ fi
 
 # Device specifics
 lima_jobs="mesa"
-n900_jobs="matchbox-window-manager-n900 hildon-desktop-n900"
+n900_jobs="libmatchbox2-n900 hildon-desktop-n900"
 _curpkgname="$(echo $WORKSPACE | awk -F/ '{print $6}' | sed 's/-binaries$//')"
 
 if echo "$lima_jobs" | grep -qw "$_curpkgname"; then
