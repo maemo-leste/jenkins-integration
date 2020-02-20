@@ -1,10 +1,10 @@
 from collections import OrderedDict
 
 DEFAULT_RELEASES = {
-    'leste': 'ascii',
-    'leste-extras': 'ascii',
-    'leste-devel': 'ascii-devel',
-    'bayamo': 'beowulf',
+    'ascii': 'ascii',
+    'extras': 'ascii',
+    'ascii-devel': 'ascii-devel',
+    'beowulf': 'beowulf',
 }
 DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
 #DEFAULT_ARCHES = ['amd64', 'armhf', 'armel', 'arm64']

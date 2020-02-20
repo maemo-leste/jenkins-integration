@@ -66,7 +66,17 @@ REPOSITORY_KEYRING=/var/lib/jenkins/.gnupg/keyring.gpg
 # directory set RELEASE_REPOSITORY accordingly.
 # Default:
 # RELEASE_REPOSITORY="${REPOSITORY}/release/${release}"
-RELEASE_REPOSITORY="${DEFAULT_REPOSITORY}/release/${release}"
+
+case "$release" in
+ascii*|beowulf*)
+	repo="leste"
+	;;
+extras-*)
+	release="extras"
+	;;
+esac
+
+RELEASE_REPOSITORY="${DEFAULT_REPOSITORY}/${repo}"
 
 # Remove packages from a $release before processing incoming
 # This allows to rebuild and provide versions already existent
@@ -95,7 +105,7 @@ case "$distribution" in
         # Debian
         MIRROR="http://deb.debian.org/debian"
         SECURITY_MIRROR="http://security.debian.org/debian-security"
-        SECURITY_FOLDER="${distribution}/updates"
+        SECURITY_FOLDER="${distribution%-devel}/updates"
 
         # This option is needed for pbuilder to work nice in Devuan environment
         PBUILDER_CONFIG=/etc/jenkins/debian_mirror
@@ -106,29 +116,29 @@ case "$distribution" in
         # Devuan
         MIRROR="http://pkgmaster.devuan.org/merged"
         SECURITY_MIRROR="${MIRROR}"
-        SECURITY_FOLDER="${distribution}-security"
+        SECURITY_FOLDER="${distribution%-devel}-security"
 esac
 
-REPOSITORY_EXTRA="deb ${MIRROR} ${distribution}-updates main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution}-updates main contrib non-free"
+REPOSITORY_EXTRA="deb ${MIRROR} ${distribution%-devel}-updates main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution%-devel}-updates main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
 
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${release} main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${release} main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${repo} ${distribution} main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${distribution} main contrib non-free"
 
 # Pull in deps from the main repo when building -devel
-_mainrel=${release%-devel}
-if [ "$_mainrel" != "$release" ]; then
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
+_mainrel=${distribution%-devel}
+if [ "$_mainrel" != "$distribution" ]; then
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${repo} ${_mainrel} main contrib non-free"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${_mainrel} main contrib non-free"
 fi
 
 # Pull in deps from the main repo when building -extras
-_mainrel=${release%-extras}
-if [ "$_mainrel" != "$release" ]; then
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${_mainrel} ${_mainrel} main contrib non-free"
+_mainrel=${distribution%-extras}
+if [ "$_mainrel" != "$distribution" ]; then
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${repo} ${_mainrel} main contrib non-free"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${_mainrel} main contrib non-free"
 fi
 
 # Device specifics
@@ -142,8 +152,8 @@ if echo "$lima_jobs" | grep -qw "$_curpkgname"; then
 fi
 
 if echo "$n900_jobs" | grep -qw "$_curpkgname"; then
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${release} n900"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${release} n900"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${repo} ${distribution} n900"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${distribution} n900"
 fi
 
 # Comma separated list of URLs with keys for extra repositories.

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 case "$distribution" in
     jessie*)
@@ -28,13 +28,14 @@ if echo "$_srcver" | grep -q ':'; then
 fi
 
 _pkgname=$(grep 'Package: ' debian/control | sed 1q | cut -d' ' -f2)
-_deb=$(find /srv/repository/release/$release/pool -type f -name "${_pkgname}_${_srcver}*.deb" | sort -rg | sed 1q)
+_ver="$(reprepro -b "/srv/repository/leste" list "$distribution" "$_pkgname" | cut -d' ' -f3 | sort -rg | sed 1q)"
+if [ -z "$_ver" ]; then
+    _ver="$(reprepro -b "/srv/repository/extras" list "$distribution" "$_pkgname" | cut -d' ' -f3 | sort -rg | sed 1q)"
+fi
 
-if [ -n "$_deb" ] ; then
-    _deb=$(basename $_deb)
-    _buildnum=$(echo $_deb | awk -F'+' '{print $NF}' | cut -d'_' -f1)
+if [ -n "$_ver" ] ; then
+    _buildnum="$(echo $_ver | awk -F'+' '{print $NF}')" 
 
-    echo "*** deb == $_deb ***"
     echo "*** buildnum == $_buildnum ***"
 
     if echo $_buildnum | grep -q "^${release_num}m7$"; then
