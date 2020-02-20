@@ -1,0 +1,15 @@
+Name: ascii
+IncomingDir: incoming/ascii
+TempDir: tmp/ascii
+LogDir: log/ascii
+MorgueDir: morgue/ascii
+Default: ascii
+Cleanup: unused_files on_deny on_error
+
+Name: beowulf
+IncomingDir: incoming/beowulf
+TempDir: tmp/beowulf
+LogDir: log/beowulf
+MorgueDir: morgue/beowulf
+Default: beowulf
+Cleanup: unused_files on_deny on_error
