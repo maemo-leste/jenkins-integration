@@ -28,13 +28,6 @@ if echo "$_srcver" | grep -q ':'; then
 fi
 
 _pkgname=$(grep 'Package: ' debian/control | sed 1q | cut -d' ' -f2)
-
-case "$_pkgname" in
-maemo-keyring)
-	exit 0
-	;;
-esac
-
 _ver="$(reprepro -b "/srv/repository/leste" list "$distribution" "$_pkgname" | cut -d' ' -f3 | sort -rg | sed 1q)"
 if [ -z "$_ver" ]; then
     _ver="$(reprepro -b "/srv/repository/extras" list "$distribution" "$_pkgname" | cut -d' ' -f3 | sort -rg | sed 1q)"
