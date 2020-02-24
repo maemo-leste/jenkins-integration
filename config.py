@@ -20,6 +20,11 @@ _jobs = {
 """
 
 _jobs =  OrderedDict([
+    #
+    ('maemo-keyring', {
+        'arches': ['all'],
+    }),
+
     # comment here
     ('libcal', {
         #'releases': {
