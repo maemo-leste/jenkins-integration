@@ -4,8 +4,8 @@ Suite: leste-extras
 Codename: ascii
 Version: 1.0
 Architectures: amd64 armhf armel arm64 source
-Components: main contrib non-free n90 droid4 n9 n950 lima pinephone
-UDebComponents: main contrib non-free n90 droid4 n9 n950 lima pinephone
+Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
+UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste Extras (Devuan Ascii)
 SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
 
@@ -15,7 +15,7 @@ Suite: bayamo-extras
 Codename: beowulf
 Version: 1.0
 Architectures: amd64 armhf armel arm64 source
-Components: main contrib non-free n90 droid4 n9 n950 lima pinephone
-UDebComponents: main contrib non-free n90 droid4 n9 n950 lima pinephone
+Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
+UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste Extras (Devuan Ascii)
 SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
