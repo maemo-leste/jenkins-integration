@@ -389,6 +389,9 @@ _jobs =  OrderedDict([
         'arches': ['armhf', 'arm64'],
     }),
 
+    # glib with fixes
+    ('glib', {}),
+
     #
     ('osso-calculator-engine', {}),
 
