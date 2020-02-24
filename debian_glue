@@ -6,7 +6,14 @@
 # signed and the keyring that holds the public key (REPOSITORY_KEYRING)
 # must be set.
 # Expected format: DEADBEEF
-KEY_ID=4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
+case "$release" in
+extras)
+	KEY_ID=89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
+	;;
+*)
+	KEY_ID=4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
+	;;
+esac
 
 # If TRUNK_RELEASE is set then the package(s) of the repository
 # receiving the packages that are built will be copied to the
@@ -71,8 +78,9 @@ case "$release" in
 ascii*|beowulf*)
 	repo="leste"
 	;;
-extras-*)
-	release="extras"
+extras)
+	repo="extras"
+	release="ascii"
 	;;
 esac
 
