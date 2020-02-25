@@ -28,10 +28,22 @@ if echo "$_srcver" | grep -q ':'; then
 fi
 
 _pkgname=$(grep 'Package: ' debian/control | sed 1q | cut -d' ' -f2)
-_ver="$(reprepro -b "/srv/repository/leste" list "$distribution" "$_pkgname" | cut -d' ' -f3 | sort -rg | sed 1q)"
-if [ -z "$_ver" ]; then
-    _ver="$(reprepro -b "/srv/repository/extras" list "$distribution" "$_pkgname" | cut -d' ' -f3 | sort -rg | sed 1q)"
-fi
+
+# This should find the highest version (increment) of the wanted package.
+v1="$(reprepro -b "/srv/repository/leste"  list "${distribution}"        "${_pkgname}")"
+v2="$(reprepro -b "/srv/repository/leste"  list "${distribution%-devel}" "${_pkgname}")"
+v3="$(reprepro -b "/srv/repository/extras" list "${distribution}"        "${_pkgname}")"
+v4="$(reprepro -b "/srv/repository/extras" list "${distribution%-devel}" "${_pkgname}")"
+
+_tempver=$(mktemp)
+cat <<EOF > "$_tempver"
+$v1
+$v2
+$v3
+$v4
+EOF
+
+_ver="$(cat "$_tempver" | cut -d' ' -f3 | sort -rg | sed 1q)"
 
 if [ -n "$_ver" ] ; then
     _buildnum="$(echo $_ver | awk -F'+' '{print $NF}')"
@@ -68,4 +80,4 @@ EOF
 cat debian/changelog >> $_tempchangelog
 
 cat $_tempchangelog > debian/changelog
-rm -f $_tempchangelog
+rm -f $_tempchangelog $_tempver
