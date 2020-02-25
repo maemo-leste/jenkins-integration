@@ -13,15 +13,20 @@ def main():
     parser.add_argument('-j', '--jobname', type=str, default=None)
     parser.add_argument('-n', '--dry_run', action='store_true')
     parser.add_argument('-d', '--distro', type=str, default='all')  # maybe implement an 'all' logic?
+    parser.add_argument('-r', '--release', type=str, default='leste')
 
     args = parser.parse_args()
 
-    if args.distro not in DEFAULT_RELEASES:
-        print('Distro unsupported. Use something from %s' % DEFAULT_RELEASES)
+    if args.release not in DEFAULT_RELEASES:
+        print('Release unsupported. Use something from %s' % DEFAULT_RELEASES.keys())
         return
 
-    release = args.distro
-    distribution = DEFAULT_RELEASES[release]
+    if args.distro not in DEFAULT_RELEASES[args.release]:
+        print('Distro unsupported. Use something from %s' % DEFAULT_RELEASES[args.release])
+        return
+
+    release = args.release
+    distribution = args.distro
 
     japi = Jenkins(jenkins_host, username=jenkins_user, password=jenkins_pass)
 
