@@ -1,6 +1,6 @@
 Origin: Devuan
 Label: Devuan-All
-Suite: leste
+Suite: stable
 Codename: ascii
 Version: 1.0
 Architectures: amd64 armhf armel arm64 source
@@ -11,7 +11,7 @@ SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Devuan
 Label: Devuan-All
-Suite: leste-devel
+Suite: testing
 Codename: ascii-devel
 Version: 1.0
 Architectures: amd64 armhf armel arm64 source
@@ -22,7 +22,7 @@ SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Devuan
 Label: Devuan-All
-Suite: bayamo
+Suite: unstable
 Codename: beowulf
 Version: 1.0
 Architectures: amd64 armhf armel arm64 source
