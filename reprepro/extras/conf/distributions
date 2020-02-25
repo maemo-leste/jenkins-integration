@@ -3,7 +3,7 @@ Label: Maemo Leste Extras
 Suite: stable
 Codename: ascii
 Version: 1.0
-Architectures: amd64 armhf armel arm64 source
+Architectures: amd64 armhf armel arm64
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
 UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste Extras (Devuan Ascii)
@@ -14,7 +14,7 @@ Label: Maemo Leste Extras
 Suite: unstable
 Codename: beowulf
 Version: 1.0
-Architectures: amd64 armhf armel arm64 source
+Architectures: amd64 armhf armel arm64
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
 UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste Extras (Devuan Ascii)
