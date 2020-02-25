@@ -135,10 +135,10 @@ REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${repo} ${dis
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${distribution} main contrib non-free"
 
 # Pull in deps from the main repo when building -devel
-_mainrel=${distribution%-devel}
-if [ "$_mainrel" != "$distribution" ]; then
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${repo} ${_mainrel} main contrib non-free"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${_mainrel} main contrib non-free"
+_dist=${distribution%-devel}
+if [ "$_dist" != "$distribution" ]; then
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${repo} ${_dist} main contrib non-free"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${_dist} main contrib non-free"
 fi
 
 # Pull in deps from the main repo when building -extras
