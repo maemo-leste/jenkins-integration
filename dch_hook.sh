@@ -34,7 +34,7 @@ if [ -z "$_ver" ]; then
 fi
 
 if [ -n "$_ver" ] ; then
-    _buildnum="$(echo $_ver | awk -F'+' '{print $NF}')" 
+    _buildnum="$(echo $_ver | awk -F'+' '{print $NF}')"
 
     echo "*** buildnum == $_buildnum ***"
 
