@@ -7,7 +7,7 @@
 # must be set.
 # Expected format: DEADBEEF
 
-if ["$release" = "leste"]; then
+if [ "$release" = "leste" ]; then
 	KEY_ID=4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 else
 	# extras
