@@ -2,7 +2,6 @@ Origin: Maemo Leste
 Label: Maemo Leste
 Suite: stable
 Codename: ascii
-Version: 1.0
 Architectures: amd64 armhf armel arm64
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
 UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
@@ -13,7 +12,6 @@ Origin: Maemo Leste
 Label: Maemo Leste
 Suite: testing
 Codename: ascii-devel
-Version: 1.0
 Architectures: amd64 armhf armel arm64
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
 UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
@@ -24,7 +22,6 @@ Origin: Maemo Leste
 Label: Maemo Leste
 Suite: unstable
 Codename: beowulf
-Version: 1.0
 Architectures: amd64 armhf armel arm64
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
 UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
