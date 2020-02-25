@@ -1,5 +1,5 @@
-Origin: Devuan
-Label: Devuan-All
+Origin: Maemo Leste
+Label: Maemo Leste
 Suite: stable
 Codename: ascii
 Version: 1.0
@@ -9,8 +9,8 @@ UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste (Devuan Ascii)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
-Origin: Devuan
-Label: Devuan-All
+Origin: Maemo Leste
+Label: Maemo Leste
 Suite: testing
 Codename: ascii-devel
 Version: 1.0
@@ -20,8 +20,8 @@ UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste Devel (Devuan Ascii)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
-Origin: Devuan
-Label: Devuan-All
+Origin: Maemo Leste
+Label: Maemo Leste
 Suite: unstable
 Codename: beowulf
 Version: 1.0
