@@ -50,8 +50,8 @@ Adding a repository
 
 Steps:
 
-1. Add `maemo/RELEASE` branch (where `RELEASE` is `jessie`, `ascii`,
-   `unstable`) that contains the `debian/` directory
+1. Add `maemo/RELEASE` branch (where `RELEASE` is `ascii`, `ascii-devel`,
+   `beowulf`) that contains the `debian/` directory
 2. Ensure debian/control follows recent practices (if not, you'll find out
    during build)
 3. Add debian/gbp.conf
@@ -129,8 +129,8 @@ config.py
     _jobs = {
         # job name is key, values can be:
         # 'repo-name': required if repo name is not the same as job name
-        # 'host': required if host is not git.devuan.org/maemo
-        # 'releases': {'leste': 'jessie', 'unstable': 'unstable'}
+        # 'host': required if host is not https://github.com/maemo-leste/%s
+        # 'releases': {'leste': 'ascii', 'extras': 'beowulf'}
         'libcal': {'repo-name': 'libcal'}
     }
 
