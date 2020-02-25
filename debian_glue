@@ -73,17 +73,7 @@ REPOSITORY_KEYRING=/var/lib/jenkins/.gnupg/keyring.gpg
 # Default:
 # RELEASE_REPOSITORY="${REPOSITORY}/release/${release}"
 
-case "$release" in
-ascii*|beowulf*)
-	repo="leste"
-	;;
-extras)
-	repo="extras"
-	distribution="ascii"
-	;;
-esac
-
-RELEASE_REPOSITORY="${DEFAULT_REPOSITORY}/${repo}"
+RELEASE_REPOSITORY="${DEFAULT_REPOSITORY}/${release}"
 
 # Remove packages from a $release before processing incoming
 # This allows to rebuild and provide versions already existent
@@ -131,14 +121,14 @@ REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution%-devel}-u
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
 
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${repo} ${distribution} main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${distribution} main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} main contrib non-free"
+REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${distribution} main contrib non-free"
 
 # Pull in deps from the main repo when building -devel
 _dist=${distribution%-devel}
 if [ "$_dist" != "$distribution" ]; then
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${repo} ${_dist} main contrib non-free"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${_dist} main contrib non-free"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${_dist} main contrib non-free"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${_dist} main contrib non-free"
 fi
 
 # Pull in deps from the main repo when building extras
@@ -158,8 +148,8 @@ if echo "$lima_jobs" | grep -qw "$_curpkgname"; then
 fi
 
 if echo "$n900_jobs" | grep -qw "$_curpkgname"; then
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${repo} ${distribution} n900"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${distribution} n900"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} n900"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${distribution} n900"
 fi
 
 # Comma separated list of URLs with keys for extra repositories.
