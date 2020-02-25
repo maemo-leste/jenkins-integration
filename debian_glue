@@ -141,11 +141,10 @@ if [ "$_dist" != "$distribution" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${_dist} main contrib non-free"
 fi
 
-# Pull in deps from the main repo when building -extras
-_mainrel=${distribution%-extras}
-if [ "$_mainrel" != "$distribution" ]; then
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${repo} ${_mainrel} main contrib non-free"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${repo} ${_mainrel} main contrib non-free"
+# Pull in deps from the main repo when building extras
+if [ "$release" = "extras" ]; then
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/leste ${distribution} main contrib non-free"
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/leste ${distribution} main contrib non-free"
 fi
 
 # Device specifics
