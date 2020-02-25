@@ -18,12 +18,12 @@ case "$distribution" in
         ;;
 esac
 
-_srcinfo=$(dpkg-parsechangelog -n 1 -l debian/changelog)
-_srcname=$(echo "$_srcinfo" | grep '^Source: ' | cut -d' ' -f2)
-_srcver=$(echo "$_srcinfo" | grep '^Version: ' | cut -d' ' -f2)
+_srcinfo="$(dpkg-parsechangelog -n 1 -l debian/changelog)"
+_srcname="$(echo "$_srcinfo" | awk '/^Source: / {print $2}')"
+_srcver="$(echo "$_srcinfo" | awk '/^Version: / {print $2}')"
 
 if echo "$_srcver" | grep -q ':'; then
-    _epoch="$(echo $_srcver | awk -F: '{print $1}')"
+    _epoch="$(echo $_srcver  | awk -F: '{print $1}')"
     _srcver="$(echo $_srcver | awk -F: '{print $2}')"
 fi
 
