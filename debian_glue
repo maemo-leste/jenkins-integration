@@ -117,24 +117,18 @@ case "$distribution" in
 esac
 
 REPOSITORY_EXTRA="deb ${MIRROR} ${distribution%-devel}-updates main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution%-devel}-updates main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
-
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} main contrib non-free"
-REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${distribution} main contrib non-free"
 
 # Pull in deps from the main repo when building -devel
 _dist=${distribution%-devel}
 if [ "$_dist" != "$distribution" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${_dist} main contrib non-free"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${_dist} main contrib non-free"
 fi
 
 # Pull in deps from the main repo when building extras
 if [ "$release" = "extras" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/leste ${distribution} main contrib non-free"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/leste ${distribution} main contrib non-free"
 fi
 
 # Device specifics
@@ -144,12 +138,10 @@ _curpkgname="$(echo $WORKSPACE | awk -F/ '{print $6}' | sed 's/-binaries$//')"
 
 if echo "$lima_jobs" | grep -qw "$_curpkgname"; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-backports main contrib non-free"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src ${MIRROR} ${distribution}-backports main contrib non-free"
 fi
 
 if echo "$n900_jobs" | grep -qw "$_curpkgname"; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} n900"
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb-src http://maedevu.maemo.org/${release} ${distribution} n900"
 fi
 
 # Comma separated list of URLs with keys for extra repositories.
