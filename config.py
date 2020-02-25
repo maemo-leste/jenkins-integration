@@ -1,10 +1,10 @@
 from collections import OrderedDict
 
 DEFAULT_RELEASES = {
-    'ascii': 'ascii',
+    'leste': 'ascii',
+    'leste': 'ascii-devel',
+    'leste': 'beowulf',
     'extras': 'ascii',
-    'ascii-devel': 'ascii-devel',
-    'beowulf': 'beowulf',
 }
 DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
 #DEFAULT_ARCHES = ['amd64', 'armhf', 'armel', 'arm64']
@@ -16,7 +16,7 @@ DEFAULT_ARCHES = ['amd64', 'armhf', 'arm64']
 _jobs = {
     'job-name': {'repo-name': 'repo-name-if-not-equal-to-job-name',
                  'host': 'host here if not equal to DEFAULT_HOST',
-                 'releases': {'some-MAEMO-release': 'DEVUAN-upstream-release'}
+                 'releases': {'maemo-leste-repo': 'devuan-distribution'}
 """
 
 _jobs =  OrderedDict([
