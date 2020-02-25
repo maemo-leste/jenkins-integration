@@ -80,7 +80,7 @@ ascii*|beowulf*)
 	;;
 extras)
 	repo="extras"
-	release="ascii"
+	distribution="ascii"
 	;;
 esac
 
