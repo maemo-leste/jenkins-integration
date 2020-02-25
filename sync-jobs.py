@@ -7,13 +7,26 @@ from config import get_jobs
 
 from jenkins_creds import (jenkins_host, jenkins_user, jenkins_pass)
 
+"""
+API Reference:
+japi.create_job()
+japi.build_job()
+japi.reconfig_job()
+japi.rename_job()
+japi.disable_job()
+japi.enable_job()
+japi.delete_job()
+japi.cancel_queue()
+japi.job_exists()
+japi.get_job_config()
+"""
 
 def _create_archvals(arches):
     ar = ['<string>%s</string>' % a for a in arches]
     return '\t' + '\n\t'.join(ar)
 
 
-def add_jobs(japi, jobs, jobname):
+def create_job_config(japi, jobs, jobname):
     job_info = jobs[jobname]
 
     source = '%s-source' % jobname
@@ -46,8 +59,15 @@ def add_jobs(japi, jobs, jobname):
         bin_job = bin_job.replace('{{{%s}}}' % r[0], r[1])
         rep_job = rep_job.replace('{{{%s}}}' % r[0], r[1])
 
-    return japi.create_job(source, src_job), japi.create_job(binaries, bin_job), \
-        japi.create_job(repos, rep_job)
+    return (source, src_job), (binaries, bin_job), (repos, rep_job)
+
+
+def add_jobs(japi, jobs, jobname):
+    sources, binaries, repos = create_job_config(japi, jobs, jobname)
+
+    return japi.create_job(sources[0], sources[1]), \
+        japi.create_job(binaries[0], binaries[1]), \
+        japi.create_job(repos[0], repos[1])
 
 
 def del_jobs(japi, jobs, jobname):
@@ -61,34 +81,11 @@ def del_jobs(japi, jobs, jobname):
 
 
 def reconfig_jobs(japi, jobs, jobname):
-    job_info = jobs[jobname]
+    sources, binaries, repos = create_job_config(japi, jobs, jobname)
 
-    source = '%s-source' % jobname
-    binaries = '%s-binaries' % jobname
-    repos = '%s-repos' % jobname
-
-    archval = _create_archvals(job_info['arches'])
-    labelval = archval
-
-    replacements = [('DESCRIPTION', job_info['repo_name']),
-                    ('GITURL', job_info['host']),
-                    ('JOBNAME', binaries),
-                    ('COPYFROM', source),
-                    ('REPOSJOB', repos),
-                    ('ARCHVALUES', archval),
-                    ('LABELVALUES', labelval)]
-
-    src_job = open('source.xml', encoding='utf-8').read()
-    bin_job = open('binaries.xml', encoding='utf-8').read()
-    rep_job = open('repos.xml', encoding='utf-8').read()
-
-    for r in replacements:
-        src_job = src_job.replace('{{{%s}}}' % r[0], r[1])
-        bin_job = bin_job.replace('{{{%s}}}' % r[0], r[1])
-        rep_job = rep_job.replace('{{{%s}}}' % r[0], r[1])
-
-    return japi.reconfig_job(source, src_job), japi.reconfig_job(binaries, bin_job), \
-        japi.reconfig_job(repos, rep_job)
+    return japi.reconfig_job(sources[0], sources[1]), \
+        japi.reconfig_job(binaries[0], binaries[1]), \
+        japi.reconfig_job(repos[0], repos[1])
 
 
 def main():
@@ -131,20 +128,6 @@ def main():
 
         jobs_to_remove = all_jobs - all_config_jobs
         jobs_to_add = all_config_jobs - all_jobs
-        # TODO: we need to compare repo names and everything else later (can pickle that to a file)
-
-        # from lxml import objectify
-        # jobxml = japi.get_job_config(jobname)
-        # tree = objectify.fromstring(jobxml)
-
-        # compare:
-        #   * repo_name
-        # tree.builders['hudson.plugins.parameterizedtrigger.TriggerBuilder']['configs']['hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig']['projects']
-        #   * host
-        # tree.scm.userRemoteConfigs['hudson.plugins.git.UserRemoteConfig']['url']
-        #   * description
-        # tree.description
-
 
         def filter_jobs(jobs):
             return list(map(lambda x: x[:-len('-source')], filter(lambda x: x.endswith('-source'), jobs)))
@@ -168,20 +151,5 @@ def main():
             add_jobs(japi, jobs, j)
 
 
-
 if __name__ == '__main__':
     main()
-
-
-"""
-jenk.create_job()
-jenk.build_job()
-jenk.reconfig_job()
-jenk.rename_job()
-jenk.disable_job()
-jenk.enable_job()
-jenk.delete_job()
-jenk.cancel_queue()
-jenk.job_exists()
-jenk.get_job_config()
-"""

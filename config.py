@@ -1,13 +1,17 @@
 from collections import OrderedDict
 
 DEFAULT_RELEASES = {
-    'leste': 'ascii',
-    'leste': 'ascii-devel',
-    'leste': 'beowulf',
-    'extras': 'ascii',
+    'leste': [
+        'ascii',
+        'ascii-devel',
+        'beowulf'
+    ],
+    'extras': [
+        'ascii',
+        'beowulf'
+    ],
 }
 DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
-#DEFAULT_ARCHES = ['amd64', 'armhf', 'armel', 'arm64']
 DEFAULT_ARCHES = ['amd64', 'armhf', 'arm64']
 
 
@@ -19,7 +23,7 @@ _jobs = {
                  'releases': {'maemo-leste-repo': 'devuan-distribution'}
 """
 
-_jobs =  OrderedDict([
+_jobs = OrderedDict([
     #
     ('maemo-keyring', {
         'arches': ['all'],
@@ -60,8 +64,6 @@ _jobs =  OrderedDict([
 
     #
     ('icd2-osso-ic-dev', {}),
-#        'arches': ['all'],
-#    }),
 
     #
     ('libconic', {}),
@@ -82,12 +84,6 @@ _jobs =  OrderedDict([
 
     #
     ('maemo-system-services', {}),
-
-
-    #
-    #('osso-core-config', {
-    #    'arches': ['all'],
-    #}),
 
     #
     ('osso-af-utils', {}),
