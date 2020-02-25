@@ -15,5 +15,5 @@ Codename: beowulf
 Architectures: amd64 armhf armel arm64
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
 UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
-Description: Maemo Leste Extras (Devuan Ascii)
+Description: Maemo Leste Extras (Devuan Beowulf)
 SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
