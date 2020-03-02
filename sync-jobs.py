@@ -99,7 +99,22 @@ def main():
 
     japi = Jenkins(jenkins_host, username=jenkins_user, password=jenkins_pass)
     all_jobs = set([x['name'] for x in japi.get_all_jobs()])
-    exceptions = ['jenkins-debian-glue']  # list of jobs we don't want to touch
+
+    # list of jobs we don't want to touch
+    exceptions = [
+        'jenkins-debian-glue',
+        'leste-image-virtual',
+        'leste-image-n900',
+        'leste-image-droid4',
+        'leste-image-pinephone',
+        'leste-image-pinetab',
+        'leste-image-raspi3-64bit',
+        'leste-image-raspi2',
+        'leste-image-arm64-generic',
+        'leste-image-turbox-twister',
+        'leste-image-olimex-lime2',
+    ]
+
     jobs = get_jobs()
 
     if args.sync and args.reconfig:
