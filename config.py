@@ -433,7 +433,7 @@ _jobs = OrderedDict([
 
     #
     ('firmware-ti-bluetooth', {
-        'arches': ['armhf'],
+        'arches': ['all'],
     }),
 
     #
