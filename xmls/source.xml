@@ -71,9 +71,15 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>
-        export PRE_DCH_HOOK=/var/lib/jenkins/jenkins-integration/dch_hook.sh
-        /usr/bin/generate-git-snapshot
+      <command>export PRE_DCH_HOOK=/var/lib/jenkins/jenkins-integration/dch_hook.sh
+
+if echo &quot;${distribution}&quot; | grep -q -- &apos;-devel$&apos; -; then
+    export ENABLE_MAEMO_DEVEL=yes
+else
+    export ENABLE_MAEMO_DEVEL=no
+fi
+
+/usr/bin/generate-git-snapshot
        </command>
     </hudson.tasks.Shell>
     <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.35.1">

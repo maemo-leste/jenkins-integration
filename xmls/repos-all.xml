@@ -67,6 +67,13 @@ case &quot;$branch&quot; in tags/*|branches/*) export IGNORE_RELEASE_TRUNK=true;
 export BASE_PATH=&quot;binaries&quot;
 export PROVIDE_ONLY=true
 export RELEASE_DISTRIBUTION=&quot;${distribution}&quot;
+
+if echo &quot;${distribution}&quot; | grep -q -- &apos;-devel$&apos; -; then
+    export ENABLE_MAEMO_DEVEL=yes
+else
+    export ENABLE_MAEMO_DEVEL=no
+fi
+
 /usr/bin/build-and-provide-package || exit 1
 
 rsync -aqr --delete-after /srv/repository/* amprolla@maedevu.maemo.org:/srv/repository/</command>
