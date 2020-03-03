@@ -565,6 +565,11 @@ _jobs = OrderedDict([
         'host': 'https://github.com/maemo-leste-extras/%s',
         'arches': ['all'],
     }),
+
+    # Extra pkg
+    ('pyfuelpad', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
 ])
 
 def get_jobs():
