@@ -159,15 +159,15 @@ On the `New node` screen, we have to configure our slave node:
 
 Once this is set, proceed with configuring as follows:
 
-    * Name: `armel`
+    * Name: `armhf`
     * Description: `armv7 machine`
     * # of executors: `2`
     * Remote root directory: `/var/lib/jenkins`
       (this is ~jenkins on master)
-    * Labels: `armel`
+    * Labels: `armhf`
     * Usage: `Only build jobs with label expressions matching this node`
     * Launch method: `Launch slave agents via SSH`
-    * Host: `armelslave.maemo.org`
+    * Host: `armhf.slave.maemo.org`
     * Credentials: setup proper credentials here
     * Host key verification strategy: `Known hosts file`
       (this requires a manual login once beforehand)
