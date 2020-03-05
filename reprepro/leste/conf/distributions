@@ -4,7 +4,6 @@ Suite: stable
 Codename: ascii
 Architectures: amd64 armhf arm64
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
-UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste (Devuan Ascii)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
@@ -14,7 +13,6 @@ Suite: testing
 Codename: ascii-devel
 Architectures: amd64 armhf arm64
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
-UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste Devel (Devuan Ascii)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
@@ -24,6 +22,5 @@ Suite: unstable
 Codename: beowulf
 Architectures: amd64 armhf arm64
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
-UDebComponents: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste (Devuan Beowulf)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
