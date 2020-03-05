@@ -2,7 +2,7 @@ Origin: Maemo Leste
 Label: Maemo Leste
 Suite: stable
 Codename: ascii
-Architectures: amd64 armhf arm64
+Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste (Devuan Ascii)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
@@ -11,7 +11,7 @@ Origin: Maemo Leste
 Label: Maemo Leste
 Suite: testing
 Codename: ascii-devel
-Architectures: amd64 armhf arm64
+Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste Devel (Devuan Ascii)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
@@ -20,7 +20,7 @@ Origin: Maemo Leste
 Label: Maemo Leste
 Suite: unstable
 Codename: beowulf
-Architectures: amd64 armhf arm64
+Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste (Devuan Beowulf)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
@@ -30,7 +30,7 @@ Origin: Maemo Leste
 Label: Maemo Leste
 Suite: stable
 Codename: stretch
-Architectures: amd64 armhf arm64
+Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste (Debian Stretch)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
@@ -39,7 +39,7 @@ Origin: Maemo Leste
 Label: Maemo Leste
 Suite: unstable
 Codename: buster
-Architectures: amd64 armhf arm64
+Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
 Description: Maemo Leste (Debian Buster)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
