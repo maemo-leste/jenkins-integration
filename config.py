@@ -570,6 +570,11 @@ _jobs = OrderedDict([
     ('pyfuelpad', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
+
+    # Extra pkg
+    ('9x9-sudoku', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
 ])
 
 def get_jobs():
