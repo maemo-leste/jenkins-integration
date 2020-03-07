@@ -131,12 +131,16 @@ if [ "$release" = "extras" ]; then
 fi
 
 # Device specifics
-lima_jobs="mesa"
+backports_jobs="mesa"
 n900_jobs="libmatchbox2-n900 hildon-desktop-n900"
 _curpkgname="$(echo $WORKSPACE | awk -F/ '{print $6}' | sed 's/-binaries$//')"
 
-if echo "$lima_jobs" | grep -qw "$_curpkgname"; then
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-backports main contrib non-free"
+if echo "$backports_jobs" | grep -qw "$_curpkgname"; then
+	case "$distribution" in
+	ascii*|stretch*)
+		REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution%-devel}-backports main contrib non-free"
+		;;
+	esac
 fi
 
 if echo "$n900_jobs" | grep -qw "$_curpkgname"; then
