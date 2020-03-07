@@ -388,8 +388,10 @@ _jobs = OrderedDict([
     #
     ('ke-recv', {}),
 
-    # mesa with lima and GLESv1
-    ('mesa', {}),
+    # mesa for lime2 and a33
+    ('mesa', {
+        'arches': ['armhf', 'arm64'],
+    }),
 
     # glib with fixes
     ('glib', {}),
