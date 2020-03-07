@@ -21,3 +21,27 @@ LogDir: log/beowulf
 MorgueDir: morgue/beowulf
 Default: beowulf
 Cleanup: unused_files on_deny on_error
+
+Name: beowulf-devel
+IncomingDir: incoming/beowulf-devel
+TempDir: tmp/beowulf-devel
+LogDir: log/beowulf-devel
+MorgueDir: morgue/beowulf-devel
+Default: beowulf-devel
+Cleanup: unused_files on_deny on_error
+
+Name: stretch
+IncomingDir: incoming/stretch
+TempDir: tmp/stretch
+LogDir: log/stretch
+MorgueDir: morgue/stretch
+Default: stretch
+Cleanup: unused_files on_deny on_error
+
+Name: buster
+IncomingDir: incoming/buster
+TempDir: tmp/buster
+LogDir: log/buster
+MorgueDir: morgue/buster
+Default: buster
+Cleanup: unused_files on_deny on_error
