@@ -4,7 +4,10 @@ DEFAULT_RELEASES = {
     'leste': [
         'ascii',
         'ascii-devel',
-        'beowulf'
+        'beowulf',
+        'beowulf-devel',
+        'stretch',
+        'buster',
     ],
     'extras': [
         'ascii',
