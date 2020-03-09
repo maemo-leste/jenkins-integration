@@ -9,7 +9,7 @@ SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
 Label: Maemo Leste
-Suite: testing
+Suite: devel
 Codename: ascii-devel
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 n9 n950 lima pinephone
