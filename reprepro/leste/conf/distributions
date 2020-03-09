@@ -1,5 +1,5 @@
 Origin: Maemo Leste
-Label: Maemo Leste
+Label: leste-devuan
 Suite: stable
 Codename: ascii
 Architectures: amd64 armhf arm64 source
@@ -8,7 +8,7 @@ Description: Maemo Leste (Devuan Ascii)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
-Label: Maemo Leste
+Label: leste-devuan
 Suite: devel
 Codename: ascii-devel
 Architectures: amd64 armhf arm64 source
@@ -17,7 +17,7 @@ Description: Maemo Leste Devel (Devuan Ascii)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
-Label: Maemo Leste
+Label: leste-devuan
 Suite: unstable
 Codename: beowulf
 Architectures: amd64 armhf arm64 source
@@ -26,7 +26,7 @@ Description: Maemo Leste (Devuan Beowulf)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
-Label: Maemo Leste
+Label: leste-devuan
 Suite: experimental
 Codename: beowulf-devel
 Architectures: amd64 armhf arm64 source
@@ -35,7 +35,7 @@ Description: Maemo Leste Devel (Devuan Beowulf)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
-Label: Maemo Leste
+Label: leste-debian
 Suite: stable
 Codename: stretch
 Architectures: amd64 armhf arm64 source
@@ -44,7 +44,7 @@ Description: Maemo Leste (Debian Stretch)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
-Label: Maemo Leste
+Label: leste-debian
 Suite: unstable
 Codename: buster
 Architectures: amd64 armhf arm64 source
