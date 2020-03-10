@@ -135,8 +135,8 @@ REPOSITORY_EXTRA="deb ${MIRROR} ${distribution%-devel}-updates main contrib non-
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} main contrib non-free"
 
-# Pull in deps from -devel when building -devel.
-if [ "$ENABLE_MAEMO_DEVEL" == "yes" ]; then
+# Pull in deps from -devel when building -devel
+if [ "$ENABLE_MAEMO_DEVEL" = "yes" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution}-devel main contrib non-free"
 fi
 
