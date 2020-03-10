@@ -78,11 +78,10 @@
     <hudson.tasks.Shell>
       <command>export BUILD_ONLY=true
 
-if echo &quot;${distribution}&quot; | grep -q -- &apos;-devel$&apos; -; then
-    __dist=&quot;$(echo &quot;${distribution}&quot; | sed &apos;s,-devel,,&apos;)&quot;
+__dist=${distribution%-devel}
+if [ &quot;$distribution&quot; != &quot;$__dist&quot; ]; then
     export ENABLE_MAEMO_DEVEL=yes
 else
-    __dist=&quot;${distribution}&quot;
     export ENABLE_MAEMO_DEVEL=no
 fi
 
