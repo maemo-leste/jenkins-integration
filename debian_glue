@@ -97,6 +97,7 @@ RELEASE_REPOSITORY="${DEFAULT_REPOSITORY}/${release}"
 # Default:
 # REPOSITORY_EXTRA=
 
+PARENT_DISTRO=
 DEVUAN_BUILD=
 
 case "$distribution" in
