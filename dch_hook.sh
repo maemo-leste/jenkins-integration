@@ -32,14 +32,13 @@ _pkgname=$(grep 'Package: ' debian/control | sed 1q | cut -d' ' -f2)
 # This should find the highest version (increment) of the wanted package.
 v1="$(reprepro -b "/srv/repository/leste"  list "${distribution}"        "${_pkgname}")"
 v2="$(reprepro -b "/srv/repository/leste"  list "${distribution%-devel}" "${_pkgname}")"
-v3="$(reprepro -b "/srv/repository/extras" list "${distribution}"        "${_pkgname}")"
+#v3="$(reprepro -b "/srv/repository/extras" list "${distribution}"        "${_pkgname}")"
 v4="$(reprepro -b "/srv/repository/extras" list "${distribution%-devel}" "${_pkgname}")"
 
 _tempver=$(mktemp)
 cat <<EOF > "$_tempver"
 $v1
 $v2
-$v3
 $v4
 EOF
 
