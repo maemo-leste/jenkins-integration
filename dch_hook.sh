@@ -68,7 +68,7 @@ fi
 [ -n "$_epoch" ] && _srcver="${_epoch}:${_srcver}"
 
 _tempchangelog=$(mktemp)
-cat << EOF > $_tempchangelog
+cat << EOF | tee $_tempchangelog
 $_srcname (${_srcver}+${_buildnum}) unstable; urgency=medium
 
   * Increment build number
