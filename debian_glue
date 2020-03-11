@@ -152,7 +152,7 @@ fi
 # REPOSITORY_EXTRA_KEYS='http://foorepo.domain.com/key1.gpg,http://barrepo.domain.com/key2.gpg'
 # Default:
 # REPOSITORY_EXTRA_KEYS=
-REPOSITORY_EXTRA_KEYS='http://maedevu.maemo.org/testing-key.asc'
+REPOSITORY_EXTRA_KEYS='http://maedevu.maemo.org/testing-key.asc,http://maedevu.maemo.org/extras-key.asc'
 
 # autopkgtests are executed automatically inside the cowbuilder environment by
 # default, corresponding to the ADT='internal' setting or if ADT is unset.
