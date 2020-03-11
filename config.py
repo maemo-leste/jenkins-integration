@@ -508,6 +508,17 @@ _jobs = OrderedDict([
     ('hildon-games-wrapper', {}),
 
     #
+    ('hildon-control-panel-personalisation', {}),
+
+    #
+    ('hildon-theme-tools', {}),
+
+    #
+    ('hildon-theme-layout', {
+        'arches': ['all'],
+    }),
+
+    #
     ('xkb-data', {
         'arches': ['all'],
     }),
@@ -577,6 +588,12 @@ _jobs = OrderedDict([
     # Extra pkg
     ('9x9-sudoku', {
         'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('hildon-theme-marina', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
     }),
 ])
 
