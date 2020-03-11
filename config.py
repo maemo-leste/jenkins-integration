@@ -482,6 +482,7 @@ _jobs = OrderedDict([
 
     #
     ('hildon-application-manager-settings-standard', {
+        'arches': ['all'],
     }),
 
     #
