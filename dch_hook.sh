@@ -21,6 +21,12 @@ esac
 _srcinfo="$(dpkg-parsechangelog -n 1 -l debian/changelog)"
 _srcname="$(echo "$_srcinfo" | awk '/^Source: / {print $2}')"
 _srcver="$(echo "$_srcinfo" | awk '/^Version: / {print $2}')"
+
+if echo "$_srcver" | grep -q ':'; then
+    _epoch="$(echo $_srcver  | awk -F: '{print $1}')"
+    _srcver="$(echo $_srcver | awk -F: '{print $2}')"
+fi
+
 _pkgname=$(grep 'Package: ' debian/control | sed 1q | cut -d' ' -f2)
 
 # This should find the highest version (increment) of the wanted package.
@@ -58,6 +64,8 @@ else
     echo "*** Did not find previous builds. Assuming +${release_num}m7 ***"
     _buildnum="${release_num}m7"
 fi
+
+[ -n "$_epoch" ] && _srcver="${_epoch}:${_srcver}"
 
 _tempchangelog=$(mktemp)
 cat << EOF | tee $_tempchangelog
