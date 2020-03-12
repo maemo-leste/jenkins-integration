@@ -24,7 +24,7 @@ _srcver="$(echo "$_srcinfo" | awk '/^Version: / {print $2}')"
 _pkgname=$(grep 'Package: ' debian/control | sed 1q | cut -d' ' -f2)
 
 # This should find the highest version (increment) of the wanted package.
-_deb=$(find /srv/repository/{leste,extras}/pool -type f \
+_deb=$(find /srv/repository/leste/pool /srv/repository/extras/pool -type f \
            -name "${_pkgname}_${_srcver#*:}+${release_num}m7*.deb" | sort -rg | sed 1q)
 
 if [ -n "$_deb" ] ; then
