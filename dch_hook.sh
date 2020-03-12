@@ -24,20 +24,32 @@ _srcver="$(echo "$_srcinfo" | awk '/^Version: / {print $2}')"
 _pkgname=$(grep 'Package: ' debian/control | sed 1q | cut -d' ' -f2)
 
 # This should find the highest version (increment) of the wanted package.
-_deb=$(find /srv/repository/{leste,extras}/pool -type f \
-           -name "${_pkgname}_${_srcver#*:}*.deb" | sort -rg | sed 1q)
+v1="$(reprepro -b "/srv/repository/leste"  list "${distribution}"        "${_pkgname}")"
+v2="$(reprepro -b "/srv/repository/leste"  list "${distribution%-devel}" "${_pkgname}")"
+#v3="$(reprepro -b "/srv/repository/extras" list "${distribution}"        "${_pkgname}")"
+v4="$(reprepro -b "/srv/repository/extras" list "${distribution%-devel}" "${_pkgname}")"
 
-if [ -n "$_deb" ] ; then
-    _buildnum=$(basename $_deb | perl -pe 's,^.*\+(.*)_.*$,\1,')
+_tempver=$(mktemp)
+cat <<EOF > "$_tempver"
+$v1
+$v2
+$v4
+EOF
+
+_ver="$(cat "$_tempver" | cut -d' ' -f3 | sort -rg | sed 1q)"
+
+if [ -n "$_ver" ] ; then
+    _buildnum="$(echo $_ver | awk -F'+' '{print $NF}')"
 
     echo "*** buildnum == $_buildnum ***"
 
-    if [ "$_buildnum" = "${release_num}m7" ]; then
+    if echo $_buildnum | grep -q "^${release_num}m7$"; then
         echo "*** Found previous build (no rebuilds). Appending .1"
         _buildnum="${_buildnum}.1"
     elif echo $_buildnum | grep -q "^${release_num}m7\.."; then
         echo "*** Found previous rebuild. Incrementing build number ***"
-        _buildnum=$(echo $_buildnum | perl -pe 's,(?<=\.)(\d+),$1+1,e')
+        _buildnum=$(echo $_buildnum | awk -F. '{print $NF}')
+        _buildnum="${release_num}m7.$((_buildnum + 1))"
     else
         echo "*** Did not find previous builds. Assuming +${release_num}m7 ***"
         _buildnum="${release_num}m7"
@@ -59,4 +71,4 @@ EOF
 cat debian/changelog >> $_tempchangelog
 
 cat $_tempchangelog > debian/changelog
-rm -f $_tempchangelog
+rm -f $_tempchangelog $_tempver
