@@ -210,10 +210,8 @@ _jobs = OrderedDict([
     #
     ('hildon-desktop', {}),
 
-    # n900-specific from spinal
-    ('hildon-desktop-n900', {
-        'arches': ['armhf'],
-    }),
+    #
+    ('hildon-desktop-clutter-1.x', {}),
 
     #
     ('clutter-0.8', {}),
