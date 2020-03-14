@@ -215,10 +215,8 @@ _jobs = OrderedDict([
         'arches': ['armhf'],
     }),
 
-    # n900-specific from spinal
-    ('clutter-0.8', {
-        'arches': ['armhf'],
-    }),
+    #
+    ('clutter-0.8', {}),
 
     # n900 specific from spinal
     ('libmatchbox2-n900', {
