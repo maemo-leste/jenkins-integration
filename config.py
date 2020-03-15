@@ -430,6 +430,11 @@ _jobs = OrderedDict([
         'arches': ['armhf'],
     }),
 
+    # omap driver for droid4
+    ('xf86-video-omap', {
+        'arches': ['armhf'],
+    }),
+
     #
     ('firmware-ti-bluetooth', {
         'arches': ['all'],
