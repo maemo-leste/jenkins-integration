@@ -155,7 +155,7 @@ fi
 
 # Device specifics
 backports_jobs="mesa"
-n900_jobs="libmatchbox2-n900 hildon-desktop-n900"
+#n900_jobs="libmatchbox2-n900 hildon-desktop-n900"
 _curpkgname="$(echo $WORKSPACE | awk -F/ '{print $6}' | sed 's/-binaries$//')"
 
 if echo "$backports_jobs" | grep -qw "$_curpkgname"; then
@@ -166,9 +166,9 @@ if echo "$backports_jobs" | grep -qw "$_curpkgname"; then
 	esac
 fi
 
-if echo "$n900_jobs" | grep -qw "$_curpkgname"; then
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} n900"
-fi
+#if echo "$n900_jobs" | grep -qw "$_curpkgname"; then
+#	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} n900"
+#fi
 
 # Comma separated list of URLs with keys for extra repositories.
 # Usage example:
