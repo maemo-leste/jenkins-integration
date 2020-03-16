@@ -436,6 +436,11 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('libdri2', {
+        'arches': ['armhf'],
+    }),
+
+    #
     ('firmware-ti-bluetooth', {
         'arches': ['all'],
     }),
