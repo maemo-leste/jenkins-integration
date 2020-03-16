@@ -170,6 +170,11 @@ fi
 #	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} n900"
 #fi
 
+droid4_jobs="pvr-omap4"
+if echo "$droid4_jobs" | grep -qw "$_curpkgname"; then
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} droid4"
+fi
+
 # Comma separated list of URLs with keys for extra repositories.
 # Usage example:
 # REPOSITORY_EXTRA_KEYS='http://foorepo.domain.com/key1.gpg,http://barrepo.domain.com/key2.gpg'
