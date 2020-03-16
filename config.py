@@ -436,6 +436,11 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('pvr-omap4', {
+        'arches': ['armhf'],
+    }),
+
+    #
     ('libdri2', {
         'arches': ['armhf'],
     }),
