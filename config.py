@@ -608,6 +608,11 @@ _jobs = OrderedDict([
         'host': 'https://github.com/maemo-leste-extras/%s',
         'arches': ['all'],
     }),
+
+    # Extra pkg
+    ('maeotp', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
 ])
 
 def get_jobs():
