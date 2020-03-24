@@ -531,7 +531,7 @@ _jobs = OrderedDict([
     }),
 
     #
-    ('osso-applet-languageregional'. {}),
+    ('osso-applet-languageregional', {}),
 
     #
     ('droid4-pm', {
