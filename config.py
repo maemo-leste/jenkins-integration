@@ -531,6 +531,14 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('osso-applet-languageregional'. {}),
+
+    #
+    ('droid4-pm', {
+        'arches': ['all'],
+    }),
+
+    #
     ('xkb-data', {
         'arches': ['all'],
     }),
