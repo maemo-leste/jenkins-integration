@@ -22,7 +22,7 @@
         <hudson.model.StringParameterDefinition>
           <name>distribution</name>
           <description></description>
-          <defaultValue>ascii</defaultValue>
+          <defaultValue>beowulf</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
