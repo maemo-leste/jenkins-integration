@@ -25,7 +25,7 @@ _pkgname=$(grep 'Package: ' debian/control | sed 1q | cut -d' ' -f2)
 
 # This should find the highest version (increment) of the wanted package.
 _deb=$(find /srv/repository/leste/pool /srv/repository/extras/pool -type f \
-           -name "${_pkgname}_${_srcver#*:}+${release_num}m7*.deb" | sort -rg | sed 1q)
+           -name "${_pkgname}_${_srcver#*:}+${release_num}m7*.deb" | sort -rV | sed 1q)
 
 if [ -n "$_deb" ] ; then
     _buildnum=$(basename $_deb | perl -pe 's,^.*\+(.*)_.*$,\1,')
