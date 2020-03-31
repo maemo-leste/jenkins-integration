@@ -384,11 +384,6 @@ _jobs = OrderedDict([
     #
     ('ke-recv', {}),
 
-    # mesa for lime2 and a33
-    ('mesa', {
-        'arches': ['armhf', 'arm64'],
-    }),
-
     # glib with fixes
     ('glib', {}),
 
@@ -506,6 +501,15 @@ _jobs = OrderedDict([
     #
     ('surf2', {}),
 
+    #
+    ('libglvnd', {}),
+
+    #
+    ('libdrm', {}),
+
+    #
+    ('mesa', {}),
+
     # ********************* Extras start here?
     #
     ('libsdl', {}),
@@ -542,6 +546,9 @@ _jobs = OrderedDict([
     ('xkb-data', {
         'arches': ['all'],
     }),
+
+    #
+    ('qtstyleplugins', {}),
 
     # Extra pkg
     ('binaryclock-plugin', {
