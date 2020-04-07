@@ -633,6 +633,11 @@ _jobs = OrderedDict([
     ('quicknote', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
+
+    # Extra pkg
+    ('photolightmeter', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
 ])
 
 def get_jobs():
