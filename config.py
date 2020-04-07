@@ -638,6 +638,11 @@ _jobs = OrderedDict([
     ('photolightmeter', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
+
+    # Extra pkg
+    ('personal-ip-address', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
 ])
 
 def get_jobs():
