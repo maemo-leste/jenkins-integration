@@ -13,3 +13,11 @@ LogDir: log/beowulf
 MorgueDir: morgue/beowulf
 Default: beowulf
 Cleanup: unused_files on_deny on_error
+
+Name: beowulf-devel
+IncomingDir: incoming/beowulf-devel
+TempDir: tmp/beowulf-devel
+LogDir: log/beowulf-devel
+MorgueDir: morgue/beowulf-devel
+Default: beowulf-devel
+Cleanup: unused_files on_deny on_error

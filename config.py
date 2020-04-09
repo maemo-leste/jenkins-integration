@@ -11,7 +11,8 @@ DEFAULT_RELEASES = {
     ],
     'extras': [
         'ascii',
-        'beowulf'
+        'beowulf',
+        'beowulf-devel',
     ],
 }
 DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
