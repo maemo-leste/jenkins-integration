@@ -647,6 +647,11 @@ _jobs = OrderedDict([
     ('personal-ip-address', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
+
+    # Extra pkg
+    ('countdowntimer', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
 ])
 
 def get_jobs():
