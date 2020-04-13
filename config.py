@@ -629,6 +629,12 @@ _jobs = OrderedDict([
     }),
 
     # Extra pkg
+    ('miku-theme', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg
     ('maeotp', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
