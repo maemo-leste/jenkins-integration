@@ -658,6 +658,11 @@ _jobs = OrderedDict([
     ('countdowntimer', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
+
+    # Extra pkg
+    ('mihphoto', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
 ])
 
 def get_jobs():
