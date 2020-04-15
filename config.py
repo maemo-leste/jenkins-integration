@@ -635,6 +635,12 @@ _jobs = OrderedDict([
     }),
 
     # Extra pkg
+    ('hildon-theme-matrix', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg
     ('maeotp', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
