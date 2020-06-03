@@ -554,6 +554,9 @@ _jobs = OrderedDict([
     #
     ('qt-platform-maemo', {}),
 
+    #
+    ('ti-utils-wilink6', {}),
+
     # Extra pkg
     ('binaryclock-plugin', {
         'host': 'https://github.com/maemo-leste-extras/%s',
