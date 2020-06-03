@@ -253,6 +253,11 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('leste-config', {
+        'arches': ['all'],
+    }),
+
+    #
     ('hildon-connectivity-meta', {
         'arches': ['all'],
     }),
