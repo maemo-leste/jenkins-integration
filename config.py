@@ -559,6 +559,11 @@ _jobs = OrderedDict([
         'arches': ['armhf'],
     }),
 
+    #
+    ('droid4-wlanconfig', {
+        'arches': ['armhf'],
+    }),
+
     # Extra pkg
     ('binaryclock-plugin', {
         'host': 'https://github.com/maemo-leste-extras/%s',
