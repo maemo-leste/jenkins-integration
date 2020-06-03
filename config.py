@@ -555,7 +555,9 @@ _jobs = OrderedDict([
     ('qt-platform-maemo', {}),
 
     #
-    ('ti-utils-wilink6', {}),
+    ('ti-utils-wilink6', {
+        'arches': ['armhf'],
+    }),
 
     # Extra pkg
     ('binaryclock-plugin', {
