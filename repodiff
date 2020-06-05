@@ -1,0 +1,38 @@
+#!/bin/sh
+
+REPO_BASE="${REPO_BASE:-/srv/repository/leste}"
+
+usage() {
+    cat <<EOF >&2
+usage: $(basename "$0") [repo1] [repo2]
+
+Environment:
+    REPO_BASE: path to repo base (default: $REPO_BASE)
+
+Output:
+    >foo : package is newer in repo1
+    <foo : package is newer in repo2
+EOF
+    exit 1
+}
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+    usage
+fi
+
+# Use tempfiles because it's cleaner, and no need for bashism
+l1="$(mktemp XXXX.txt)"
+l2="$(mktemp XXXX.txt)"
+
+reprepro -b "$REPO_BASE" list "$1" | cut -d' ' -f2- | sort | uniq > "$l1" || exit 1
+reprepro -b "$REPO_BASE" list "$2" | cut -d' ' -f2- | sort | uniq > "$l2" || exit 1
+
+join --nocheck-order "$l1" "$l2" | while read -r package firstver secondver; do
+    if dpkg --compare-versions "$firstver" lt "$secondver"; then
+        echo "<$package"
+    else
+        echo ">$package"
+    fi
+done
+
+rm -f "$l1" "$l2"
