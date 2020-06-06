@@ -566,7 +566,7 @@ _jobs = OrderedDict([
 
     #
     ('droid4-wlanconfig', {
-        'arches': ['armhf'],
+        'arches': ['all'],
     }),
 
     # Extra pkg
