@@ -33,6 +33,12 @@ _jobs = OrderedDict([
         'arches': ['all'],
     }),
 
+    # forked for openrc
+    ('init-system-helpers', {}),
+
+    # forked for openrc
+    ('insserv', {}),
+
     # comment here
     ('libcal', {
         #'releases': {
