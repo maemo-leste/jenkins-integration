@@ -34,9 +34,6 @@ _jobs = OrderedDict([
     }),
 
     # forked for openrc
-    ('init-system-helpers', {}),
-
-    # forked for openrc
     ('insserv', {}),
 
     # comment here
