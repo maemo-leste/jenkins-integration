@@ -264,6 +264,11 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('pinephone-modem-config', {
+        'arches': ['all'],
+    }),
+
+    #
     ('hildon-connectivity-meta', {
         'arches': ['all'],
     }),
