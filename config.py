@@ -557,6 +557,11 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('droid4-battery-calibration', {
+        'arches': ['all'],
+    }),
+
+    #
     ('xkb-data', {
         'arches': ['all'],
     }),
