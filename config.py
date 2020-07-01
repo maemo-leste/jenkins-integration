@@ -286,6 +286,9 @@ _jobs = OrderedDict([
     ('ofono-d4', {}),
 
     #
+    ('atinout', {}),
+
+    #
     ('connui-common', {}),
 
     #
