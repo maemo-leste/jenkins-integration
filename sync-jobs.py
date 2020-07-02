@@ -119,6 +119,7 @@ def main():
         'leste-image-pinephone',
         'leste-image-pinetab',
         'leste-image-raspi3-64bit',
+        'leste-image-raspi4-64bit',
         'leste-image-raspi2',
         'leste-image-arm64-generic',
         'leste-image-turbox-twister',
