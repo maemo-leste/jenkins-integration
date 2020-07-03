@@ -589,6 +589,10 @@ _jobs = OrderedDict([
     ('maemo-input-sounds', {
     }),
 
+    #
+    ('dbus-scripts', {
+    }),
+
     # Extra pkg
     ('binaryclock-plugin', {
         'host': 'https://github.com/maemo-leste-extras/%s',
