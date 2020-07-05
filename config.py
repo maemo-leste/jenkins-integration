@@ -590,6 +590,11 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('maemo-audio', {
+        'arches': ['all'],
+    }),
+
+    #
     ('dbus-scripts', {
     }),
 
