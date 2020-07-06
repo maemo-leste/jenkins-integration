@@ -156,11 +156,26 @@ fi
 # Device specifics
 backports_jobs="mesa"
 #n900_jobs="libmatchbox2-n900 hildon-desktop-n900"
-_curpkgname="$(echo $WORKSPACE | awk -F/ '{print $6}' | sed 's/-binaries$//')"
+
+echo "job_name: $JOB_NAME"
+case "$JOB_NAME" in
+*-source)
+	_curpkgname="$(echo $JOB_NAME | sed 's,-source$,,')"
+	;;
+*-binaries/*)
+	_curpkgname="$(echo $JOB_NAME | cut -d '/' -f1 | sed 's,-binaries$,,')"
+	;;
+*-repos/*)
+	_curpkgname="$(echo $JOB_NAME | cut -d '/' -f1 | sed 's,-repos$,,')"
+	;;
+*)
+	_curpkgname="irrelevant"
+	;;
+esac
 
 if echo "$backports_jobs" | grep -qw "$_curpkgname"; then
 	case "$distribution" in
-	ascii*|stretch*)
+	ascii*|stretch*|beowulf*|buster*)
 		REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-backports main contrib non-free"
 		;;
 	esac

@@ -4,7 +4,9 @@ REPO_BASE="${REPO_BASE:-/srv/repository/leste}"
 
 usage() {
     cat <<EOF >&2
-usage: $(basename "$0") [repo1] [repo2]
+usage: $(basename "$0") [-v] [repo1] [repo2]
+
+	-v	show package versions
 
 Environment:
     REPO_BASE: path to repo base (default: $REPO_BASE)
@@ -15,6 +17,18 @@ Output:
 EOF
     exit 1
 }
+
+for i in $@; do
+	case "$1" in
+	-v)
+		vflag=1
+		shift
+		;;
+	-*)
+		usage
+		;;
+	esac
+done
 
 if [ -z "$1" ] || [ -z "$2" ]; then
     usage
@@ -29,9 +43,17 @@ reprepro -b "$REPO_BASE" list "$2" | cut -d' ' -f2- | sort | uniq > "$l2" || exi
 
 join --nocheck-order "$l1" "$l2" | while read -r package firstver secondver; do
     if dpkg --compare-versions "$firstver" lt "$secondver"; then
-        echo "<$package"
+		if [ -n "$vflag" ]; then
+			echo "<$package $firstver < $secondver"
+		else
+			echo "<$package"
+		fi
     else
-        echo ">$package"
+		if [ -n "$vflag" ]; then
+			echo ">$package $firstver > $secondver"
+		else
+			echo ">$package"
+		fi
     fi
 done
 
