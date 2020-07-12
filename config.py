@@ -483,6 +483,9 @@ _jobs = OrderedDict([
     #
     ('rtcom-eventlogger', {}),
 
+    #
+    ('rtcom-eventlogger-plugins', {}),
+
     # ********************* Python stuff
     #
     ('pygtk', {}),
