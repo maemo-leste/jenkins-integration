@@ -407,10 +407,7 @@ _jobs = OrderedDict([
     #
     ('osso-calculator-engine', {}),
 
-    #
-    ('unicsy_demo', {
-        'arches': ['all'],
-    }),
+
 
     #
     ('libcmtspeechdata', {
@@ -752,6 +749,12 @@ _jobs = OrderedDict([
 
     # Extra pkg
     ('profilesx', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('unicsy_demo', {
+        'arches': ['all'],
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 ])
