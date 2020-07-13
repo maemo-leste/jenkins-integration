@@ -535,6 +535,11 @@ _jobs = OrderedDict([
     ('sdlgles', {}),
 
     #
+    ('gl4es', {
+        'arches': ['armhf'],
+    }),
+
+    #
     ('osso-games-startup', {}),
 
     #
