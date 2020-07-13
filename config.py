@@ -529,7 +529,7 @@ _jobs = OrderedDict([
 
     # ********************* Extras start here?
     #
-    ('libsdl', {}),
+    ('libsdl1.2', {}),
 
     #
     ('sdlgles', {}),
