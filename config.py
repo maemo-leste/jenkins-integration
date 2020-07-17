@@ -425,6 +425,11 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('pine64-uboot', {
+        'arches': ['all'],
+    }),
+
+    #
     ('rtl8723cs', {
         'arches': ['all'],
     }),
