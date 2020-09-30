@@ -407,8 +407,6 @@ _jobs = OrderedDict([
     #
     ('osso-calculator-engine', {}),
 
-
-
     #
     ('libcmtspeechdata', {
         'arches': ['armhf'],
@@ -605,8 +603,30 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('iio-sensor-proxy', {}),
+
+    #
     ('dbus-scripts', {
     }),
+
+    #
+    ('libgq-gconf', {
+    }),
+
+    #
+    ('clock-ui', {
+    }),
+
+    #
+    ('evolution-data-server', {
+    }),
+
+    #
+    ('eds-backend-telepathy', {
+    }),
+
+    #
+    ('osso-calculator', {}),
 
     # Extra pkg
     ('binaryclock-plugin', {
@@ -768,6 +788,11 @@ _jobs = OrderedDict([
     # Extra pkg
     ('unicsy_demo', {
         'arches': ['all'],
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('dorian', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 ])
