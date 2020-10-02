@@ -1,5 +1,5 @@
 <?xml version='1.1' encoding='UTF-8'?>
-<matrix-project plugin="matrix-project@1.14">
+<matrix-project plugin="matrix-project@1.17">
   <actions/>
   <description>{{{DESCRIPTION}}}</description>
   <keepDependencies>false</keepDependencies>
@@ -27,7 +27,7 @@
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
-    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@2.0.1">
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@2.0.3">
       <maxConcurrentPerNode>0</maxConcurrentPerNode>
       <maxConcurrentTotal>0</maxConcurrentTotal>
       <categories class="java.util.concurrent.CopyOnWriteArrayList"/>
@@ -64,7 +64,7 @@
   </axes>
   <combinationFilter>architecture == label</combinationFilter>
   <builders>
-    <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.43">
+    <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.45.1">
       <project>{{{COPYFROM}}}</project>
       <filter>*</filter>
       <target></target>
@@ -86,8 +86,9 @@ else
 fi
 
 distribution=${__dist} /usr/bin/build-and-provide-package</command>
+      <configuredLocalRules/>
     </hudson.tasks.Shell>
-    <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.36">
+    <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.39">
       <configs>
         <hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
           <configs>
@@ -116,7 +117,22 @@ label=${label}</properties>
       <fingerprint>false</fingerprint>
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
+      <followSymlinks>true</followSymlinks>
     </hudson.tasks.ArtifactArchiver>
+    <hudson.plugins.ircbot.IrcPublisher plugin="ircbot@2.33">
+      <targets class="empty-list"/>
+      <strategy>ALL</strategy>
+      <notifyOnBuildStart>true</notifyOnBuildStart>
+      <notifySuspects>false</notifySuspects>
+      <notifyCulprits>false</notifyCulprits>
+      <notifyFixers>false</notifyFixers>
+      <notifyUpstreamCommitters>false</notifyUpstreamCommitters>
+      <buildToChatNotifier class="hudson.plugins.im.build_notify.DefaultBuildToChatNotifier" plugin="instant-messaging@1.38"/>
+      <matrixMultiplier>ONLY_CONFIGURATIONS</matrixMultiplier>
+      <extraMessage></extraMessage>
+      <customMessage></customMessage>
+      <channels/>
+    </hudson.plugins.ircbot.IrcPublisher>
   </publishers>
   <buildWrappers>
     <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.38">

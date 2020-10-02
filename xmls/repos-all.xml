@@ -1,11 +1,10 @@
-<?xml version='1.1' encoding='UTF-8'?>
-<project>
+<?xml version="1.1" encoding="UTF-8"?><project>
   <actions/>
   <description>{{{DESCRIPTION}}}</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty plugin="gitlab-plugin@1.5.13">
-      <gitLabConnection></gitLabConnection>
+      <gitLabConnection/>
     </com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty>
     <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
       <autoRebuild>false</autoRebuild>
@@ -15,13 +14,13 @@
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
           <name>release</name>
-          <description></description>
+          <description/>
           <defaultValue>leste</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>distribution</name>
-          <description></description>
+          <description/>
           <defaultValue>beowulf</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
@@ -34,7 +33,7 @@
       <throttleEnabled>false</throttleEnabled>
       <throttleOption>project</throttleOption>
       <limitOneJobWithMatchingParams>false</limitOneJobWithMatchingParams>
-      <paramsToUseForLimit></paramsToUseForLimit>
+      <paramsToUseForLimit/>
     </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
@@ -48,8 +47,8 @@
     <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.43">
       <project>{{{JOBNAME}}}/default</project>
       <filter>*</filter>
-      <target></target>
-      <excludes></excludes>
+      <target/>
+      <excludes/>
       <selector class="hudson.plugins.copyartifact.StatusBuildSelector"/>
       <doNotFingerprintArtifacts>false</doNotFingerprintArtifacts>
     </hudson.plugins.copyartifact.CopyArtifact>
@@ -83,8 +82,8 @@ rsync -aqr --delete-after /srv/repository/* amprolla@maedevu.maemo.org:/srv/repo
   <buildWrappers>
     <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.38">
       <deleteDirs>false</deleteDirs>
-      <cleanupParameter></cleanupParameter>
-      <externalDelete></externalDelete>
+      <cleanupParameter/>
+      <externalDelete/>
       <disableDeferredWipeout>false</disableDeferredWipeout>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
   </buildWrappers>
