@@ -500,6 +500,9 @@ _jobs = OrderedDict([
     ('python-osso', {}),
 
     #
+    ('python-alarm', {}),
+
+    #
     ('python-hildondesktop', {}),
 
     #
@@ -610,6 +613,11 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('hildon-desktop-rotation-support', {
+        'arches': ['all'],
+    }),
+
+    #
     ('libgq-gconf', {
     }),
 
@@ -623,6 +631,14 @@ _jobs = OrderedDict([
 
     #
     ('eds-backend-telepathy', {
+    }),
+
+    #
+    ('calendar-backend', {
+    }),
+
+    #
+    ('qalendar', {
     }),
 
     #
@@ -805,6 +821,12 @@ _jobs = OrderedDict([
     ('min', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
+
+    # Extra pkg
+    ('cal-home-widget', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
 ])
 
 def get_jobs():
