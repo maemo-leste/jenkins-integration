@@ -630,6 +630,9 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('syncevolution', {}),
+
+    #
     ('eds-backend-telepathy', {
     }),
 
