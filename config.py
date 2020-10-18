@@ -506,6 +506,9 @@ _jobs = OrderedDict([
     ('python-hildondesktop', {}),
 
     #
+    ('gnome-python', {}),
+
+    #
     ('hildon-application-manager', {
     }),
 
@@ -646,6 +649,15 @@ _jobs = OrderedDict([
 
     #
     ('osso-calculator', {}),
+
+    #
+    ('clock', {}),
+
+    #
+    ('hildon-time-zone-chooser', {}),
+
+    #
+    ('applet-datetime', {}),
 
     # Extra pkg
     ('binaryclock-plugin', {
