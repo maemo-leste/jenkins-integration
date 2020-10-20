@@ -659,6 +659,9 @@ _jobs = OrderedDict([
     #
     ('applet-datetime', {}),
 
+    #
+    ('location-control', {}),
+
     # Extra pkg
     ('binaryclock-plugin', {
         'host': 'https://github.com/maemo-leste-extras/%s',
