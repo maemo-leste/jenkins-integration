@@ -1,6 +1,6 @@
 Origin: Maemo Leste
 Label: leste-devuan
-Suite: stable
+Suite: oldstable
 Codename: ascii
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
@@ -9,7 +9,7 @@ SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
 Label: leste-devuan
-Suite: devel
+Suite: oldstable
 Codename: ascii-devel
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
@@ -18,7 +18,7 @@ SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
 Label: leste-devuan
-Suite: unstable
+Suite: stable
 Codename: beowulf
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
@@ -27,7 +27,7 @@ SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
 Label: leste-devuan
-Suite: experimental
+Suite: testing
 Codename: beowulf-devel
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
@@ -35,8 +35,17 @@ Description: Maemo Leste Devel (Devuan Beowulf)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
+Label: leste-devuan
+Suite: experimental
+Codename: beowulf-experimental
+Architectures: amd64 armhf arm64 source
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
+Description: Maemo Leste Experimental (Devuan Beowulf)
+SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
+
+Origin: Maemo Leste
 Label: leste-debian
-Suite: stable
+Suite: oldstable
 Codename: stretch
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
@@ -45,7 +54,7 @@ SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
 Label: leste-debian
-Suite: unstable
+Suite: stable
 Codename: buster
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi

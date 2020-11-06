@@ -30,6 +30,14 @@ MorgueDir: morgue/beowulf-devel
 Default: beowulf-devel
 Cleanup: unused_files on_deny on_error
 
+Name: beowulf-experimental
+IncomingDir: incoming/beowulf-experimental
+TempDir: tmp/beowulf-experimental
+LogDir: log/beowulf-experimental
+MorgueDir: morgue/beowulf-experimental
+Default: beowulf-experimental
+Cleanup: unused_files on_deny on_error
+
 Name: stretch
 IncomingDir: incoming/stretch
 TempDir: tmp/stretch

@@ -1,6 +1,6 @@
 Origin: Maemo Leste Extras
 Label: extras-devuan
-Suite: stable
+Suite: oldstable
 Codename: ascii
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
@@ -9,7 +9,7 @@ SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
 
 Origin: Maemo Leste Extras
 Label: extras-devuan
-Suite: unstable
+Suite: stable
 Codename: beowulf
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
@@ -18,7 +18,7 @@ SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
 
 Origin: Maemo Leste Extras
 Label: extras-devuan
-Suite: experimental
+Suite: testing
 Codename: beowulf-devel
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
@@ -27,7 +27,7 @@ SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
 
 Origin: Maemo Leste Extras
 Label: extras-debian
-Suite: stable
+Suite: oldstable
 Codename: stretch
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
@@ -36,7 +36,7 @@ SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
 
 Origin: Maemo Leste Extras
 Label: extras-debian
-Suite: unstable
+Suite: stable
 Codename: buster
 Architectures: amd64 armhf arm64 source
 Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
