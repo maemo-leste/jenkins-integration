@@ -6,6 +6,7 @@ DEFAULT_RELEASES = {
         'ascii-devel',
         'beowulf',
         'beowulf-devel',
+        'beowulf-experimental',
         'stretch',
         'buster',
     ],
@@ -845,6 +846,10 @@ _jobs = OrderedDict([
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
+    # Experimental pkg
+    ('glibc', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
 ])
 
 def get_jobs():
