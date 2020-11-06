@@ -75,11 +75,18 @@
     <hudson.tasks.Shell>
       <command>export PRE_DCH_HOOK=/var/lib/jenkins/jenkins-integration/dch_hook.sh
 
-if echo &quot;${distribution}&quot; | grep -q -- &apos;-devel$&apos; -; then
-    export ENABLE_MAEMO_DEVEL=yes
-else
-    export ENABLE_MAEMO_DEVEL=no
-fi
+case ${distribution} in
+*-devel)
+	export ENABLE_MAEMO_DEVEL=yes
+	;;
+*-experimental)
+	export ENABLE_MAEMO_EXPERIMENTAL=yes
+	;;
+*)
+	export ENABLE_MAEMO_DEVEL=no
+	export ENABLE_MAEMO_EXPERIMENTAL=no
+	;;
+esac
 
 /usr/bin/generate-git-snapshot
        </command>

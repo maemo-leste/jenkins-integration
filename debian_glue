@@ -143,6 +143,10 @@ if [ "$ENABLE_MAEMO_DEVEL" = "yes" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution}-devel main contrib non-free"
 fi
 
+if [ "$ENABLE_MAEMO_EXPERIMENTAL" = "yes" ]; then
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution}-experimental main contrib non-free"
+fi
+
 # Pull in deps from the main repo when building extras
 if [ "$release" = "extras" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/leste ${distribution} main contrib non-free"

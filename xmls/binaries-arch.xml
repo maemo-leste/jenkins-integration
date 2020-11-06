@@ -78,12 +78,21 @@
     <hudson.tasks.Shell>
       <command>export BUILD_ONLY=true
 
-__dist=${distribution%-devel}
-if [ &quot;$distribution&quot; != &quot;$__dist&quot; ]; then
-    export ENABLE_MAEMO_DEVEL=yes
-else
-    export ENABLE_MAEMO_DEVEL=no
-fi
+case ${distribution} in
+*-devel)
+	export ENABLE_MAEMAO_DEVEL=yes
+	__dist=${distribution%-devel}
+	;;
+*-experimental)
+	export ENABLE_MAEMO_EXPERIMENTAL=yes
+	__dist=${distribution%-experimental}
+	;;
+*)
+	export ENABLE_MAEMO_DEVEL=no
+	export ENABLE_MAEMO_EXPERIMENTAL=no
+	__dist=${distribution}
+	;;
+esac
 
 distribution=${__dist} /usr/bin/build-and-provide-package</command>
       <configuredLocalRules/>
