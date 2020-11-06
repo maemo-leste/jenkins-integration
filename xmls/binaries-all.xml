@@ -66,9 +66,11 @@
 case ${distribution} in
 *-devel)
 	export ENABLE_MAEMO_DEVEL=yes
+	export ENABLE_MAEMO_EXPERIMENTAL=no
 	__dist=${distribution%-devel}
 	;;
 *-experimental)
+	export ENABLE_MAEMO_DEVEL=no
 	export ENABLE_MAEMO_EXPERIMENTAL=yes
 	__dist=${distribution%-experimental}
 	;;

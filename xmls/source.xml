@@ -78,9 +78,11 @@
 case ${distribution} in
 *-devel)
 	export ENABLE_MAEMO_DEVEL=yes
+	export ENABLE_MAEMO_EXPERIMENTAL=no
 	;;
 *-experimental)
 	export ENABLE_MAEMO_EXPERIMENTAL=yes
+	export ENABLE_MAEMO_DEVEL=no
 	;;
 *)
 	export ENABLE_MAEMO_DEVEL=no
