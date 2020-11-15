@@ -848,6 +848,11 @@ _jobs = OrderedDict([
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
+    # Extra pkg
+    ('desktop-cmd-exec', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
     # Experimental pkg
     ('libnsl', {
         'host': 'https://github.com/maemo-leste-upstream-forks/%s',
