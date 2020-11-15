@@ -275,7 +275,9 @@ _jobs = OrderedDict([
     ('status-menu-applet-profiles', {}),
 
     #
-    ('xorg-server', {}),
+    ('xorg-server', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
 
     #
     ('status-area-applet-battery', {}),
@@ -844,6 +846,28 @@ _jobs = OrderedDict([
     # Extra pkg
     ('cal-home-widget', {
         'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Experimental pkg
+    ('libnsl', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
+
+    # Experimental pkg
+    ('libxcrypt', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
+
+    # rebuild glibc at this point
+
+    # Experimental pkg
+    ('libnss-nisplus', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
+
+    # Experimental pkg
+    ('libnss-nis', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
     }),
 
     # Experimental pkg
