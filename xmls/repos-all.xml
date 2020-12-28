@@ -84,7 +84,8 @@ esac
 
 /usr/bin/build-and-provide-package || exit 1
 
-rsync -aqr --delete-after /srv/repository/* amprolla@maedevu.maemo.org:/srv/repository/</command>
+rsync -aqr --delete-after /srv/repository/* amprolla@maedevu.maemo.org:/srv/repository/
+ssh amprolla@maedevu.maemo.org 'cd maemo/pkgweb &amp;&amp ./pkgweb' || true</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
