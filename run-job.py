@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 from argparse import ArgumentParser
 
 from jenkins import Jenkins
@@ -19,11 +20,11 @@ def main():
 
     if args.release not in DEFAULT_RELEASES:
         print('Release unsupported. Use something from %s' % DEFAULT_RELEASES.keys())
-        return
+        sys.exit(1)
 
     if args.distro not in DEFAULT_RELEASES[args.release]:
         print('Distro unsupported. Use something from %s' % DEFAULT_RELEASES[args.release])
-        return
+        sys.exit(1)
 
     release = args.release
     distribution = args.distro
@@ -34,11 +35,11 @@ def main():
 
     if args.dry_run:
         print('Would start:', args.jobname)
-        return
+        sys.exit(0)
 
     if args.jobname not in jobs:
         print('Job does not exist in config')
-        return
+        sys.exit(1)
 
     # Racy, but whatever
     nextjob = japi.get_job_info('%s-source' % args.jobname)['nextBuildNumber']
