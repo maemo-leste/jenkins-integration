@@ -280,6 +280,16 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('alsa-lib', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('alsa-utils', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
     ('status-area-applet-battery', {}),
 
     #
@@ -492,6 +502,9 @@ _jobs = OrderedDict([
     #
     ('rtcom-eventlogger-plugins', {}),
 
+    #
+    ('osso-abook', {}),
+
     # ********************* Python stuff
     #
     ('pygtk', {}),
@@ -526,9 +539,6 @@ _jobs = OrderedDict([
 
     #
     ('iso-codes-locale-resolver', {}),
-
-    #
-    ('surf2', {}),
 
     #
     ('libglvnd', {}),
@@ -664,6 +674,25 @@ _jobs = OrderedDict([
 
     #
     ('location-control', {}),
+
+    #
+    ('liblocation', {}),
+
+    #
+    ('location-daemon', {}),
+
+    #
+    ('python-location', {}),
+
+    #
+    ('pkg-gpsd', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
+
+    # Extra pkg
+    ('surf2', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
 
     # Extra pkg
     ('binaryclock-plugin', {
@@ -851,6 +880,23 @@ _jobs = OrderedDict([
     # Extra pkg
     ('desktop-cmd-exec', {
         'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('hildon-theme-maemo-org', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg
+    ('maep', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('syncevolution-frontend', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
     }),
 
     # Experimental pkg
