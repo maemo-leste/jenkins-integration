@@ -194,7 +194,7 @@ if echo "$droid4_jobs" | grep -qw "$_curpkgname"; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} droid4"
 fi
 
-network_jobs="pine64-uboot signald"
+network_jobs="pine64-uboot zkgroup signald"
 if echo "$network_jobs" | grep -qw "$_curpkgname"; then
 	PBUILDER_USENETWORK=yes
 fi
