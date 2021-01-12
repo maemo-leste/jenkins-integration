@@ -194,6 +194,11 @@ if echo "$droid4_jobs" | grep -qw "$_curpkgname"; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} droid4"
 fi
 
+network_jobs="signald"
+if echo "$network_jobs" | grep -qw "$_curpkgname"; then
+	PBUILDER_USENETWORK=yes
+fi
+
 # Comma separated list of URLs with keys for extra repositories.
 # Usage example:
 # REPOSITORY_EXTRA_KEYS='http://foorepo.domain.com/key1.gpg,http://barrepo.domain.com/key2.gpg'
