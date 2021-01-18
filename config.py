@@ -154,9 +154,7 @@ _jobs = OrderedDict([
     ('osso-systemui-modechange', {}),
 
     #
-    ('osso-systemui-devlock-dev', {
-        'arches': ['all'],
-    }),
+    ('osso-systemui-devlock', {}),
 
     #
     ('osso-systemui-splashscreen-dev', {
@@ -259,6 +257,11 @@ _jobs = OrderedDict([
     #
     ('leste-config', {
         'arches': ['all'],
+    }),
+
+    #
+    ('eg25-manager', {
+        'arches': ['arm64'],
     }),
 
     #
@@ -899,32 +902,45 @@ _jobs = OrderedDict([
         'arches': ['all'],
     }),
 
-    # Experimental pkg
-    ('libnsl', {
+    # Extra pkg
+    ('zkgroup', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('signald', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('libpurple-signald', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # in main; necessary for anbox/cpu-features
+    ('googletest', {
         'host': 'https://github.com/maemo-leste-upstream-forks/%s',
     }),
 
-    # Experimental pkg
-    ('libxcrypt', {
-        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    # Extra pkg
+    ('cpu-features', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
-    # rebuild glibc at this point
-
-    # Experimental pkg
-    ('libnss-nisplus', {
-        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    # Extra pkg
+    ('sdbus-cpp', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+    # Extra pkg
+    ('anbox-image', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
-    # Experimental pkg
-    ('libnss-nis', {
-        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    # Extra pkg
+    ('anbox', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
-    # Experimental pkg
-    ('glibc', {
-        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
-    }),
 ])
 
 def get_jobs():
