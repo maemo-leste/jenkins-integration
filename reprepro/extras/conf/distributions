@@ -3,7 +3,7 @@ Label: extras-devuan
 Suite: oldstable
 Codename: ascii
 Architectures: amd64 armhf arm64 source
-Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi
 Contents: .gz
 Description: Maemo Leste Extras (Devuan Ascii)
 SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
@@ -13,7 +13,7 @@ Label: extras-devuan
 Suite: stable
 Codename: beowulf
 Architectures: amd64 armhf arm64 source
-Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi
 Contents: .gz
 Description: Maemo Leste Extras (Devuan Beowulf)
 SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
@@ -23,7 +23,7 @@ Label: extras-devuan
 Suite: testing
 Codename: beowulf-devel
 Architectures: amd64 armhf arm64 source
-Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi
 Contents: .gz
 Description: Maemo Leste Extras (Devuan Beowulf)
 SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
@@ -33,7 +33,7 @@ Label: extras-debian
 Suite: oldstable
 Codename: stretch
 Architectures: amd64 armhf arm64 source
-Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi
 Contents: .gz
 Description: Maemo Leste Extras (Debian Stretch)
 SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
@@ -43,7 +43,7 @@ Label: extras-debian
 Suite: stable
 Codename: buster
 Architectures: amd64 armhf arm64 source
-Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi
 Contents: .gz
 Description: Maemo Leste Extras (Debian Buster)
 SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
