@@ -293,6 +293,11 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('telepathy-glib', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
     ('status-area-applet-battery', {}),
 
     #
@@ -363,6 +368,10 @@ _jobs = OrderedDict([
         'arches': ['armhf'],
     }),
 
+    #
+    ('sunxi-linux', {
+        'arches': ['armhf'],
+    }),
 
     #
     ('upower', {}),
@@ -501,6 +510,9 @@ _jobs = OrderedDict([
 
     #
     ('rtcom-eventlogger', {}),
+
+    #
+    ('rtcom-eventlogger-ui', {}),
 
     #
     ('rtcom-eventlogger-plugins', {}),
@@ -941,6 +953,60 @@ _jobs = OrderedDict([
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
+    # Extra pkg
+    ('sfeed', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('sfeed-curses', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg (electrum dep)
+    ('aiohttp-socks', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg (electrum dep)
+    ('aiorpcx', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg (electrum dep)
+    ('python-attrs', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg (electrum dep)
+    ('python-ecdsa', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg (electrum dep)
+    ('zbar', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg (electrum dep)
+    ('libsecp256k1', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg (electrum dep)
+    ('protobuf', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg (deps above)
+    ('electrum', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
 ])
 
 def get_jobs():
