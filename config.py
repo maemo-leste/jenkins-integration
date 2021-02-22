@@ -487,6 +487,26 @@ _jobs = OrderedDict([
         'arches': ['all'],
     }),
 
+    # pocophone dependency
+    ('qrtr', {
+        'arches': ['arm64'],
+    }),
+
+    # pocophone dependency
+    ('rmtfs', {
+        'arches': ['arm64'],
+    }),
+
+    # pocophone dependency
+    ('pd-mapper', {
+        'arches': ['arm64'],
+    }),
+
+    # pocophone dependency
+    ('tqftpserv', {
+        'arches': ['arm64'],
+    }),
+
     #
     ('connui-cellular', {}),
 
