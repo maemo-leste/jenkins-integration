@@ -507,6 +507,11 @@ _jobs = OrderedDict([
         'arches': ['arm64'],
     }),
 
+    # pocophone kernel
+    ('linux-beryllium', {
+        'arches': ['arm64'],
+    }),
+
     #
     ('connui-cellular', {}),
 
