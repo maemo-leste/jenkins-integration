@@ -88,7 +88,10 @@ _jobs = OrderedDict([
     ('statusbar-alarm-dbus-api', {}),
 
     #
-    ('libhildon', {}), # XXX: needs bayamo fixes
+    ('libhildon', {}),
+
+    #
+    ('libhildon3', {}),
 
     #
     ('maemo-system-services', {}),
