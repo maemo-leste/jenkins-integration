@@ -736,6 +736,9 @@ _jobs = OrderedDict([
     ('location-daemon', {}),
 
     #
+    ('location-status', {}),
+
+    #
     ('location-ui', {}),
 
     #
