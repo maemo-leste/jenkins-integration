@@ -300,6 +300,11 @@ _jobs = OrderedDict([
         'host': 'https://github.com/maemo-leste-upstream-forks/%s'
     }),
 
+    # libsdl2 with --enable-video-kmsdrm
+    ('libsdl2', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
     #
     ('status-area-applet-battery', {}),
 
@@ -591,6 +596,12 @@ _jobs = OrderedDict([
 
     #
     ('mesa', {}),
+
+    #
+    ('charge-mode', {}),
+
+    #
+    ('fbkeyboard', {}),
 
     # ********************* Extras start here?
     #
@@ -1039,7 +1050,18 @@ _jobs = OrderedDict([
         'arches': ['all'],
     }),
 
+    # Extra pkg
     ('Trojita', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('sync-time-now-widget', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('gpsrecorder', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 ])
