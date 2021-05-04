@@ -745,6 +745,11 @@ _jobs = OrderedDict([
     ('python-location', {}),
 
     #
+    ('gps-nokia-n900', {
+        'arches': ['armhf'],
+    }),
+
+    #
     ('pkg-gpsd', {
         'host': 'https://github.com/maemo-leste-upstream-forks/%s',
     }),
@@ -1065,6 +1070,11 @@ _jobs = OrderedDict([
 
     # Extra pkg
     ('gpsrecorder', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('qshot', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 ])
