@@ -1,5 +1,5 @@
 from collections import OrderedDict
-import repos_core, repos_extras  #, repos_l10n
+import repos_core, repos_l10n, repos_extras
 
 DEFAULT_RELEASES = {
     'leste': [
