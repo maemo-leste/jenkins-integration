@@ -451,6 +451,11 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('mapphone-kexecboot-config', {
+        'arches': ['all'],
+    }),
+
+    #
     ('rtl8723cs', {
         'arches': ['all'],
     }),
