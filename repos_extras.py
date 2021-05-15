@@ -331,4 +331,10 @@ _jobs = OrderedDict([
     ('qshot', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
+
+    # Extra pkg
+    ('hildon-theme-devel', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
 ])

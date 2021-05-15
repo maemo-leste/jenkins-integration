@@ -118,6 +118,16 @@ _jobs = OrderedDict([
     ('hildon-theme-cacher', {}),
 
     #
+    ('hildon-theme-alpha', {
+        'arches': ['all'],
+    }),
+
+    #
+    ('hildon-theme-beta', {
+        'arches': ['all'],
+    }),
+
+    #
     ('osso-icons', {
         'arches': ['all'],
     }),
