@@ -337,4 +337,19 @@ _jobs = OrderedDict([
         'host': 'https://github.com/maemo-leste-extras/%s',
         'arches': ['all'],
     }),
+
+    # Extra pkg
+    ('braek', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('modrana', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('gpxsee', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
 ])

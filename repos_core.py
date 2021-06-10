@@ -598,7 +598,9 @@ _jobs = OrderedDict([
 
     # ********************* Extras start here?
     #
-    ('libsdl1.2', {}),
+    ('libsdl1.2', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
 
     #
     ('sdlgles', {}),
@@ -730,12 +732,26 @@ _jobs = OrderedDict([
     ('python-location', {}),
 
     #
+    ('python-conic', {}),
+
+    #
+    ('python-mafw', {}),
+
+    #
+    ('osso-systemui-splashscreen', {}),
+
+    #
     ('gps-nokia-n900', {
         'arches': ['armhf'],
     }),
 
     #
     ('pkg-gpsd', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
+
+    #
+    ('wpasupplicant', {
         'host': 'https://github.com/maemo-leste-upstream-forks/%s',
     }),
 ])
