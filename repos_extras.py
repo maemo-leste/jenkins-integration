@@ -333,12 +333,6 @@ _jobs = OrderedDict([
     }),
 
     # Extra pkg
-    ('hildon-theme-devel', {
-        'host': 'https://github.com/maemo-leste-extras/%s',
-        'arches': ['all'],
-    }),
-
-    # Extra pkg
     ('braek', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
@@ -350,6 +344,11 @@ _jobs = OrderedDict([
 
     # Extra pkg
     ('gpxsee', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('wifi-switcher', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 ])

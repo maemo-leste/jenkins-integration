@@ -128,7 +128,17 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('hildon-theme-devel', {
+        'arches': ['all'],
+    }),
+
+    #
     ('osso-icons', {
+        'arches': ['all'],
+    }),
+
+    #
+    ('ui-fonts', {
         'arches': ['all'],
     }),
 
@@ -255,6 +265,7 @@ _jobs = OrderedDict([
 
     #
     ('eg25-manager', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
         'arches': ['arm64'],
     }),
 
@@ -328,6 +339,12 @@ _jobs = OrderedDict([
 
     #
     ('libicd-network-dummy', {}),
+
+    #
+    ('libicd-provider-dummy', {}),
+
+    #
+    ('connui-dummy', {}),
 
     #
     ('libicd-network-usb', {}),
@@ -754,4 +771,24 @@ _jobs = OrderedDict([
     ('wpasupplicant', {
         'host': 'https://github.com/maemo-leste-upstream-forks/%s',
     }),
+
+    #
+    ('salutem', {}),
+
+    #
+    ('sphone', {}),
+
+    #
+    ('pulse-core', {}),
+
+    #
+    ('pulseaudio-modules-nemo', {}),
+
+    #
+    ('pulseaudio-module-cmtspeech-n9xx', {
+        'arches': ['armhf'],
+    }),
+
+    #
+    ('pulseaudio-policy-enforcement', {}),
 ])
