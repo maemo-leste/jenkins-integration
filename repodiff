@@ -7,6 +7,7 @@ usage() {
 usage: $(basename "$0") [-v] [repo1] [repo2]
 
 	-v	show package versions
+	-m	list packages in repo2 but missing from repo1
 
 Environment:
     REPO_BASE: path to repo base (default: $REPO_BASE)
@@ -24,6 +25,10 @@ for i in $@; do
 		vflag=1
 		shift
 		;;
+	-m)
+		mflag=1
+		shift
+		;;
 	-*)
 		usage
 		;;
@@ -38,23 +43,32 @@ fi
 l1="$(mktemp XXXX.txt)"
 l2="$(mktemp XXXX.txt)"
 
-reprepro -b "$REPO_BASE" list "$1" | cut -d' ' -f2- | sort | uniq > "$l1" || exit 1
-reprepro -b "$REPO_BASE" list "$2" | cut -d' ' -f2- | sort | uniq > "$l2" || exit 1
+if ! [ "$mflag" = 1 ]; then
+	reprepro -b "$REPO_BASE" list "$1" | cut -d' ' -f2- | sort | uniq > "$l1" || exit 1
+	reprepro -b "$REPO_BASE" list "$2" | cut -d' ' -f2- | sort | uniq > "$l2" || exit 1
 
-join --nocheck-order "$l1" "$l2" | while read -r package firstver secondver; do
-    if dpkg --compare-versions "$firstver" lt "$secondver"; then
-		if [ -n "$vflag" ]; then
-			echo "<$package $firstver < $secondver"
-		else
-			echo "<$package"
-		fi
-    else
-		if [ -n "$vflag" ]; then
-			echo ">$package $firstver > $secondver"
-		else
-			echo ">$package"
-		fi
-    fi
-done
+	join --nocheck-order "$l1" "$l2" | while read -r package firstver secondver; do
+	    if dpkg --compare-versions "$firstver" lt "$secondver"; then
+			if [ -n "$vflag" ]; then
+				echo "<$package $firstver < $secondver"
+			else
+				echo "<$package"
+			fi
+	    else
+			if [ -n "$vflag" ]; then
+				echo ">$package $firstver > $secondver"
+			else
+				echo ">$package"
+			fi
+	    fi
+	done
+fi
+
+if [ "$mflag" = 1 ]; then
+	reprepro -b "$REPO_BASE" list "$1" | cut -d' ' -f2 | sort -u > "$l1" || exit 1
+	reprepro -b "$REPO_BASE" list "$2" | cut -d' ' -f2 | sort -u > "$l2" || exit 1
+
+	diff --new-line-format="" --unchanged-line-format="" "$l1" "$l2"
+fi
 
 rm -f "$l1" "$l2"
