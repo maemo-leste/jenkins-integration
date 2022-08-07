@@ -37,9 +37,6 @@ _jobs = OrderedDict([
     ('libmatchbox2', {}),
 
     #
-    ('mce-dev', {}),
-
-    #
     ('libhildonmime', {}),
 
     #
@@ -110,6 +107,9 @@ _jobs = OrderedDict([
 
     #
     ('profiled', {}),
+
+    #
+    ('profilesx', {}),
 
     #
     ('sapwood', {}),
@@ -310,11 +310,13 @@ _jobs = OrderedDict([
     #
     ('status-area-applet-battery', {}),
 
-    #
-    ('ofono', {}),
+    ## shared ofono for d4, pinephone, etc
+    ('ofono', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
 
-    # pavel's droid4 ofono fork
-    ('ofono-d4', {}),
+    ## pavel's droid4 ofono fork
+    #('ofono-d4', {}),
 
     #
     ('atinout', {}),
@@ -441,9 +443,6 @@ _jobs = OrderedDict([
     #
     ('ke-recv', {}),
 
-    # glib with fixes
-    ('glib', {}),
-
     #
     ('osso-calculator-engine', {}),
 
@@ -565,6 +564,12 @@ _jobs = OrderedDict([
     #
     ('osso-abook', {}),
 
+    #
+    ('osso-addressbook', {}),
+
+    #
+    ('osso-abook-home-applet', {}),
+
     # ********************* Python stuff
     #
     ('pygtk', {}),
@@ -599,13 +604,24 @@ _jobs = OrderedDict([
     ('iso-codes-locale-resolver', {}),
 
     #
-    ('libglvnd', {}),
+    ('libglvnd', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
 
     #
-    ('libdrm', {}),
+    ('libdrm', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
 
     #
-    ('mesa', {}),
+    ('directx-headers', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
+
+    #
+    ('mesa', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
 
     #
     ('charge-mode', {}),
@@ -649,6 +665,11 @@ _jobs = OrderedDict([
 
     #
     ('droid4-pm', {
+        'arches': ['all'],
+    }),
+
+    #
+    ('n900-pm', {
         'arches': ['all'],
     }),
 
@@ -779,6 +800,9 @@ _jobs = OrderedDict([
     ('sphone', {}),
 
     #
+    ('conversations', {}),
+
+    #
     ('pulse-core', {}),
 
     #
@@ -791,4 +815,127 @@ _jobs = OrderedDict([
 
     #
     ('pulseaudio-policy-enforcement', {}),
+
+    #
+    ('libtrace-ohm', {}),
+
+    #
+    ('ohm', {}),
+
+    #
+    ('libprolog', {}),
+
+    #
+    ('libdres-ohm', {}),
+
+    #
+    ('ohm-rule-engine', {}),
+
+    #
+    ('policy-settings-common', {}),
+
+    #
+    ('libresource', {}),
+
+    #
+    ('ohm-plugins-misc', {}),
+
+    #
+    ('libicd-tor', {}),
+
+    #
+    ('tor-network-applet', {}),
+
+    #
+    ('libicd-wireguard', {}),
+
+    #
+    ('wireguard-network-applet', {}),
+
+    #
+    ('libicd-openvpn', {}),
+
+    #
+    ('openvpn-network-applet', {}),
+
+    #
+    ('wpeditor', {}),
+
+    #
+    ('calendar-ui-widgets', {}),
+
+    #
+    ('libmodest-dbus-client', {}),
+
+    #
+    ('tinymail', {}),
+
+    #
+    ('gtkhtml3', {}),
+
+    #
+    ('modest', {}),
+
+    #
+    ('glib', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('wireguard-tools', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('gnome-contacts', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('sgx-ddk-um', {
+        'arches': ['armhf'],
+    }),
+
+    #
+    ('maemo-kernel-config', {
+        'arches': ['armhf'],
+    }),
+
+    #
+    ('maemo-statusmenu-volume', {}),
+
+    #
+    ('libQuotient', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('telepathy-tank', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('linux-firmware-pine64-rtl8723-bt', {
+        'arches': ['all'],
+    }),
+
+    #
+    ('telepathy-gabble', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('libaccounts', {}),
+
+    #
+    ('rtcom-accounts-ui', {}),
+
+    #
+    ('rtcom-accounts-ui-client', {}),
+
+    #
+    ('rtcom-accounts-plugins', {}),
+
+    #
+    ('rtcom-presence-ui', {}),
 ])

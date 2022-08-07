@@ -166,11 +166,6 @@ _jobs = OrderedDict([
     }),
 
     # Extra pkg
-    ('profilesx', {
-        'host': 'https://github.com/maemo-leste-extras/%s',
-    }),
-
-    # Extra pkg
     ('unicsy_demo', {
         'arches': ['all'],
         'host': 'https://github.com/maemo-leste-extras/%s',
@@ -209,6 +204,11 @@ _jobs = OrderedDict([
 
     # Extra pkg
     ('maep', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('cloudgps', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
@@ -349,6 +349,67 @@ _jobs = OrderedDict([
 
     # Extra pkg
     ('wifi-switcher', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('qtwebbrowser', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('hamsterfiler', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('oricutron', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('lagrange', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('openlara', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('neverball-gles', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('cssufeatures', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg
+    ('maefat', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('leafpad', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('msid', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('shermans-aquarium-maemo', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('live-wallpaper', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 ])
