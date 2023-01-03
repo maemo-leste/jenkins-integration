@@ -100,7 +100,7 @@ def reconfig_jobs(japi, jobs, jobname):
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument('-l', '--list-something', action='store_true')
+    parser.add_argument('-j', '--job', type=str, nargs='*', default=list())
     parser.add_argument('-s', '--sync', action='store_true')
     parser.add_argument('-r', '--reconfig', action='store_true')
     parser.add_argument('-n', '--dry_run', action='store_true')
@@ -127,6 +127,10 @@ def main():
     ]
 
     jobs = get_jobs()
+
+    if args.job:
+        jobs = dict([(x, jobs[x]) for x in args.job])
+
 
     if args.sync and args.reconfig:
         print('Can not sync and reconfig. Choose one.')
