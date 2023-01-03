@@ -412,4 +412,30 @@ _jobs = OrderedDict([
     ('live-wallpaper', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
+
+    # Extra pkg
+    ('mstardict', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('mussorgsky', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg
+    ('easylist', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg, dep for maemo-translate
+    ('pathie-cpp', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg, dep for maemo-translate
+    ('intgemm', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
 ])

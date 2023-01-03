@@ -33,6 +33,9 @@ _jobs = OrderedDict([
     # Maemo has its own gtk2 fork
     ('gtk', {}),
 
+    # We need this for matchbox
+    ('clutter-0.8', {}),
+
     #
     ('libmatchbox2', {}),
 
@@ -219,9 +222,6 @@ _jobs = OrderedDict([
 
     #
     ('hildon-desktop-clutter-1.x', {}),
-
-    #
-    ('clutter-0.8', {}),
 
     # n900 specific from spinal
     ('libmatchbox2-n900', {
@@ -471,10 +471,10 @@ _jobs = OrderedDict([
         'arches': ['all'],
     }),
 
-    #
-    ('rtl8723cs', {
-        'arches': ['all'],
-    }),
+    ##
+    #('rtl8723cs', {
+    #    'arches': ['all'],
+    #}),
 
     #
     ('ti-omap3-sgx', {
@@ -938,4 +938,43 @@ _jobs = OrderedDict([
 
     #
     ('rtcom-presence-ui', {}),
+
+    #
+    ('cellulard', {}),
+
+    #
+    ('iphb-dkms', {
+        'arches': ['all'],
+    }),
+
+    # Dep python2-gconf
+    ('pycairo2', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    # Dep python2-gconf
+    ('pygobject2', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    ('python2-gconf', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    ('notify-python', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    # elogind crap
+    ('tinydm', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('autolaunch', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('hildon-session', {}),
 ])
