@@ -190,11 +190,6 @@ fi
 #	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} n900"
 #fi
 
-droid4_jobs="pvr-omap4"
-if echo "$droid4_jobs" | grep -qw "$_curpkgname"; then
-	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} droid4"
-fi
-
 network_jobs="pine64-uboot zkgroup signald anbox-image"
 if echo "$network_jobs" | grep -qw "$_curpkgname"; then
 	PBUILDER_USENETWORK=yes
