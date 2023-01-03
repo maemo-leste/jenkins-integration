@@ -49,6 +49,16 @@ Description: Maemo Leste Experimental (Devuan Beowulf)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
+Label: leste-devuan
+Suite: testing
+Codename: chimaera
+Architectures: amd64 armhf arm64 source
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi pocophone-f1
+Contents: .gz
+Description: Maemo Leste (Devuan Chimaera)
+SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
+
+Origin: Maemo Leste
 Label: leste-debian
 Suite: oldstable
 Codename: stretch

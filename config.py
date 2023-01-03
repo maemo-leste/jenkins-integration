@@ -10,11 +10,14 @@ DEFAULT_RELEASES = {
         'beowulf-experimental',
         'stretch',
         'buster',
+        'chimaera',
+        #'daedalus',
     ],
     'extras': [
         'ascii',
         'beowulf',
         'beowulf-devel',
+        'chimaera',
     ],
 }
 DEFAULT_HOST = 'https://github.com/maemo-leste/%s'

@@ -158,7 +158,8 @@ if [ -n "$PARENT_DISTRO" ]; then
 fi
 
 # Device specifics
-backports_jobs="mesa"
+# We need all these python jobs because Debian doesn't have an important fix for their dh-python (the non-backports one conflicts with python-is-python2!)
+backports_jobs="mesa python-hildon python-osso python-alarm python-hildondesktop python-location python-conic python-mafw telepathy-gabble"
 #n900_jobs="libmatchbox2-n900 hildon-desktop-n900"
 
 echo "job_name: $JOB_NAME"
@@ -179,7 +180,7 @@ esac
 
 if echo "$backports_jobs" | grep -qw "$_curpkgname"; then
 	case "$distribution" in
-	ascii*|stretch*|beowulf*|buster*)
+	ascii*|stretch*|beowulf*|buster*|chimaera*|bullseye*)
 		REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-backports main contrib non-free"
 		;;
 	esac
