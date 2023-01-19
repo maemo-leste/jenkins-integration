@@ -138,6 +138,11 @@ REPOSITORY_EXTRA="deb ${MIRROR} ${distribution}-updates main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${SECURITY_MIRROR} ${SECURITY_FOLDER} main contrib non-free"
 REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution} main contrib non-free"
 
+# Pull in deps from -testing when building -testing
+if [ "$ENABLE_MAEMO_TESTING" = "yes" ]; then
+	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution}-testing main contrib non-free"
+fi
+
 # Pull in deps from -devel when building -devel
 if [ "$ENABLE_MAEMO_DEVEL" = "yes" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution}-devel main contrib non-free"
@@ -145,6 +150,14 @@ fi
 
 if [ "$ENABLE_MAEMO_EXPERIMENTAL" = "yes" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution}-experimental main contrib non-free"
+    if [ -n "${architecture-}" ]; then
+            if [ "${architecture}" = "armhf" ]; then
+                    DEB_CFLAGS_APPEND="-mfpu=neon -mthumb"
+                    DEB_CXXFLAGS_APPEND="-mfpu=neon -mthumb"
+                    export DEB_CFLAGS_APPEND
+                    export DEB_CXXFLAGS_APPEND
+            fi
+    fi
 fi
 
 # Pull in deps from the main repo when building extras

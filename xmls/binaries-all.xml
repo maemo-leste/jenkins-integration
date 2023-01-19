@@ -72,20 +72,25 @@
       <command>export BUILD_ONLY=true
 
 case ${distribution} in
+*-testing)
+	export ENABLE_MAEMO_TESTING=yes
+	export ENABLE_MAEMO_DEVEL=no
+	export ENABLE_MAEMO_EXPERIMENTAL=no
+	;;
 *-devel)
+	export ENABLE_MAEMO_TESTING=no
 	export ENABLE_MAEMO_DEVEL=yes
 	export ENABLE_MAEMO_EXPERIMENTAL=no
-	__dist=${distribution%-devel}
 	;;
 *-experimental)
+	export ENABLE_MAEMO_TESTING=no
 	export ENABLE_MAEMO_DEVEL=no
 	export ENABLE_MAEMO_EXPERIMENTAL=yes
-	__dist=${distribution%-experimental}
 	;;
 *)
+	export ENABLE_MAEMO_TESTING=no
 	export ENABLE_MAEMO_DEVEL=no
 	export ENABLE_MAEMO_EXPERIMENTAL=no
-	__dist=${distribution}
 	;;
 esac
 
