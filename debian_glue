@@ -150,13 +150,29 @@ fi
 
 if [ "$ENABLE_MAEMO_EXPERIMENTAL" = "yes" ]; then
 	REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb http://maedevu.maemo.org/${release} ${distribution}-experimental main contrib non-free"
-    if [ -n "${architecture-}" ]; then
+    #if [ -n "${architecture-}" ]; then
+    #        if [ "${architecture}" = "armhf" ]; then
+    #                DEB_CFLAGS_APPEND="-mfpu=neon -march=armv7-a+neon-fp16 -mtune=cortex-a8"
+    #                DEB_CXXFLAGS_APPEND="-mfpu=neon -march=armv7-a+neon-fp16 -mtune=cortex-a8"
+    #                export DEB_CFLAGS_APPEND
+    #                export DEB_CXXFLAGS_APPEND
+    #        fi
+    #fi
+fi
+
+if [ -n "$distribution" ]; then
+    if [ "$distribution" = "chimaera" ]; then
+        # For armhf, add these flags
+        if [ -n "${architecture-}" ]; then
             if [ "${architecture}" = "armhf" ]; then
-                    DEB_CFLAGS_APPEND="-mfpu=neon -mthumb"
-                    DEB_CXXFLAGS_APPEND="-mfpu=neon -mthumb"
+                    #DEB_CFLAGS_APPEND="-mfpu=neon -march=armv7-a"
+                    #DEB_CXXFLAGS_APPEND="-mfpu=neon -march=armv7-a"
+                    DEB_CFLAGS_APPEND="-mfpu=neon -march=armv7-a+neon-fp16 -mtune=cortex-a8"
+                    DEB_CXXFLAGS_APPEND="-mfpu=neon -march=armv7-a+neon-fp16 -mtune=cortex-a8"
                     export DEB_CFLAGS_APPEND
                     export DEB_CXXFLAGS_APPEND
             fi
+        fi
     fi
 fi
 
