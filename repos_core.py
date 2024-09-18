@@ -435,6 +435,9 @@ _jobs = OrderedDict([
     ('mafw-iradio-source', {}),
 
     #
+    ('mafw-tracker-source', {}),
+
+    #
     ('mafw-upnp-source', {}),
 
     #
@@ -967,14 +970,134 @@ _jobs = OrderedDict([
 
     # elogind crap
     ('tinydm', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+        'arches': ['all'],
+    }),
+
+    #
+    ('autologin', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    # maemo-ringtones
+    ('maemo-ringtones', {
+        'host': 'https://github.com/maemo-leste-assets/%s',
+        'arches': ['all'],
+    }),
+
+    ('qtwebengine', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    ('libcamera', {
         'host': 'https://github.com/maemo-leste-upstream-forks/%s'
     }),
 
     #
-    ('autolaunch', {
+    ('firmware-ov5640', {
+        'arches': ['all'],
+    }),
+
+    #
+    ('slack-libpurple', {
         'host': 'https://github.com/maemo-leste-upstream-forks/%s'
     }),
 
     #
-    ('hildon-session', {}),
+    ('voicecall', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    # Extra pkg, dep for maemo-translate
+    ('cpuinfo', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
+
+    #
+    ('harbour-shutter', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
+
+    #
+    ('pinephone-keyboard', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+        'arches': ['all'],
+    }),
+
+    #
+    ('policykit-1-hildon', {}),
+
+    #
+    ('dh-python', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+        'arches': ['all'],
+    }),
+
+    #
+    ('mafw-gst-renderer', {}),
+
+    #
+    ('tracker-miners', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('tracker', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('telepathy-ring', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('telepathy-haze', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('gst-plugins-base1.0', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    # Extra pkg
+    ('signald', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
+
+    # Extra pkg
+    ('libpurple-signald', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('tdlib-purple', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+    }),
+
+    #
+    ('maemo-user-guide', {
+        'arches': ['all'],
+    }),
+
+    #
+    ('qxmpp', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('telepathy-nonsense', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('libomemo-c', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('olm', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
 ])

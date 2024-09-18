@@ -223,16 +223,6 @@ _jobs = OrderedDict([
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 
-    # Extra pkg
-    ('signald', {
-        'host': 'https://github.com/maemo-leste-extras/%s',
-    }),
-
-    # Extra pkg
-    ('libpurple-signald', {
-        'host': 'https://github.com/maemo-leste-extras/%s',
-    }),
-
     # in main; necessary for anbox/cpu-features
     ('googletest', {
         'host': 'https://github.com/maemo-leste-upstream-forks/%s',
@@ -435,7 +425,156 @@ _jobs = OrderedDict([
     }),
 
     # Extra pkg, dep for maemo-translate
+    ('sentencepiece-browsermt', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg, dep for maemo-translate
+    ('ruy', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['armhf', 'arm64'],
+    }),
+
+    # Extra pkg, dep for maemo-translate
     ('intgemm', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['amd64'],
+    }),
+
+    # Extra pkg, dep for maemo-translate
+    ('cli11', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg, dep for maemo-translate
+    ('marian-lite', {
+        'host': 'https://github.com/maemo-leste-extras/%s.git',
+    }),
+
+    # Extra pkg, dep for maemo-translate
+    ('kotki', {
+        'host': 'https://github.com/maemo-leste-extras/%s.git',
+    }),
+
+    # Extra pkg, dep for maemo-translate
+    ('maemo-translate', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    ('maemo-translate-data', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg
+    ('nemo-qml-plugin-dbus', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('harbour-amazfish', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('organicmaps', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('windows7-theme', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg
+    ('NOMWeather', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('vulture-browser', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('openmediaplayer', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('jib', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('purple-facebook', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('rtcom-accounts-plugin-facebook', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('rtcom-accounts-plugin-slack', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('rtcom-accounts-plugin-telegram', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('rtcom-accounts-plugin-matrix', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('rtcom-accounts-plugin-discord', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('pcsx_rearmed', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('picodrive', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('maemo-kodi-remote', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('sdlhaa', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('drnoksnes', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('x11proto-xsp', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+        'arches': ['all'],
+    }),
+
+    # Extra pkg
+    ('libxsp', {
+        'host': 'https://github.com/maemo-leste-extras/%s',
+    }),
+
+    # Extra pkg
+    ('comics-daily', {
         'host': 'https://github.com/maemo-leste-extras/%s',
     }),
 ])
