@@ -108,7 +108,7 @@ case "$distribution" in
         PARENT_DISTRO=beowulf
         ;;
     bullseye*)
-        PARENT_DISTRO=
+        PARENT_DISTRO=chimaera
         ;;
     bookworm*)
         PARENT_DISTRO=
@@ -187,8 +187,7 @@ if [ -n "$PARENT_DISTRO" ]; then
 fi
 
 # Device specifics
-# We need all these python jobs because Debian doesn't have an important fix for their dh-python (the non-backports one conflicts with python-is-python2!)
-backports_jobs="mesa python-hildon python-osso python-alarm python-hildondesktop python-location python-conic python-mafw telepathy-gabble"
+backports_jobs="mesa marian-lite dh-python"
 #n900_jobs="libmatchbox2-n900 hildon-desktop-n900"
 
 echo "job_name: $JOB_NAME"
