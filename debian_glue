@@ -264,3 +264,6 @@ USE_CCACHE=true
 # this.
 # Default: false
 # UNRELEASED_APPEND_COMMIT=false
+
+# XXX: MW: 2024-01-12: add --git-submodules
+GBP_OPTS=" -nc --git-force-create --git-ignore-new --git-ignore-branch -S -us -uc --git-verbose --git-builder=/bin/true --git-cleaner=/bin/true --git-export-dir= --git-submodules"
