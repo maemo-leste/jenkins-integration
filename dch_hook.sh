@@ -10,10 +10,10 @@ case "$distribution" in
     beowulf*|buster*)
         release_num=2
         ;;
-    bullseye*)
+    chimaera*|bullseye*)
         release_num=3
         ;;
-    bookworm*)
+    daedalus*|bookworm*)
         release_num=4
         ;;
 esac
