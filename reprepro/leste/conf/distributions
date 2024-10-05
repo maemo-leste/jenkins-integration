@@ -89,6 +89,46 @@ Description: Maemo Leste Experimental (Devuan Chimaera)
 SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
 
 Origin: Maemo Leste
+Label: leste-devuan
+Suite: stable
+Codename: daedalus
+Architectures: amd64 armhf arm64 source
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi pocophone-f1
+Contents: .gz
+Description: Maemo Leste (Devuan Daedalus)
+SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
+
+Origin: Maemo Leste
+Label: leste-devuan
+Suite: testing
+Codename: daedalus-testing
+Architectures: amd64 armhf arm64 source
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi pocophone-f1
+Contents: .gz
+Description: Maemo Leste Testing (Devuan Daedalus)
+SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
+
+Origin: Maemo Leste
+Label: leste-devuan
+Suite: experimental
+Codename: daedalus-devel
+Architectures: amd64 armhf arm64 source
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi pocophone-f1
+Contents: .gz
+Description: Maemo Leste Devel (Devuan Daedalus)
+SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
+
+Origin: Maemo Leste
+Label: leste-devuan
+Suite: experimental
+Codename: daedalus-experimental
+Architectures: amd64 armhf arm64 source
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi pocophone-f1
+Contents: .gz
+Description: Maemo Leste Experimental (Devuan Daedalus)
+SignWith: 4AA81E3E026EFE82E47D6901545FEC4E0927F6FD
+
+Origin: Maemo Leste
 Label: leste-debian
 Suite: oldstable
 Codename: stretch

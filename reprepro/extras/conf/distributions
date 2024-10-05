@@ -67,3 +67,23 @@ Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone rasp
 Contents: .gz
 Description: Maemo Leste Extras Testing (Debian Bullseye, Devuan Chimaera)
 SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
+
+Origin: Maemo Leste Extras
+Label: extras-debian
+Suite: testing
+Codename: daedalus
+Architectures: amd64 armhf arm64 source
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi pocophone-f1
+Contents: .gz
+Description: Maemo Leste Extras (Debian Bookworm, Devuan Daedalus)
+SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
+
+Origin: Maemo Leste Extras
+Label: extras-debian
+Suite: testing
+Codename: daedalus-testing
+Architectures: amd64 armhf arm64 source
+Components: main contrib non-free n900 droid4 bionic n9 n950 lima pinephone raspberrypi sunxi pocophone-f1
+Contents: .gz
+Description: Maemo Leste Extras Testing (Debian Bookworm, Devuan Daedalus )
+SignWith: 89F632F52BFE13EBBB2EBD0D2700BD8E6604EC2E
