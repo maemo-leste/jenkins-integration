@@ -16,6 +16,9 @@ case "$distribution" in
     daedalus*|bookworm*)
         release_num=4
         ;;
+    excalibur*|trixie*)
+        release_num=5
+        ;;
 esac
 
 _srcinfo="$(dpkg-parsechangelog -n 1 -l debian/changelog)"
