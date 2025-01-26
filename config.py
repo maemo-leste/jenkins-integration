@@ -18,6 +18,10 @@ DEFAULT_RELEASES = {
         'daedalus-testing',
         'daedalus-devel',
         'daedalus-experimental',
+        'excalibur',
+        'excalibur-testing',
+        'excalibur-devel',
+        'excalibur-experimental',
     ],
     'extras': [
         'ascii',
@@ -27,6 +31,8 @@ DEFAULT_RELEASES = {
         'chimaera-testing',
         'daedalus',
         'daedalus-testing',
+        'excalibur',
+        'excalibur-testing',
     ],
 }
 DEFAULT_HOST = 'https://github.com/maemo-leste/%s'

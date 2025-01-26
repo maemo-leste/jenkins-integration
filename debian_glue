@@ -113,6 +113,9 @@ case "$distribution" in
     bookworm*)
         PARENT_DISTRO=daedalus
         ;;
+    trixie*)
+        PARENT_DISTRO=excalibur
+        ;;
     *)
         DEVUAN_BUILD=1
 esac
@@ -187,6 +190,19 @@ if [ -n "$distribution" ]; then
             fi
         fi
     fi
+    if [ "$distribution" = "excalibur" ]; then
+        # For armhf, add these flags
+        if [ -n "${architecture-}" ]; then
+            if [ "${architecture}" = "armhf" ]; then
+                    #DEB_CFLAGS_APPEND="-mfpu=neon -march=armv7-a"
+                    #DEB_CXXFLAGS_APPEND="-mfpu=neon -march=armv7-a"
+                    DEB_CFLAGS_APPEND="-mfpu=neon -march=armv7-a+neon-fp16 -mtune=cortex-a8"
+                    DEB_CXXFLAGS_APPEND="-mfpu=neon -march=armv7-a+neon-fp16 -mtune=cortex-a8"
+                    export DEB_CFLAGS_APPEND
+                    export DEB_CXXFLAGS_APPEND
+            fi
+        fi
+    fi
 fi
 
 # Pull in deps from the main repo when building extras
@@ -219,9 +235,15 @@ case "$JOB_NAME" in
 	;;
 esac
 
+if echo "dh-python" | grep -qw "$_curpkgname"; then
+    DEB_BUILD_OPTIONS="nocheck"
+    export DEB_BUILD_OPTIONS
+fi
+
 if echo "$backports_jobs" | grep -qw "$_curpkgname"; then
+
 	case "$distribution" in
-	ascii*|stretch*|beowulf*|buster*|chimaera*|bullseye*|daedalus*|bookworm*)
+	ascii*|stretch*|beowulf*|buster*|chimaera*|bullseye*|daedalus*|bookworm*|excalibur*|trixie*)
 		REPOSITORY_EXTRA="${REPOSITORY_EXTRA},deb ${MIRROR} ${distribution}-backports main contrib non-free"
 		;;
 	esac
