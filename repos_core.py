@@ -17,8 +17,7 @@ _jobs = OrderedDict([
     ('insserv', {}),
 
     # comment here
-    (
-        'libcal',
+    ('libcal',
         {
             #'releases': {
             #    # we should use these when building, not creating/deleting
@@ -259,6 +258,11 @@ _jobs = OrderedDict([
     }),
 
     #
+    ('hildon-meta-core', {
+        'arches': ['all'],
+    }),
+
+    #
     ('leste-config', {
         'arches': ['all'],
     }),
@@ -380,10 +384,10 @@ _jobs = OrderedDict([
     #
     ('status-area-orientationlock-applet', {}),
 
-    #
-    ('n9xx-linux', {
-        'arches': ['armhf'],
-    }),
+    ##
+    #('n9xx-linux', {
+    #    'arches': ['armhf'],
+    #}),
 
     #
     ('sunxi-linux', {
@@ -410,6 +414,9 @@ _jobs = OrderedDict([
 
     #
     ('hildon-im-vkbrenderer3', {}),
+
+    #
+    ('iso-codes-locale-resolver', {}),
 
     #
     ('hildon-input-method-configurator', {}),
@@ -479,25 +486,25 @@ _jobs = OrderedDict([
     #    'arches': ['all'],
     #}),
 
-    #
-    ('ti-omap3-sgx', {
-        'arches': ['armhf'],
-    }),
+    ##
+    #('ti-omap3-sgx', {
+    #    'arches': ['armhf'],
+    #}),
 
-    #
-    ('xf86-video-pvrsgx', {
-        'arches': ['armhf'],
-    }),
+    ##
+    #('xf86-video-pvrsgx', {
+    #    'arches': ['armhf'],
+    #}),
 
     # omap driver for droid4
     ('xf86-video-omap', {
         'arches': ['armhf'],
     }),
 
-    #
-    ('pvr-omap4', {
-        'arches': ['armhf'],
-    }),
+    ##
+    #('pvr-omap4', {
+    #    'arches': ['armhf'],
+    #}),
 
     #
     ('libdri2', {
@@ -602,9 +609,6 @@ _jobs = OrderedDict([
 
     #
     ('osso-pdf-viewer', {}),
-
-    #
-    ('iso-codes-locale-resolver', {}),
 
     #
     ('libglvnd', {
@@ -716,10 +720,10 @@ _jobs = OrderedDict([
     #
     ('dbus-scripts', {}),
 
-    #
-    ('hildon-desktop-rotation-support', {
-        'arches': ['all'],
-    }),
+    ##
+    #('hildon-desktop-rotation-support', {
+    #    'arches': ['all'],
+    #}),
 
     #
     ('libgq-gconf', {}),
@@ -1099,5 +1103,19 @@ _jobs = OrderedDict([
     #
     ('olm', {
         'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    #
+    ('qt-input-maemo', { }),
+
+    # For trixie only?
+    ('gconf', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s'
+    }),
+
+    # Bring dh_gconf back
+    ('debhelper', {
+        'host': 'https://github.com/maemo-leste-upstream-forks/%s',
+        'arches': ['all'],
     }),
 ])
