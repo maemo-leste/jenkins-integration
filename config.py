@@ -35,7 +35,8 @@ DEFAULT_RELEASES = {
         'excalibur-testing',
     ],
 }
-DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
+DEFAULT_HOST = 'https://git.maemo.org/leste/%s'
+#DEFAULT_HOST = 'https://github.com/maemo-leste/%s'
 DEFAULT_ARCHES = ['amd64', 'armhf', 'arm64']
 """
 # self documenting code comments

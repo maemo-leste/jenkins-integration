@@ -59,7 +59,8 @@ def create_job_config(japi, jobs, jobname):
         bin_job = bin_job.replace('{{{%s}}}' % r[0], r[1])
         rep_job = rep_job.replace('{{{%s}}}' % r[0], r[1])
 
-    if 'https://github.com/maemo-leste-extras/' in job_info['host']:
+    #if 'https://github.com/maemo-leste-extras/' in job_info['host']:
+    if 'https://git.maemo.org/leste-extras/' in job_info['host']:
         src_job = src_job.replace('<defaultValue>leste</defaultValue>',
                                   '<defaultValue>extras</defaultValue>')
         bin_job = bin_job.replace('<defaultValue>leste</defaultValue>',

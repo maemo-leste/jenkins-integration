@@ -30,7 +30,9 @@ _jobs = OrderedDict([
     ('iphbd', {}),
 
     # Maemo has its own gtk2 fork
-    ('gtk', {}),
+    ('gtk', {
+        'host': 'https://git.maemo.org/leste-upstream-forks/%s',
+    }),
 
     # We need this for matchbox
     ('clutter-0.8', {}),
@@ -220,10 +222,12 @@ _jobs = OrderedDict([
     ('hildon-desktop', {}),
 
     #
-    ('hildon-desktop-clutter-1.x', {}),
+    ('hildon-desktop-clutter-1.x', {
+    }),
 
     # n900 specific from spinal
     ('libmatchbox2-n900', {
+        'host': 'https://git.maemo.org/leste-upstream-forks/%s',
         'arches': ['armhf'],
     }),
 
@@ -464,6 +468,7 @@ _jobs = OrderedDict([
     #
     ('droid4-linux', {
         'arches': ['armhf'],
+        'host': 'https://git.maemo.org/leste-upstream-forks/%s',
     }),
 
     #
